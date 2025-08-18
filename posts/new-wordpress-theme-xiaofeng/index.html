@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/new-wordpress-theme-xiaofeng/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/new-wordpress-theme-xiaofeng/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/new-wordpress-theme-xiaofeng/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/new-wordpress-theme-xiaofeng/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/new-wordpress-theme-xiaofeng/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/new-wordpress-theme-xiaofeng/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/new-wordpress-theme-xiaofeng\/",
           "name": "new-wordpress-theme-xiaofeng"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="700"
      height="300"
      layout="responsive"
-    on="tap: 524 "
+    on="tap: 455 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="524"
+    id="455"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -847,8 +867,7 @@ a {
 <li>SVG、Fonts图标，加快响应速度</li>
 <li>自行开发的分享栏，无需插件响应更快</li>
 <li>针对性的SEO支持，对每个页面、文章和分享都做了SEO优化</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <h3 id="开发工具">开发工具</h3>
 <blockquote>
 <ol>
@@ -859,8 +878,7 @@ a {
 <li>Hybird主题框架（多亏有这玩意）</li>
 <li>Less（通过Grunt来编译）</li>
 <li>Node（主要是npm，用来安装Grunt）</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <h3 id="安装过程">安装过程</h3>
 <blockquote>
 <ol>
@@ -869,16 +887,14 @@ a {
 <li>上传至你的theme目录</li>
 <li>修改需要修改的文件，比如LOGO什么的，具体在function.php里有说明</li>
 <li>调试、兼容</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <h3 id="to-do-list">To do list</h3>
 <p>IE的兼容完全没有看，主要是在Webkit内核的浏览器上，因为我博客访问大多是webkit内核的浏览器，所以也没有管兼容问题。准备再增加个提示功能，当IE进来的时候提示用户切换到极速内核或者下载现代浏览器。毕竟是个人爱好的博客，也懒得管兼容这种事情了。</p>
 <blockquote>
 <ol>
 <li><a href="https://github.com/liyaodong/wp-theme-dongdong">github下载</a></li>
 <li><a href="http://liyaodong.com">风格预览</a></li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <h3 id="开发心得">开发心得</h3>
 <p>整个开发过程从最开始的茫然、到处找框架，到最后狠下心来使用<a href="http://wordpress.org/themes/hybrid">Hybird</a>，纠结了两三天。看到别人使用<code>Node</code>做的博客反应奇快我就在想我要不要也搞一个<code>Node</code>的博客，后来一想什么Node不Node的，先搞一个Wordpress来再折腾Node吧。为什么下决心了？原因是因为我的主机（SAE,新浪云计算）它不支持Node&hellip;</p>
 <p>这款主题是Hybird的子主题，子主题就是说先把父主题上传到主题目录，然后新建一个文件夹关联到父主题后可以随意改动。子主题中出现的文件会覆盖父主题的文件，这样就保证了不会因为父主题的更新而丢失所修改的东西。看起来很复杂，但是实际上很方便。因为这款框架基本把你能用到的功能都包含了，你只需要在原来很淳朴的样式上修改自己的CSS。如果需要加什么功能，顺藤摸瓜找到原来主题的文件，另存到自己的主题里修改修改就OK了！不罗嗦了，看的再多不如实践，看得上这款主体的就拿去折腾吧！开源万岁！</p>
@@ -927,7 +943,7 @@ a {
      width="700"
      height="400"
      layout="responsive"
-    on="tap: 768 "
+    on="tap: 474 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -935,7 +951,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="768"
+    id="474"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -971,7 +987,7 @@ a {
      width="700"
      height="400"
      layout="responsive"
-    on="tap: 990 "
+    on="tap: 702 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -979,7 +995,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="990"
+    id="702"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1015,7 +1031,7 @@ a {
      width="735"
      height="456"
      layout="responsive"
-    on="tap: 352 "
+    on="tap: 736 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1023,7 +1039,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="352"
+    id="736"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1075,6 +1091,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/windows-server-2003-svn-apache-php-mysql/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/windows-server-2003-svn-apache-php-mysql/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/windows-server-2003-svn-apache-php-mysql/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/windows-server-2003-svn-apache-php-mysql/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/windows-server-2003-svn-apache-php-mysql/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/windows-server-2003-svn-apache-php-mysql/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/windows-server-2003-svn-apache-php-mysql\/",
           "name": "windows-server-2003-svn-apache-php-mysql"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="384"
      height="332"
      layout="intrinsic"
-    on="tap: 835 "
+    on="tap: 370 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="835"
+    id="370"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -838,7 +858,7 @@ a {
 <p>首先搭建Apache+PHP+mySQL，网上有很多很多套件的例如wamp、apmz、apm等等，我这里用的是PHPnow，这个套件。由于事先已经有人把这些东西整合到一起了，而且Apache安装的人比较多，所以这之间几乎没有什么问题存在。一路Next下来就OK的差不多了。重点是SVN，光一个Subversion for windows就让我找了很久，不过还是给找到了。下载地址：<a href="http://subversion.apache.org/packages.html#windows" title="Subversion下载">http://subversion.apache.org/packages.html#windows</a> 除过要下载Subversion之外还需要下载SVN的客户端，Subversion是服务器端。客户端推荐下载TortoiseSVN，俗称海龟SVN。这个很容易就能找到下载地址。不过还是贴出来吧：<a href="http://tortoisesvn.net/downloads.html" title="tortoisesvn下载">http://tortoisesvn.net/downloads.html</a> 。</p>
 <p>假设已经把Apache+PHP+mySQL搭建完成了，然后就是安装Subversion了。这个安装也很简单，一路Next就OK了。但是配置挺麻烦的。先安装上吧，安装完成后再把TortoiseSVN安装好。完了之后开始配置。</p>
 <p>首先在D盘或者其他盘建立一个目录，我的目录叫做CodeBase，顾名思义，代码库。建立好文件夹之后点击进去，鼠标右键，TortoiseSVN-Create repository here，意思就是在这个文件夹下创建一个SVN库。创建完成后会发现多了几个文件夹和几个文件。基本上配置都是在这里进行的。首先配置的是conf下的三个文件，将svnserve.conf文件中的password-db = passwd  authz-db = authz   前面的#去掉。#是注释的意思。这两句的意思就是使用passwd作为密码配置文件。使用authz作为svn权限配置文件。然后在passwd中添加yourusername = yourpassword 添加你的用户名和密码。然后在authz中添加</p>
-<pre><code>[groups]
+<pre tabindex="0"><code>[groups]
 dev-group = liyaodong
 [/]
 @dev-group = rw
@@ -897,7 +917,7 @@ dev-group = liyaodong
      width="700"
      height="400"
      layout="responsive"
-    on="tap: 768 "
+    on="tap: 474 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -905,7 +925,7 @@ dev-group = liyaodong
 </amp-img>
 
 <amp-image-lightbox
-    id="768"
+    id="474"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -941,7 +961,7 @@ dev-group = liyaodong
      width="1280"
      height="960"
      layout="responsive"
-    on="tap: 370 "
+    on="tap: 491 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -949,7 +969,7 @@ dev-group = liyaodong
 </amp-img>
 
 <amp-image-lightbox
-    id="370"
+    id="491"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1009,6 +1029,18 @@ dev-group = liyaodong
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

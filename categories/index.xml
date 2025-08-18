@@ -4,11 +4,8 @@
     <title>Categories on 晓风博客</title>
     <link>https://blog.liyaodong.com/categories/</link>
     <description>Recent content in Categories on 晓风博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    
-	<atom:link href="https://blog.liyaodong.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://blog.liyaodong.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

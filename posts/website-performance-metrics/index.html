@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/website-performance-metrics/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/website-performance-metrics/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/website-performance-metrics/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/website-performance-metrics/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/website-performance-metrics/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/website-performance-metrics/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/website-performance-metrics\/",
           "name": "website-performance-metrics"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="2560"
      height="1347"
      layout="responsive"
-    on="tap: 660 "
+    on="tap: 43 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="660"
+    id="43"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -838,20 +858,13 @@ a {
 <h2 id="为什么我们需要度量性能优化">为什么我们需要度量性能优化？</h2>
 <p>当我们谈起性能优化的时候往往过多的注意到了有哪些措施可以让性能变得更好，例如压缩混淆你的 CSS/JS，缓存你的静态资源等等。但是这些操作真的有效吗？你如何保证这些操作是有效的？</p>
 <blockquote>
-<p>我可以打开浏览器控制台，直接看 network 选项卡。</p>
-</blockquote>
-<!-- raw HTML omitted -->
+<p>我可以打开浏览器控制台，直接看 network 选项卡。</p></blockquote>
 <blockquote>
-<p>你看，这个资源的请求比之前快了1秒！！！</p>
-</blockquote>
-<!-- raw HTML omitted -->
+<p>你看，这个资源的请求比之前快了1秒！！！</p></blockquote>
 <blockquote>
-<p>不对！快了半秒！！！</p>
-</blockquote>
-<!-- raw HTML omitted -->
+<p>不对！快了半秒！！！</p></blockquote>
 <blockquote>
-<p>好像不太稳定，时快时慢的样子但是最快可以快2秒呢！！！ 小明如是说道。</p>
-</blockquote>
+<p>好像不太稳定，时快时慢的样子但是最快可以快2秒呢！！！ 小明如是说道。</p></blockquote>
 <p>是的，当你在浏览器开发者工具打开 network 查看网速时你会发现确实这个资源变快了，但是真正的用户究竟是否感觉到快了一些？这个改动对于用户肉眼可见的影响又有哪些？这项资源加载变快了那其他资源呢？有没有变慢？</p>
 <p>小明默默的关上了控制台，陷入了沉思中。</p>
 <p>毕竟性能优化这件事情不是工程师的自嗨，而是真正为终端用户着想。</p>
@@ -895,7 +908,7 @@ a {
      width="1966"
      height="844"
      layout="responsive"
-    on="tap: 568 "
+    on="tap: 775 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -903,7 +916,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="568"
+    id="775"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -943,7 +956,7 @@ a {
      width="1864"
      height="1134"
      layout="responsive"
-    on="tap: 247 "
+    on="tap: 256 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -951,7 +964,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="247"
+    id="256"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -994,7 +1007,7 @@ a {
      width="1080"
      height="788"
      layout="responsive"
-    on="tap: 840 "
+    on="tap: 996 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1002,7 +1015,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="840"
+    id="996"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1045,7 +1058,7 @@ a {
      width="1290"
      height="754"
      layout="responsive"
-    on="tap: 42 "
+    on="tap: 953 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1053,7 +1066,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="42"
+    id="953"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1088,23 +1101,14 @@ a {
 <h2 id="为什么我的优化对整体加载效果不佳">为什么我的优化对整体加载效果不佳</h2>
 <p>当你满腔热血的对 CSS 进行了优化，裁剪并压缩了图片，使用了更好的压缩算法却发现你的 First CPU Idle 只优化了 0.1s。这个时候难免有些丧气。但实际上这却是正常的。</p>
 <blockquote>
-<p>并不是你的每处优化都会对系统带来巨大提升，正如你的系统出问题的时候也不一定全盘皆输。</p>
-</blockquote>
+<p>并不是你的每处优化都会对系统带来巨大提升，正如你的系统出问题的时候也不一定全盘皆输。</p></blockquote>
 <h3 id="amdahl-s-law-阿姆达尔定律">Amdahl&rsquo;s law - 阿姆达尔定律</h3>
 <p>在读 <a href="https://book.douban.com/subject/26912767/">CSAPP</a> 这本书的时候读到了这个定理，即你对系统某处性能的优化对系统整体的作用取决于该处在系统中的重要性以及你提升了多大。举个例子：</p>
 <p>你的网页加载原本需要 10s，CSS 解析占用了 2s。</p>
 <p>你作出了一定的优化，即将 CSS 的解析时间缩短了一半，但你的网页加载速度并没有对应的提升一半。显而易见的是你的网页优化之后的加载速度为：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">10s - 2s * 0.5 = 9s
-// 提升了 10%
-</code></pre></td></tr></table>
-</div>
-</div><p>所以当你在尝试优化系统的时候可以挑当前占用系统时间最长的部分下手，如果这部分已经优化到头了那就换个部分优化。因为 10s 加载一个网页你把 CSS 解析时间优化没了网站也只能快 2s。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>10s - 2s * 0.5 = 9s
+</span></span><span style="display:flex;"><span>// 提升了 10%
+</span></span></code></pre></div><p>所以当你在尝试优化系统的时候可以挑当前占用系统时间最长的部分下手，如果这部分已经优化到头了那就换个部分优化。因为 10s 加载一个网页你把 CSS 解析时间优化没了网站也只能快 2s。</p>
 <p>是不是很有意思？接下来的几篇博客会继续深入介绍网站的图片优化以及渲染优化等，欢迎留言和分享！</p>
     </article>
 
@@ -1141,7 +1145,7 @@ a {
      width="3750"
      height="1842"
      layout="responsive"
-    on="tap: 139 "
+    on="tap: 436 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1149,7 +1153,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="139"
+    id="436"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1185,7 +1189,7 @@ a {
      width="1920"
      height="937"
      layout="responsive"
-    on="tap: 842 "
+    on="tap: 248 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1193,7 +1197,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="842"
+    id="248"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1229,7 +1233,7 @@ a {
      width="1920"
      height="1267"
      layout="responsive"
-    on="tap: 767 "
+    on="tap: 494 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1237,7 +1241,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="767"
+    id="494"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1288,6 +1292,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

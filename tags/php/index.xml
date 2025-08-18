@@ -1,69 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>php on 晓风博客</title>
+    <title>Php on 晓风博客</title>
     <link>https://blog.liyaodong.com/tags/php/</link>
-    <description>Recent content in php on 晓风博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Php on 晓风博客</description>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Oct 2013 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.liyaodong.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 24 Oct 2013 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.liyaodong.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【极客教程】在图片上显示访问者的QQ号和昵称</title>
       <link>https://blog.liyaodong.com/posts/display-qq-id-on-qzone/</link>
-      <pubDate>Thu, 24 Oct 2013 00:00:00 +0000</pubDate>
-      
+      <pubDate>Thu, 24 Oct 2013 00:00:00 +0800</pubDate>
       <guid>https://blog.liyaodong.com/posts/display-qq-id-on-qzone/</guid>
-      <description>&lt;p&gt;
-
-
-
-
-
-    
-    
-
-
-&lt;amp-img
-     src=&#34;https://image.liyaodong.com/uploads/2013/10/1.jpg&#34;
-     alt=&#34;最终效果 &#34;
-    
-    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;
-    
-         srcset=&#34;
-        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 450w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 750w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 900w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 1200w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 1500w,
-        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 2000w&#34;
-    
-    
-    
-    
-    
-     width=&#34;500&#34;
-     height=&#34;400&#34;
-     layout=&#34;responsive&#34;
-    on=&#34;tap: 885 &#34;
-    role=&#34;button&#34;
-    aria-label=&#34;Image lightbox button&#34;
-   tabindex=&#34;0&#34;
-&gt;
-&lt;/amp-img&gt;
-
-&lt;amp-image-lightbox
-    id=&#34;885&#34;
-    layout=&#34;nodisplay&#34;
-&gt;
-&lt;/amp-image-lightbox&gt;
-
-
-很多人在QQ空间里都能看到一些图片上会有自己的QQ号码之类的，感觉很神奇。今天网络极客就给大家普及一下这种奇怪的图片是如何做出来的。废话不多说，下面开始！&lt;/p&gt;</description>
+      <description>&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;    &#xA;&#xA;&#xA;&lt;amp-img&#xA;     src=&#34;https://image.liyaodong.com/uploads/2013/10/1.jpg&#34;&#xA;     alt=&#34;最终效果 &#34;&#xA;    &#xA;    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;&#xA;    &#xA;         srcset=&#34;&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 450w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 750w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 900w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 1200w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 1500w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/10/1.jpg 2000w&#34;&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;     width=&#34;500&#34;&#xA;     height=&#34;400&#34;&#xA;     layout=&#34;responsive&#34;&#xA;    on=&#34;tap: 853 &#34;&#xA;    role=&#34;button&#34;&#xA;    aria-label=&#34;Image lightbox button&#34;&#xA;   tabindex=&#34;0&#34;&#xA;&gt;&#xA;&lt;/amp-img&gt;&#xA;&#xA;&lt;amp-image-lightbox&#xA;    id=&#34;853&#34;&#xA;    layout=&#34;nodisplay&#34;&#xA;&gt;&#xA;&lt;/amp-image-lightbox&gt;&#xA;&#xA;&#xA;很多人在QQ空间里都能看到一些图片上会有自己的QQ号码之类的，感觉很神奇。今天网络极客就给大家普及一下这种奇怪的图片是如何做出来的。废话不多说，下面开始！&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,162 +4,44 @@
     <title>02 on 晓风博客</title>
     <link>https://blog.liyaodong.com/tags/02/</link>
     <description>Recent content in 02 on 晓风博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 10 Feb 2018 21:11:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.liyaodong.com/tags/02/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://blog.liyaodong.com/tags/02/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>写给外行的前端入门教程</title>
       <link>https://blog.liyaodong.com/posts/about-front-end-basic-concept/</link>
       <pubDate>Sat, 10 Feb 2018 21:11:00 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/about-front-end-basic-concept/</guid>
-      <description>&lt;amp-img
-     src=&#34;https://image.liyaodong.com/2019/beginner-level.jpg&#34;
-    
-    
-    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;
-    
-         srcset=&#34;
-        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 450w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 750w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 900w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 1200w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 1500w,
-        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 2000w&#34;
-    
-    
-    
-    
-    
-     width=&#34;1000&#34;
-     height=&#34;621&#34;
-     layout=&#34;responsive&#34;
-    on=&#34;tap: 613 &#34;
-    role=&#34;button&#34;
-    aria-label=&#34;Image lightbox button&#34;
-   tabindex=&#34;0&#34;
-&gt;
-&lt;/amp-img&gt;
-
-&lt;amp-image-lightbox
-    id=&#34;613&#34;
-    layout=&#34;nodisplay&#34;
-&gt;
-&lt;/amp-image-lightbox&gt;
-
-
-&lt;p&gt;一些简单通俗的前端领域相关名词解释，帮助各位想学前端的同学尽快入门。&lt;/p&gt;</description>
+      <description>&lt;amp-img&#xA;     src=&#34;https://image.liyaodong.com/2019/beginner-level.jpg&#34;&#xA;    &#xA;    &#xA;    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;&#xA;    &#xA;         srcset=&#34;&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 450w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 750w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 900w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 1200w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 1500w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 2000w&#34;&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;     width=&#34;1000&#34;&#xA;     height=&#34;621&#34;&#xA;     layout=&#34;responsive&#34;&#xA;    on=&#34;tap: 129 &#34;&#xA;    role=&#34;button&#34;&#xA;    aria-label=&#34;Image lightbox button&#34;&#xA;   tabindex=&#34;0&#34;&#xA;&gt;&#xA;&lt;/amp-img&gt;&#xA;&#xA;&lt;amp-image-lightbox&#xA;    id=&#34;129&#34;&#xA;    layout=&#34;nodisplay&#34;&#xA;&gt;&#xA;&lt;/amp-image-lightbox&gt;&#xA;&#xA;&#xA;&lt;p&gt;一些简单通俗的前端领域相关名词解释，帮助各位想学前端的同学尽快入门。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>SAE版本Wordpress开启七牛云静态加速的一些坑</title>
       <link>https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/</link>
       <pubDate>Mon, 02 Feb 2015 16:09:22 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/</guid>
-      <description>&lt;amp-img
-     src=&#34;https://image.liyaodong.com/uploads/2015/02/qiniu.jpg&#34;
-    
-    
-    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;
-    
-         srcset=&#34;
-        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 450w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 750w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 900w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 1200w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 1500w,
-        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 2000w&#34;
-    
-    
-    
-    
-    
-     width=&#34;700&#34;
-     height=&#34;350&#34;
-     layout=&#34;responsive&#34;
-    on=&#34;tap: 339 &#34;
-    role=&#34;button&#34;
-    aria-label=&#34;Image lightbox button&#34;
-   tabindex=&#34;0&#34;
-&gt;
-&lt;/amp-img&gt;
-
-&lt;amp-image-lightbox
-    id=&#34;339&#34;
-    layout=&#34;nodisplay&#34;
-&gt;
-&lt;/amp-image-lightbox&gt;
-
-
-&lt;p&gt;如果你也和我一样，使用了插件之后发现只有部分图片被缓存过来了那就应该看看这些坑的地方了。&lt;/p&gt;</description>
+      <description>&lt;amp-img&#xA;     src=&#34;https://image.liyaodong.com/uploads/2015/02/qiniu.jpg&#34;&#xA;    &#xA;    &#xA;    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;&#xA;    &#xA;         srcset=&#34;&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 450w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 750w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 900w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 1200w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 1500w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/02/qiniu.jpg 2000w&#34;&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;     width=&#34;700&#34;&#xA;     height=&#34;350&#34;&#xA;     layout=&#34;responsive&#34;&#xA;    on=&#34;tap: 313 &#34;&#xA;    role=&#34;button&#34;&#xA;    aria-label=&#34;Image lightbox button&#34;&#xA;   tabindex=&#34;0&#34;&#xA;&gt;&#xA;&lt;/amp-img&gt;&#xA;&#xA;&lt;amp-image-lightbox&#xA;    id=&#34;313&#34;&#xA;    layout=&#34;nodisplay&#34;&#xA;&gt;&#xA;&lt;/amp-image-lightbox&gt;&#xA;&#xA;&#xA;&lt;p&gt;如果你也和我一样，使用了插件之后发现只有部分图片被缓存过来了那就应该看看这些坑的地方了。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>基于HTML5 localStorage的便利贴</title>
       <link>https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/</link>
       <pubDate>Wed, 06 Feb 2013 06:54:51 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/</guid>
-      <description>&lt;amp-img
-     src=&#34;https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg&#34;
-     alt=&#34;应用截图 &#34;
-    
-    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;
-    
-         srcset=&#34;
-        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 450w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 750w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 900w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 1200w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 1500w,
-        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 2000w&#34;
-    
-    
-    
-    
-    
-     width=&#34;1440&#34;
-     height=&#34;900&#34;
-     layout=&#34;responsive&#34;
-    on=&#34;tap: 382 &#34;
-    role=&#34;button&#34;
-    aria-label=&#34;Image lightbox button&#34;
-   tabindex=&#34;0&#34;
-&gt;
-&lt;/amp-img&gt;
-
-&lt;amp-image-lightbox
-    id=&#34;382&#34;
-    layout=&#34;nodisplay&#34;
-&gt;
-&lt;/amp-image-lightbox&gt;
-
-
-&lt;p&gt;放寒假了，整日昏昏欲睡，实在无聊。今天看了一会书，忽然发现一个让自己感兴趣的玩意——HTML5 localStorage，于是花了一下午加半晚上的时间完成了这个应用。&lt;/p&gt;</description>
+      <description>&lt;amp-img&#xA;     src=&#34;https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg&#34;&#xA;     alt=&#34;应用截图 &#34;&#xA;    &#xA;    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;&#xA;    &#xA;         srcset=&#34;&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 450w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 750w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 900w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 1200w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 1500w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/02/application-screenshot.jpg 2000w&#34;&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;     width=&#34;1440&#34;&#xA;     height=&#34;900&#34;&#xA;     layout=&#34;responsive&#34;&#xA;    on=&#34;tap: 691 &#34;&#xA;    role=&#34;button&#34;&#xA;    aria-label=&#34;Image lightbox button&#34;&#xA;   tabindex=&#34;0&#34;&#xA;&gt;&#xA;&lt;/amp-img&gt;&#xA;&#xA;&lt;amp-image-lightbox&#xA;    id=&#34;691&#34;&#xA;    layout=&#34;nodisplay&#34;&#xA;&gt;&#xA;&lt;/amp-image-lightbox&gt;&#xA;&#xA;&#xA;&lt;p&gt;放寒假了，整日昏昏欲睡，实在无聊。今天看了一会书，忽然发现一个让自己感兴趣的玩意——HTML5 localStorage，于是花了一下午加半晚上的时间完成了这个应用。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>学校网速太慢？想看视频太卡？用这招解决！</title>
       <link>https://blog.liyaodong.com/posts/use-chrome-inspector-to-speed-up-video/</link>
       <pubDate>Sat, 25 Feb 2012 18:00:27 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/use-chrome-inspector-to-speed-up-video/</guid>
       <description>&lt;p&gt;刚刚想在土豆上看一个视频，无奈发现网速太不给力了，缓冲半天只缓冲了一点。最后想了想校园网的特点，还是总结出了一个办法，分享给校园网的用户们。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>我的博客生涯就此开始</title>
       <link>https://blog.liyaodong.com/posts/101-of-my-blog/</link>
       <pubDate>Fri, 03 Feb 2012 13:41:13 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/101-of-my-blog/</guid>
       <description>&lt;p&gt;首先，先介绍下自己吧。嘿嘿，我呢是一名很普通很普通的大学一年级小学生。很矛盾阿~世界本来就是矛盾的集合。咳咳，跑题啦。身高体重神马的就不说了，没啥意思。这是我的第一个博客，我建立它的意图就是想要给自己一片心灵的空间。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

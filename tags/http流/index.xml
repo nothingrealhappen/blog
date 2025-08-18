@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>http流 on 晓风博客</title>
+    <title>Http流 on 晓风博客</title>
     <link>https://blog.liyaodong.com/tags/http%E6%B5%81/</link>
-    <description>Recent content in http流 on 晓风博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Http流 on 晓风博客</description>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 25 Feb 2012 18:00:27 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.liyaodong.com/tags/http%E6%B5%81/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://blog.liyaodong.com/tags/http%E6%B5%81/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>学校网速太慢？想看视频太卡？用这招解决！</title>
       <link>https://blog.liyaodong.com/posts/use-chrome-inspector-to-speed-up-video/</link>
       <pubDate>Sat, 25 Feb 2012 18:00:27 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/use-chrome-inspector-to-speed-up-video/</guid>
       <description>&lt;p&gt;刚刚想在土豆上看一个视频，无奈发现网速太不给力了，缓冲半天只缓冲了一点。最后想了想校园网的特点，还是总结出了一个办法，分享给校园网的用户们。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

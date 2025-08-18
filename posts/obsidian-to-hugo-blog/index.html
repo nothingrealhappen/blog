@@ -1,0 +1,1532 @@
+
+
+<!DOCTYPE html>
+
+
+
+<html amp lang="zh-cn" class="no-js">
+<head>
+    <title>Obsidian 自动发布到 Hugo 博客</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <meta charset="utf-8">
+
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script><script async custom-element="amp-dynamic-css-classes" src="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js"></script><script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script><script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script><script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+
+
+
+    <link rel="canonical" href="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/">
+
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
+
+    <meta name="theme-color" content="#112233" />
+    <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
+
+    <meta property="og:title" content="Obsidian 自动发布到 Hugo 博客 | 晓风博客" />
+<meta name="twitter:title" content="Obsidian 自动发布到 Hugo 博客 | 晓风博客" />
+<meta itemprop="name" content="Obsidian 自动发布到 Hugo 博客 | 晓风博客" />
+<meta name="application-name" content="Obsidian 自动发布到 Hugo 博客 | 晓风博客" />
+<meta property="og:site_name" content="" />
+
+
+
+    
+    
+
+<meta name="description" content="作为一个重度 Obsidian 用户，我一直在寻找一种更高效的方式来将我的笔记发布到 Hugo 博客上。经过不断的探索和优化，我开发了一套完整的自动化解决方案，让你可以通过一键操作将 Obsidian 笔记转换并发布到 Hugo 博客。
+" />
+<meta itemprop="description" content="作为一个重度 Obsidian 用户，我一直在寻找一种更高效的方式来将我的笔记发布到 Hugo 博客上。经过不断的探索和优化，我开发了一套完整的自动化解决方案，让你可以通过一键操作将 Obsidian 笔记转换并发布到 Hugo 博客。
+" />
+<meta property="og:description" content="作为一个重度 Obsidian 用户，我一直在寻找一种更高效的方式来将我的笔记发布到 Hugo 博客上。经过不断的探索和优化，我开发了一套完整的自动化解决方案，让你可以通过一键操作将 Obsidian 笔记转换并发布到 Hugo 博客。
+" />
+<meta name="twitter:description" content="作为一个重度 Obsidian 用户，我一直在寻找一种更高效的方式来将我的笔记发布到 Hugo 博客上。经过不断的探索和优化，我开发了一套完整的自动化解决方案，让你可以通过一键操作将 Obsidian 笔记转换并发布到 Hugo 博客。
+" />
+
+<base href="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/" itemprop="url" />
+<meta name="url" content="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/" />
+<meta name="twitter:url" content="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/" />
+<meta property="og:url" content="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/" />
+
+<meta property="og:locale" content="en">
+<meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/" title="">
+
+
+
+<meta itemprop="image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta property="og:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image:src" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "晓风博客",
+    "alternateName": "Xiaofeng Blog",
+    "url": "https:\/\/blog.liyaodong.com\/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.liyaodong.com\/"
+  , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
+  
+  
+  
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/",
+          "name": "posts"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/obsidian-to-hugo-blog\/",
+          "name": "obsidian-to-hugo-blog"
+        }
+    }]
+}
+</script>
+
+
+
+
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        /* Background */
+.chroma {
+  background-color: #eeeedd;
+}
+
+/* Error */
+.chroma .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: #ffffcc;
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* Keyword */
+.chroma .k {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordConstant */
+.chroma .kc {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordNamespace */
+.chroma .kn {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordPseudo */
+.chroma .kp {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordReserved */
+.chroma .kr {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordType */
+.chroma .kt {
+  color: #00688b;
+  font-weight: bold;
+}
+
+/* NameAttribute */
+.chroma .na {
+  color: #658b00;
+}
+
+/* NameBuiltin */
+.chroma .nb {
+  color: #658b00;
+}
+
+/* NameClass */
+.chroma .nc {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameConstant */
+.chroma .no {
+  color: #00688b;
+}
+
+/* NameDecorator */
+.chroma .nd {
+  color: #707a7c;
+}
+
+/* NameException */
+.chroma .ne {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameFunction */
+.chroma .nf {
+  color: #008b45;
+}
+
+/* NameNamespace */
+.chroma .nn {
+  color: #008b45;
+  text-decoration: underline;
+}
+
+/* NameTag */
+.chroma .nt {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* NameVariable */
+.chroma .nv {
+  color: #00688b;
+}
+
+/* LiteralString */
+.chroma .s {
+  color: #cd5555;
+}
+
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #cd5555;
+}
+
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #cd5555;
+}
+
+/* LiteralStringChar */
+.chroma .sc {
+  color: #cd5555;
+}
+
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #cd5555;
+}
+
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #cd5555;
+}
+
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #cd5555;
+}
+
+/* LiteralStringEscape */
+.chroma .se {
+  color: #cd5555;
+}
+
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #1c7e71;
+  font-style: italic;
+}
+
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #cd5555;
+}
+
+/* LiteralStringOther */
+.chroma .sx {
+  color: #cb6c20;
+}
+
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #1c7e71;
+}
+
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #cd5555;
+}
+
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #cd5555;
+}
+
+/* LiteralNumber */
+.chroma .m {
+  color: #b452cd;
+}
+
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #b452cd;
+}
+
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #b452cd;
+}
+
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #b452cd;
+}
+
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #b452cd;
+}
+
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #b452cd;
+}
+
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #b452cd;
+}
+
+/* OperatorWord */
+.chroma .ow {
+  color: #8b008b;
+}
+
+/* Comment */
+.chroma .c {
+  color: #228b22;
+}
+
+/* CommentHashbang */
+.chroma .ch {
+  color: #228b22;
+}
+
+/* CommentMultiline */
+.chroma .cm {
+  color: #228b22;
+}
+
+/* CommentSingle */
+.chroma .c1 {
+  color: #228b22;
+}
+
+/* CommentSpecial */
+.chroma .cs {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* CommentPreproc */
+.chroma .cp {
+  color: #1e889b;
+}
+
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #1e889b;
+}
+
+/* GenericDeleted */
+.chroma .gd {
+  color: #aa0000;
+}
+
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+
+/* GenericError */
+.chroma .gr {
+  color: #aa0000;
+}
+
+/* GenericHeading */
+.chroma .gh {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* GenericInserted */
+.chroma .gi {
+  color: #00aa00;
+}
+
+/* GenericOutput */
+.chroma .go {
+  color: #888888;
+}
+
+/* GenericPrompt */
+.chroma .gp {
+  color: #555555;
+}
+
+/* GenericStrong */
+.chroma .gs {
+  font-weight: bold;
+}
+
+/* GenericSubheading */
+.chroma .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+/* GenericTraceback */
+.chroma .gt {
+  color: #aa0000;
+}
+
+/* GenericUnderline */
+.chroma .gl {
+  text-decoration: underline;
+}
+
+/* TextWhitespace */
+.chroma .w {
+  color: #bbbbbb;
+}
+
+body {
+  background-color: #f9f8f0;
+  color: #222;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
+}
+
+.tac {
+  text-align: center;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+.container img,
+.container amp-img {
+  max-width: 100%;
+}
+
+.site-header {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Songti SC";
+}
+
+.site-title {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-subtitle {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.site-header--float {
+  font-family: "Songti SC";
+  padding: 15px 30px;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #dcdcdc;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header--float a {
+  display: flex;
+  align-items: center;
+}
+
+.site-title--float {
+  font-size: 20px;
+  margin: 0px;
+  margin-right: 20px;
+}
+
+.site-subtitle--float {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.site-footer {
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+.site-footer em {
+  color: #d82222;
+}
+
+.article-item-title {
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Songti SC";
+  margin: 0;
+}
+.article-item-title:hover {
+  text-decoration: underline;
+}
+
+.article-item-date {
+  font-size: 12px;
+  display: block;
+  color: #555;
+}
+
+.article-item-summary {
+  margin-top: 20px;
+  color: #555;
+}
+
+.article-item-link {
+  color: #222;
+  text-decoration: none;
+  margin: 30px 0 5px;
+}
+
+.article-item {
+  max-width: 700px;
+  padding-bottom: 40px;
+  margin: 0 auto 40px auto;
+}
+.article-item:not(:last-of-type) {
+  border-bottom: 1px solid #efefef;
+}
+.article-item amp-img {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  text-align: center;
+  font-family: "Songti SC";
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.single {
+  line-height: 1.625;
+  color: #4a4a4a;
+  max-width: 700px;
+}
+.single.has-header {
+  margin-top: 60px;
+}
+.single amp-img {
+  margin: 15px auto;
+  text-align: center;
+}
+.single code {
+  color: #AA8D5B;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px;
+}
+.single pre > code {
+  font-weight: 600;
+  margin: 0;
+}
+.single div.highlight {
+  box-shadow: 0 3px 3px 1px #d2c7b5;
+}
+.single .chroma {
+  background-color: transparent;
+}
+.single a {
+  text-decoration: underline;
+}
+.single a:hover {
+  color: #000;
+}
+
+.single-content {
+  margin-bottom: 20px;
+}
+
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0;
+}
+.pagination .page-item {
+  list-style-type: none;
+}
+.pagination .page-item a {
+  font-size: 16px;
+  margin: 0 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.pagination .page-item.active, .pagination .page-item:hover {
+  color: #fff;
+  transition: all 200ms;
+}
+.pagination .page-item.active a, .pagination .page-item:hover a {
+  color: #fff;
+  background: #ad9616;
+  transition: all 200ms;
+}
+
+.read-more {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #efefef;
+  position: relative;
+}
+.read-more__title {
+  font-size: 13px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: #f9f8f0;
+  padding: 0 10px;
+}
+.read-more__item {
+  margin-bottom: 20px;
+}
+.read-more__item__container {
+  background-color: #fefefe;
+  border-radius: 4px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+.read-more__item a {
+  text-decoration: none;
+}
+.read-more__item h4 {
+  margin: 10px 0 0 0;
+}
+.read-more__summary {
+  font-size: 14px;
+}
+@media screen and (min-width: 767px) {
+  .read-more__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .read-more__item {
+    display: flex;
+    flex: 1;
+    padding: 0 10px;
+  }
+  .read-more__item__container {
+    flex-grow: 1;
+  }
+  .read-more__item:first-of-type {
+    padding-left: 0;
+  }
+  .read-more__item:last-of-type {
+    padding-right: 0;
+  }
+  .read-more__item amp-img {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=stylesheet.html.map */
+
+    </style>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
+<link rel="apple-touch-icon" href="/icons/icon-57x57.png" />
+
+<link rel="icon" href="/icons/icon-32x32.png" sizes="32x32" />
+<link rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
+
+
+
+</head>
+
+<body>
+
+
+
+
+<header class="site-header--float" amp-fx="float-in-top">
+    <a href="https://blog.liyaodong.com/">
+        <h1 class="site-title--float">
+            晓风博客
+        </h1>
+        <h2 class="site-subtitle--float">
+            一片荒芜的地方
+        </h2>
+    </a>
+</header>
+
+
+<section class="single container has-header">
+    <h1 class="post-title">Obsidian 自动发布到 Hugo 博客</h1>
+    <div class="tac">
+        <time>2025年8月18日</time>
+    </div>
+
+    <article class="single-content">
+        <amp-img
+     src="https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg"
+    
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 2000w"
+    
+    
+    
+    
+    
+     width="896"
+     height="504"
+     layout="responsive"
+    on="tap: 417 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="417"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>作为一个重度 Obsidian 用户，我一直在寻找一种更高效的方式来将我的笔记发布到 Hugo 博客上。经过不断的探索和优化，我开发了一套完整的自动化解决方案，让你可以通过一键操作将 Obsidian 笔记转换并发布到 Hugo 博客。</p>
+<h2 id="为什么需要这个集成方案">为什么需要这个集成方案？</h2>
+<h3 id="现有痛点">现有痛点</h3>
+<ol>
+<li><strong>格式转换繁琐</strong>：Obsidian 使用 YAML 前置数据，Hugo 需要 TOML 格式</li>
+<li><strong>图片处理复杂</strong>：需要手动移动图片到正确的目录结构</li>
+<li><strong>发布流程冗长</strong>：复制粘贴、格式调整、图片处理等多个步骤</li>
+<li><strong>文件命名不一致</strong>：需要手动生成 SEO 友好的文件名</li>
+</ol>
+<h3 id="解决方案优势">解决方案优势</h3>
+<ul>
+<li>✅ <strong>一键发布</strong>：通过快捷键或命令面板直接发布</li>
+<li>✅ <strong>自动格式转换</strong>：YAML → TOML 前置数据自动转换</li>
+<li>✅ <strong>智能图片处理</strong>：自动查找、移动并转换为 Hugo AMP 格式</li>
+<li>✅ <strong>文件名优化</strong>：基于 Obsidian 文件名生成合适的博客文件名</li>
+<li>✅ <strong>预览集成</strong>：发布后可直接启动本地 Hugo 服务器预览</li>
+</ul>
+<h2 id="系统架构">系统架构</h2>
+<p>我们的解决方案包含三个核心组件：</p>
+
+
+<amp-iframe 
+  width="800" 
+  height="600" 
+  layout="responsive"
+  frameborder="0"
+  src="https://mermaid.ink/svg/CmdyYXBoIExSCiAgICBBW09ic2lkaWFuIOeslOiusF0gLS0&#43;IEJbUXVpY2tBZGQg5a6PXQogICAgQiAtLT4gQ1tOb2RlLmpzIOi9rOaNouiEmuacrF0KICAgIEMgLS0&#43;IERbSHVnbyDljZrlrqLmlofnq6BdCiAgICBDIC0tPiBFW&#43;WbvueJh&#43;i1hOa6kOWkhOeQhl0KICAgIEUgLS0&#43;IEZb6Z2Z5oCB6LWE5rqQ55uu5b2VXQo="
+  sandbox="allow-scripts allow-same-origin">
+  <div placeholder>Loading Mermaid chart...</div>
+</amp-iframe>
+
+<h2 id="核心实现">核心实现</h2>
+<h3 id="1-nodejs-转换脚本">1. Node.js 转换脚本</h3>
+<p>首先，我们需要一个核心转换脚本来处理 Obsidian 笔记到 Hugo 文章的转换：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;fs&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;path&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ObsidianToHugo</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">blogRoot</span>, <span style="color:#a6e22e">defaultAuthor</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;你的名字&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">blogRoot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">blogRoot</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">defaultAuthor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defaultAuthor</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">postsDir</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">blogRoot</span>, <span style="color:#e6db74">&#34;content&#34;</span>, <span style="color:#e6db74">&#34;posts&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">imagesDir</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">blogRoot</span>, <span style="color:#e6db74">&#34;static&#34;</span>, <span style="color:#e6db74">&#34;images&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">convertFile</span>(<span style="color:#a6e22e">obsidianFilePath</span>, <span style="color:#a6e22e">vaultRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`正在转换: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">obsidianFilePath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFileSync</span>(<span style="color:#a6e22e">obsidianFilePath</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">frontmatter</span>, <span style="color:#a6e22e">body</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">parseFrontmatter</span>(<span style="color:#a6e22e">content</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 使用原始 Obsidian 文件名（已经是 slug 友好的）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">originalFilename</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">basename</span>(<span style="color:#a6e22e">obsidianFilePath</span>, <span style="color:#e6db74">&#34;.md&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">filename</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">cleanFilename</span>(<span style="color:#a6e22e">originalFilename</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">targetPath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">postsDir</span>, <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">filename</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.md`</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 提取标题用于前置数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">extractedTitle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">extractTitleFromContent</span>(<span style="color:#a6e22e">body</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">humanizedFilename</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">humanizeFilename</span>(<span style="color:#a6e22e">originalFilename</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">frontmatter</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">humanizedFilename</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">extractedTitle</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 处理文章中的图片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">processedBody</span>, <span style="color:#a6e22e">movedImages</span>, <span style="color:#a6e22e">featuredImage</span> } <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">processImages</span>(<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">obsidianFilePath</span>, <span style="color:#a6e22e">vaultRoot</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 生成 Hugo 前置数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">updatedFrontmatter</span> <span style="color:#f92672">=</span> { ...<span style="color:#a6e22e">frontmatter</span>, <span style="color:#a6e22e">title</span> };
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hugoFrontmatter</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">generateHugoFrontmatter</span>(<span style="color:#a6e22e">updatedFrontmatter</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 构建最终内容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">finalContent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">buildFinalContent</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hugoFrontmatter</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">processedBody</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">featuredImage</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 写入文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#a6e22e">targetPath</span>, <span style="color:#a6e22e">finalContent</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`✓ 转换完成: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">targetPath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">movedImages</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`✓ 移动了 </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">movedImages</span>.<span style="color:#a6e22e">length</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 张图片`</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">targetPath</span>, <span style="color:#a6e22e">movedImages</span> };
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`转换 </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">obsidianFilePath</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 时出错:`</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">error</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 解析前置数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">parseFrontmatter</span>(<span style="color:#a6e22e">content</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">frontmatterMatch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">content</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/^---\n([\s\S]*?)\n---\n([\s\S]*)$/</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">frontmatterMatch</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// YAML 前置数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">yamlFrontmatter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">frontmatterMatch</span>[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">body</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">frontmatterMatch</span>[<span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">frontmatter</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">yamlFrontmatter</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;\n&#34;</span>).<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">line</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">match</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">line</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/^(.+?):\s*(.+)$/</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">match</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">trim</span>();
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">match</span>[<span style="color:#ae81ff">2</span>].<span style="color:#a6e22e">trim</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 移除引号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#66d9ef">if</span> (
+</span></span><span style="display:flex;"><span>            (<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#39;&#34;&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">endsWith</span>(<span style="color:#e6db74">&#39;&#34;&#39;</span>)) <span style="color:#f92672">||</span>
+</span></span><span style="display:flex;"><span>            (<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">endsWith</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span>))
+</span></span><span style="display:flex;"><span>          ) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">frontmatter</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">frontmatter</span>, <span style="color:#a6e22e">body</span> };
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 没有前置数据，返回空对象让主逻辑处理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">frontmatter</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">content</span>,
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 生成 Hugo TOML 前置数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">generateHugoFrontmatter</span>(<span style="color:#a6e22e">obsidianFrontmatter</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dateStr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">toISOString</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;T&#34;</span>)[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obsidianFrontmatter</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;无标题文章&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obsidianFrontmatter</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">defaultAuthor</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obsidianFrontmatter</span>.<span style="color:#a6e22e">date</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">dateStr</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">draft</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">obsidianFrontmatter</span>.<span style="color:#a6e22e">draft</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">obsidianFrontmatter</span>.<span style="color:#a6e22e">draft</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`+++
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">title = &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">author = [&#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">author</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">date = </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">date</span><span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">draft = </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">draft</span><span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">+++`</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 处理图片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">processImages</span>(<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">sourceFilePath</span>, <span style="color:#a6e22e">vaultRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sourceDir</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">dirname</span>(<span style="color:#a6e22e">sourceFilePath</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">getFullYear</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> String(<span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">getMonth</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;0&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> String(<span style="color:#a6e22e">now</span>.<span style="color:#a6e22e">getDate</span>()).<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;0&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">targetImagesDir</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">imagesDir</span>, String(<span style="color:#a6e22e">year</span>), <span style="color:#a6e22e">month</span>, <span style="color:#a6e22e">day</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">mkdirSync</span>(<span style="color:#a6e22e">targetImagesDir</span>, { <span style="color:#a6e22e">recursive</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">movedImages</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">featuredImage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">isFirstImage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 匹配 Obsidian 图片引用：![[image.jpg]] 或 ![alt](image.jpg)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">imagePattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/!\[\[([^\]]+)\]\]|!\[([^\]]*)\]\(([^)]+)\)/g</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">processedBody</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">replace</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">imagePattern</span>,
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">match</span>, <span style="color:#a6e22e">obsidianImg</span>, <span style="color:#a6e22e">altText</span>, <span style="color:#a6e22e">markdownImg</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">imageName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obsidianImg</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">markdownImg</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">alt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">altText</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">imageName</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">match</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 查找图片的实际路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sourceImagePath</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">findImagePath</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">imageName</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">sourceDir</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">vaultRoot</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">sourceImagePath</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">existsSync</span>(<span style="color:#a6e22e">sourceImagePath</span>)) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">`⚠ 图片未找到: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">imageName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">match</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">extname</span>(<span style="color:#a6e22e">imageName</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">baseName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">basename</span>(<span style="color:#a6e22e">imageName</span>, <span style="color:#a6e22e">ext</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">targetImageName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">baseName</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">ext</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">targetImagePath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">targetImagesDir</span>, <span style="color:#a6e22e">targetImageName</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 复制图片到目标位置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">copyFileSync</span>(<span style="color:#a6e22e">sourceImagePath</span>, <span style="color:#a6e22e">targetImagePath</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webPath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`/images/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">year</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">day</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">targetImageName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">movedImages</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">webPath</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 创建 AMP 图片标签
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ampImage</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`
+
+
+
+
+
+    
+    
+        
+    
+
+
+<amp-img
+     src="https://image.liyaodong.com$%7bwebPath%7d"
+     alt="${alt} "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com$%7bwebPath%7d 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com$%7bwebPath%7d 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com$%7bwebPath%7d 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com$%7bwebPath%7d 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com$%7bwebPath%7d 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com$%7bwebPath%7d 2000w"
+    
+    
+    
+    
+    
+     width="800"
+     height="600"
+     layout="responsive"
+    on="tap: 79 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="79"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 第一张图片作为特色图片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isFirstImage</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">featuredImage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ampImage</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">isFirstImage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>; <span style="color:#75715e">// 从正文中移除
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ampImage</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`处理图片 </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">imageName</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 时出错:`</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">match</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">processedBody</span>, <span style="color:#a6e22e">movedImages</span>, <span style="color:#a6e22e">featuredImage</span> };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 查找图片路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">findImagePath</span>(<span style="color:#a6e22e">imageName</span>, <span style="color:#a6e22e">sourceDir</span>, <span style="color:#a6e22e">vaultRoot</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">isAbsolute</span>(<span style="color:#a6e22e">imageName</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">imageName</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">imageName</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#e6db74">&#34;/&#34;</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">sourceDir</span>, <span style="color:#a6e22e">imageName</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 检测 vault 根目录
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">detectedVaultRoot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vaultRoot</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">sourceDir</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">vaultRoot</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">detectedVaultRoot</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">dirname</span>(<span style="color:#a6e22e">detectedVaultRoot</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">existsSync</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">detectedVaultRoot</span>, <span style="color:#e6db74">&#34;.obsidian&#34;</span>))) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parentDir</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">dirname</span>(<span style="color:#a6e22e">detectedVaultRoot</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">parentDir</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">detectedVaultRoot</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">detectedVaultRoot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">parentDir</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">possiblePaths</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 首先检查 vault 根目录（Obsidian ![[image]] 语法最常见）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">detectedVaultRoot</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 然后检查相对于当前文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">sourceDir</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 检查常见的附件文件夹
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">detectedVaultRoot</span>, <span style="color:#e6db74">&#34;attachments&#34;</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">detectedVaultRoot</span>, <span style="color:#e6db74">&#34;assets&#34;</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">detectedVaultRoot</span>, <span style="color:#e6db74">&#34;_resources&#34;</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">sourceDir</span>, <span style="color:#e6db74">&#34;attachments&#34;</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">sourceDir</span>, <span style="color:#e6db74">&#34;assets&#34;</span>, <span style="color:#a6e22e">imageName</span>),
+</span></span><span style="display:flex;"><span>    ];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">possiblePaths</span>.<span style="color:#a6e22e">find</span>((<span style="color:#a6e22e">p</span>) =&gt; <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">existsSync</span>(<span style="color:#a6e22e">p</span>));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2-quickadd-宏脚本">2. QuickAdd 宏脚本</h3>
+<p>接下来是 Obsidian QuickAdd 宏脚本，这是用户界面的核心：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// QuickAdd 宏：发布到 Hugo 博客
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">params</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">quickAddApi</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">QuickAdd</span>, <span style="color:#a6e22e">app</span>, <span style="color:#a6e22e">obsidian</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">params</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 配置 - 请更新为你的实际路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">BLOG_ROOT</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/path/to/your/hugo/blog&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SCRIPT_PATH</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/path/to/obsidian-to-hugo.js&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取当前活动文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">activeFile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">getActiveFile</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">activeFile</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">&#34;未找到活动文件，请先打开一个笔记&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">activeFile</span>.<span style="color:#a6e22e">extension</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;md&#34;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">&#34;请打开一个 Markdown 文件&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取绝对文件路径和 vault 根目录
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">filePath</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">vaultPath</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">vaultPath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">adapter</span>.<span style="color:#a6e22e">basePath</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">vaultPath</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">filePath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;path&#34;</span>).<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">vaultPath</span>, <span style="color:#a6e22e">activeFile</span>.<span style="color:#a6e22e">path</span>);
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 备选方案：创建临时文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">read</span>(<span style="color:#a6e22e">activeFile</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tempPath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;path&#34;</span>).<span style="color:#a6e22e">join</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;os&#34;</span>).<span style="color:#a6e22e">tmpdir</span>(),
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">`temp-</span><span style="color:#e6db74">${</span>Date.<span style="color:#a6e22e">now</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">activeFile</span>.<span style="color:#a6e22e">basename</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;fs&#34;</span>).<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#a6e22e">tempPath</span>, <span style="color:#a6e22e">content</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">filePath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tempPath</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;使用临时文件（未检测到 vault 路径）&#34;</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;获取文件路径时出错:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">`获取文件路径时出错: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#ae81ff">5000</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 显示确认对话框
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shouldPublish</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">QuickAdd</span>.<span style="color:#a6e22e">yesNoPrompt</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">`发布 &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">activeFile</span>.<span style="color:#a6e22e">basename</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; 到 Hugo 博客？`</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">`这将转换并发布当前笔记到你的 Hugo 博客。\n\n文件: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">activeFile</span>.<span style="color:#a6e22e">path</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">shouldPublish</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">&#34;正在发布到 Hugo 博客...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 执行转换脚本
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">exec</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;child_process&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">util</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;util&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">execPromise</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">promisify</span>(<span style="color:#a6e22e">exec</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">isTemporaryFile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">filePath</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;os&#34;</span>).<span style="color:#a6e22e">tmpdir</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 包含 vault 路径（如果可用）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">command</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vaultPath</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">?</span> <span style="color:#e6db74">`node &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">SCRIPT_PATH</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">filePath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">BLOG_ROOT</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &#34;你的名字&#34; &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">vaultPath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;`</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">`node &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">SCRIPT_PATH</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">filePath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">BLOG_ROOT</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;执行命令:&#34;</span>, <span style="color:#a6e22e">command</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">stdout</span>, <span style="color:#a6e22e">stderr</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">execPromise</span>(<span style="color:#a6e22e">command</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">stderr</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">stderr</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#e6db74">&#34;Warning&#34;</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;脚本错误:&#34;</span>, <span style="color:#a6e22e">stderr</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">`脚本错误: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">stderr</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;脚本输出:&#34;</span>, <span style="color:#a6e22e">stdout</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 解析输出获取目标路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">targetMatch</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/Blog post: (.+)/</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">targetPath</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">targetMatch</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">targetMatch</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;未知&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">`✅ 成功发布到 Hugo 博客！\n位置: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">targetPath</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">8000</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 询问是否预览网站
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shouldPreview</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">QuickAdd</span>.<span style="color:#a6e22e">yesNoPrompt</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;启动本地预览？&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;是否启动 Hugo 开发服务器来预览你的更改？&#34;</span>
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">shouldPreview</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 启动 Hugo 服务器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">serverCommand</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`cd &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">BLOG_ROOT</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &amp;&amp; pnpm server`</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">serverCommand</span>, (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">stdout</span>, <span style="color:#a6e22e">stderr</span>) =&gt; {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">`启动服务器时出错: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#ae81ff">5000</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Hugo 服务器启动中... 访问 http://localhost:1313&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>          );
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">scriptError</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;转换错误:&#34;</span>, <span style="color:#a6e22e">scriptError</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">`❌ 转换失败: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">scriptError</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#ae81ff">8000</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">scriptError</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 清理临时文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isTemporaryFile</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;fs&#34;</span>).<span style="color:#a6e22e">unlinkSync</span>(<span style="color:#a6e22e">filePath</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;清理临时文件:&#34;</span>, <span style="color:#a6e22e">filePath</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">cleanupError</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">&#34;无法清理临时文件:&#34;</span>, <span style="color:#a6e22e">cleanupError</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;宏错误:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">obsidian</span>.<span style="color:#a6e22e">Notice</span>(<span style="color:#e6db74">`❌ 错误: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#ae81ff">5000</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="安装和配置">安装和配置</h2>
+<h3 id="1-准备工作">1. 准备工作</h3>
+<p>首先确保你已经安装了以下软件：</p>
+<ul>
+<li><strong>Node.js</strong> (v14 或更高版本)</li>
+<li><strong>Hugo</strong> 静态网站生成器</li>
+<li><strong>Obsidian</strong> 和 <strong>QuickAdd</strong> 插件</li>
+</ul>
+<h3 id="2-脚本配置">2. 脚本配置</h3>
+<ol>
+<li>
+<p>将转换脚本保存为 <code>obsidian-to-hugo.js</code></p>
+</li>
+<li>
+<p>确保脚本具有执行权限：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x obsidian-to-hugo.js
+</span></span></code></pre></div></li>
+<li>
+<p>在你的 <code>package.json</code> 中添加转换命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;convert&#34;</span>: <span style="color:#e6db74">&#34;node scripts/obsidian-to-hugo.js&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="3-quickadd-配置">3. QuickAdd 配置</h3>
+<ol>
+<li>
+<p>在 Obsidian 中打开设置 → 社区插件 → QuickAdd</p>
+</li>
+<li>
+<p>点击&quot;管理宏&quot; → 创建新宏</p>
+</li>
+<li>
+<p><strong>名称</strong>: &ldquo;发布到 Hugo 博客&rdquo;</p>
+</li>
+<li>
+<p><strong>脚本</strong>: 粘贴上面的宏脚本代码</p>
+</li>
+<li>
+<p>更新脚本中的路径配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">BLOG_ROOT</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/path/to/your/hugo/blog&#34;</span>; <span style="color:#75715e">// 你的博客目录
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SCRIPT_PATH</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/path/to/obsidian-to-hugo.js&#34;</span>; <span style="color:#75715e">// 脚本路径
+</span></span></span></code></pre></div></li>
+<li>
+<p>返回 QuickAdd 设置，添加新选择：</p>
+<ul>
+<li><strong>类型</strong>: 宏</li>
+<li><strong>名称</strong>: &ldquo;📝 发布到博客&rdquo;</li>
+<li><strong>宏</strong>: 选择刚创建的宏</li>
+</ul>
+</li>
+<li>
+<p>启用选择并分配快捷键（推荐：<code>Ctrl+Shift+P</code>）</p>
+</li>
+</ol>
+<h2 id="使用方法">使用方法</h2>
+<h3 id="发布文章">发布文章</h3>
+<ol>
+<li><strong>打开笔记</strong>: 在 Obsidian 中打开要发布的笔记</li>
+<li><strong>触发宏</strong>: 使用以下方式之一：
+<ul>
+<li>按下分配的快捷键（例如 <code>Ctrl+Shift+P</code>）</li>
+<li>打开命令面板（<code>Ctrl+P</code>）输入 &ldquo;QuickAdd: 📝 发布到博客&rdquo;</li>
+<li>点击 QuickAdd 工具栏按钮</li>
+</ul>
+</li>
+<li><strong>确认发布</strong>: 在弹出的对话框中确认发布</li>
+<li><strong>等待完成</strong>: 脚本会自动处理转换和图片同步</li>
+<li><strong>可选预览</strong>: 选择是否启动 Hugo 开发服务器预览</li>
+</ol>
+<h3 id="支持的前置数据字段">支持的前置数据字段</h3>
+<p>脚本支持以下 YAML 前置数据字段，并会自动转换为 TOML 格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;文章标题&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">author</span>: <span style="color:#e6db74">&#34;作者名&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">date</span>: <span style="color:#e6db74">2024-01-15</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">draft</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tags</span>: [<span style="color:#e6db74">&#34;标签1&#34;</span>, <span style="color:#e6db74">&#34;标签2&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">categories</span>: [<span style="color:#e6db74">&#34;分类&#34;</span>]
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>转换后的 TOML 格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">+++</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;文章标题&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">author</span> = [<span style="color:#e6db74">&#34;作者名&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">date</span> = <span style="color:#ae81ff">2024-01-15</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">draft</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">+++</span>
+</span></span></code></pre></div><h3 id="图片处理">图片处理</h3>
+<p>脚本会自动处理以下格式的图片引用：</p>
+<ol>
+<li><strong>Obsidian 格式</strong>: <code>![[图片.jpg]]</code></li>
+<li><strong>标准 Markdown 格式</strong>: <code>![描述](图片.jpg)</code></li>
+</ol>
+<p>图片查找顺序：</p>
+<ol>
+<li>Vault 根目录（推荐 Obsidian 图片存放位置）</li>
+<li>当前文件相对路径</li>
+<li>常见附件文件夹（attachments、assets、_resources）</li>
+</ol>
+<p>处理后的图片会：</p>
+<ul>
+<li>自动移动到 <code>static/images/YYYY/MM/DD/</code> 目录结构</li>
+<li>转换为 Hugo AMP 图片格式</li>
+<li>第一张图片作为特色图片显示在文章开头</li>
+</ul>
+<h2 id="进阶功能">进阶功能</h2>
+<h3 id="命令行使用">命令行使用</h3>
+<p>你也可以直接使用命令行来转换文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 基本用法</span>
+</span></span><span style="display:flex;"><span>node obsidian-to-hugo.js <span style="color:#e6db74">&#34;/path/to/obsidian/note.md&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定博客根目录和作者</span>
+</span></span><span style="display:flex;"><span>node obsidian-to-hugo.js <span style="color:#e6db74">&#34;/path/to/note.md&#34;</span> <span style="color:#e6db74">&#34;/path/to/blog&#34;</span> <span style="color:#e6db74">&#34;作者名&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定 vault 根目录（用于图片查找）</span>
+</span></span><span style="display:flex;"><span>node obsidian-to-hugo.js <span style="color:#e6db74">&#34;/path/to/note.md&#34;</span> <span style="color:#e6db74">&#34;/path/to/blog&#34;</span> <span style="color:#e6db74">&#34;作者名&#34;</span> <span style="color:#e6db74">&#34;/path/to/vault&#34;</span>
+</span></span></code></pre></div><h3 id="批量处理脚本">批量处理脚本</h3>
+<p>创建一个 Shell 脚本来批量处理多个文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 批量发布脚本</span>
+</span></span><span style="display:flex;"><span>BLOG_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/path/to/your/blog&#34;</span>
+</span></span><span style="display:flex;"><span>VAULT_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/path/to/your/obsidian/vault&#34;</span>
+</span></span><span style="display:flex;"><span>AUTHOR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的名字&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> file in <span style="color:#e6db74">&#34;</span>$VAULT_ROOT<span style="color:#e6db74">&#34;</span>/*.md; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;处理: </span>$file<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        node obsidian-to-hugo.js <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$BLOG_ROOT<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$AUTHOR<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$VAULT_ROOT<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;批量处理完成！&#34;</span>
+</span></span></code></pre></div><h3 id="自定义内容处理">自定义内容处理</h3>
+<p>你可以扩展脚本来处理特定的内容格式，例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 处理 Obsidian 特定语法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">processObsidianSyntax</span>(<span style="color:#a6e22e">body</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">body</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 处理双链接 [[链接]]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/\[\[([^\]]+)\]\]/g</span>, <span style="color:#e6db74">&#39;[$1]($1)&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 处理标签 #标签
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/#([^\s#]+)/g</span>, <span style="color:#e6db74">&#39;**#$1**&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 处理高亮 ==高亮==
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/==([^=]+)==/g</span>, <span style="color:#e6db74">&#39;`$1`&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="常见问题">常见问题</h2>
+<h3 id="q-图片无法找到怎么办">Q: 图片无法找到怎么办？</h3>
+<p>A: 确保图片位于以下位置之一：</p>
+<ul>
+<li>Vault 根目录</li>
+<li>当前文件的相对路径</li>
+<li>attachments、assets 或 _resources 文件夹</li>
+</ul>
+<h3 id="q-转换后的标题是-无标题文章">Q: 转换后的标题是 &ldquo;无标题文章&rdquo;？</h3>
+<p>A: 脚本会按以下优先级提取标题：</p>
+<ol>
+<li>YAML 前置数据中的 title</li>
+<li>文件名（人性化处理）</li>
+<li>文章内容中的第一个标题</li>
+</ol>
+<h3 id="q-如何自定义图片尺寸">Q: 如何自定义图片尺寸？</h3>
+<p>A: 在脚本中修改 AMP 图片标签的 width 和 height 属性，或者集成 <code>image-size</code> 库自动获取尺寸。</p>
+<h3 id="q-支持其他静态网站生成器吗">Q: 支持其他静态网站生成器吗？</h3>
+<p>A: 当前脚本专为 Hugo 优化，但可以很容易地修改以支持 Jekyll、Gatsby 等其他生成器。</p>
+<h2 id="总结">总结</h2>
+<p>这套 Obsidian QuickAdd 与 Hugo 博客的集成解决方案极大地简化了从笔记到博客的发布流程。通过自动化的格式转换、图片处理和文件管理，让你能够专注于内容创作，而无需为技术细节分心。</p>
+<p>关键优势包括：</p>
+<ol>
+<li><strong>无缝集成</strong>: 直接在 Obsidian 中完成发布，无需切换工具</li>
+<li><strong>智能处理</strong>: 自动处理格式转换、图片同步、文件命名等繁琐任务</li>
+<li><strong>灵活配置</strong>: 支持自定义路径、作者信息、图片处理规则等</li>
+<li><strong>可扩展性</strong>: 可以根据需要添加更多功能和自定义处理逻辑</li>
+</ol>
+<p>希望这个方案能够帮助你构建更高效的写作和发布工作流！如果你有任何问题或改进建议，欢迎交流讨论。</p>
+    </article>
+
+    
+    
+
+    <amp-iframe width="700" height="163"
+                layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+                resizable
+                src="https://liyaodong.com/disqus.html#obsidian-to-hugo-blog.md|https%3a%2f%2fblog.liyaodong.com%2fposts%2fobsidian-to-hugo-blog%2f">
+        <div overflow tabindex=0 role=button aria-label=""></div>
+    </amp-iframe>
+</section>
+
+<footer class="site-footer">
+    <a href="https://liyaodong.com" target="_blank" rel="noopener">Home</a> |
+    <a href="https://blog.liyaodong.com">Blog</a> |
+    <a href="https://blog.liyaodong.com/index.xml" type="application/rss+xml" rel="noopener" target="_blank">RSS</a> |
+    <a href="https://github.com/liyaodong" rel="noopener" target="_blank">Github</a> |
+    <a href="https://twitter.com/xiaofengdong" rel="noopener" target="_blank">Twitter</a>
+    <br />
+    Powered by <a href="https://www.gnu.org/software/emacs/">Emacs</a> and <a href="https://gohugo.io/">Hugo</a> with <em>&#10084;</em>
+</footer>
+
+<amp-install-serviceworker
+    src="https://blog.liyaodong.com/sw.js"
+    layout="nodisplay">
+</amp-install-serviceworker>
+
+
+
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-30027709-1"
+            },
+            "triggers": {"trackPageview":{"on":"visible","request":"pageview"}}
+        }
+    </script>
+</amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
+
+</body>
+</html>
+

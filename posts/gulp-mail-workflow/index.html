@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/gulp-mail-workflow/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/gulp-mail-workflow/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/gulp-mail-workflow/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/gulp-mail-workflow/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/gulp-mail-workflow/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/gulp-mail-workflow/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/gulp-mail-workflow\/",
           "name": "gulp-mail-workflow"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -830,7 +850,7 @@ a {
      width="1200"
      height="799"
      layout="responsive"
-    on="tap: 833 "
+    on="tap: 484 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -838,7 +858,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="833"
+    id="484"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -860,55 +880,28 @@ a {
 <h3 id="inline-css-的一些坑">inline-css 的一些坑</h3>
 <p>在开发过程中发现如果嵌入 <code>&lt;%= @user.username%&gt;</code> 这样的语句是编译后就成了 <code>&lt;%= @user.username=&quot;&quot;%&gt;</code>，这样放到 Ruby erb 中显然无法运行。经过排除发现是 <code>inline-css</code> 这个包的问题。其实仔细思考这样的结果也在情理之中，<code>&lt;abc</code> 本身就是 HTML 的标签形式。默认给属性加了空值其实也能理解，虽然 HTML5 推荐 <code>disabled=&quot;disabled&quot;</code> 直接写成 <code>disabled</code>。那么如何解决呢？</p>
 <p>写的时候写成 <code>|%</code> 最后全局搜索替换成 <code>&lt;%</code> 不就好了。这是我最初的想法，确实挺 low 。这种事情就不应该手动去做，不如写个 Gulp 函数来处理这件事情。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">replaceStr</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">function</span> <span class="nx">transform</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;replace&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">file</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">contents</span><span class="p">)</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;%/g</span><span class="p">,</span> <span class="s1">&#39;|%&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">file</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">contents</span><span class="p">)</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\|%/g</span><span class="p">,</span> <span class="s1">&#39;&lt;%&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">cb</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;event-stream&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">transform</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// ...
-</span><span class="c1"></span>    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">replaceStr</span><span class="p">(</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">inlineCss</span><span class="p">(</span><span class="p">{</span>
-      <span class="nx">applyStyleTags</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="nx">removeStyleTags</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span><span class="p">)</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">replaceStr</span><span class="p">(</span><span class="s1">&#39;fix&#39;</span><span class="p">)</span><span class="p">)</span>
-
-<span class="c1">// ...
-</span></code></pre></td></tr></table>
-</div>
-</div><p>并没有什么难度的一个功能，但确实方便了不少。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">replaceStr</span>(<span style="color:#a6e22e">type</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">transform</span>(<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">cb</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;replace&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Buffer</span>(String(<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">contents</span>).<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/&lt;%/g</span>, <span style="color:#e6db74">&#39;|%&#39;</span>));
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Buffer</span>(String(<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">contents</span>).<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/\|%/g</span>, <span style="color:#e6db74">&#39;&lt;%&#39;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cb</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">file</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;event-stream&#39;</span>).<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">transform</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">replaceStr</span>(<span style="color:#e6db74">&#39;replace&#39;</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">inlineCss</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">applyStyleTags</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">removeStyleTags</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    }))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">replaceStr</span>(<span style="color:#e6db74">&#39;fix&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span></code></pre></div><p>并没有什么难度的一个功能，但确实方便了不少。</p>
 <p>完整的DEMO <a href="https://github.com/liyaodong/gulp_mail_workflow">github@liyaodong/gulp_mail_workflow</a></p>
 <p>头图来自 <a href="https://dribbble.com/shots/654389-mailcheck">dribbble@Eddie Lobanovskiy</a> 侵删</p>
 <!-- raw HTML omitted -->
@@ -957,7 +950,7 @@ a {
      width="630"
      height="300"
      layout="responsive"
-    on="tap: 404 "
+    on="tap: 386 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -965,7 +958,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="404"
+    id="386"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1012,7 +1005,7 @@ a {
      width="1440"
      height="677"
      layout="responsive"
-    on="tap: 506 "
+    on="tap: 137 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1020,7 +1013,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="506"
+    id="137"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1066,7 +1059,7 @@ a {
      width="1440"
      height="875"
      layout="responsive"
-    on="tap: 552 "
+    on="tap: 778 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1074,7 +1067,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="552"
+    id="778"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1125,6 +1118,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

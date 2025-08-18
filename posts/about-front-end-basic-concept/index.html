@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/about-front-end-basic-concept/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/about-front-end-basic-concept/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/about-front-end-basic-concept/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/about-front-end-basic-concept/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/about-front-end-basic-concept/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/about-front-end-basic-concept/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/about-front-end-basic-concept\/",
           "name": "about-front-end-basic-concept"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="1000"
      height="621"
      layout="responsive"
-    on="tap: 613 "
+    on="tap: 129 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="613"
+    id="129"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -870,7 +890,7 @@ a {
      width="370"
      height="593"
      layout="intrinsic"
-    on="tap: 528 "
+    on="tap: 468 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -878,7 +898,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="528"
+    id="468"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -947,7 +967,7 @@ a {
      width="1000"
      height="625"
      layout="responsive"
-    on="tap: 276 "
+    on="tap: 616 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -955,7 +975,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="276"
+    id="616"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -996,7 +1016,7 @@ a {
      width="596"
      height="327"
      layout="responsive"
-    on="tap: 749 "
+    on="tap: 90 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1004,7 +1024,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="749"
+    id="90"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1043,7 +1063,7 @@ a {
      width="934"
      height="230"
      layout="responsive"
-    on="tap: 24 "
+    on="tap: 683 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1051,7 +1071,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="24"
+    id="683"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1091,7 +1111,7 @@ a {
      width="553"
      height="271"
      layout="responsive"
-    on="tap: 605 "
+    on="tap: 271 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1099,7 +1119,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="605"
+    id="271"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1161,7 +1181,7 @@ a {
      width="1000"
      height="621"
      layout="responsive"
-    on="tap: 920 "
+    on="tap: 994 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1169,7 +1189,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="920"
+    id="994"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1212,7 +1232,7 @@ a {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 339 "
+    on="tap: 313 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1220,7 +1240,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="339"
+    id="313"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1256,7 +1276,7 @@ a {
      width="1440"
      height="900"
      layout="responsive"
-    on="tap: 382 "
+    on="tap: 691 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1264,7 +1284,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="382"
+    id="691"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1324,6 +1344,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

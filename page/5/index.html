@@ -6,7 +6,7 @@
 
 <html amp lang="zh-cn" class="no-js">
 <head>
-	<meta name="generator" content="Hugo 0.63.1" />
+	<meta name="generator" content="Hugo 0.148.2">
     <title>晓风博客</title>
     <link rel="manifest" href="/manifest.webmanifest">
 
@@ -49,12 +49,15 @@
 <meta name="twitter:description" content="晓风博客是一个以技术成长、设计生活、个人心得为主题的个人博客，旨在与你分享生活点滴，共同成长。" />
 
 <base href="https://blog.liyaodong.com/">
+<link rel="canonical" href="https://blog.liyaodong.com/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/" />
 <meta property="og:url" content="https://blog.liyaodong.com/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/" title="">
 
 
 
@@ -70,7 +73,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -78,17 +81,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -107,35 +106,35 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     }{
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     }{
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     }{
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     }{
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     }]
@@ -548,7 +547,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -669,6 +668,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -780,7 +797,7 @@ a {
 
 
 <header class="site-header">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title">
             晓风博客
         </h1>
@@ -792,6 +809,60 @@ a {
 
 
 <div class="container">
+    
+    
+
+<article class="article-item">
+  <a
+    href="/posts/diy-your-404-not-found-page/"
+    target='_self'
+    rel=''
+    class="article-item-link"
+  >
+    <h1 class="article-item-title">DIY你的404页面（Apache&#43;PHP环境）</h1>
+  </a>
+  <time class="article-item-date">2013年6月24日</time>
+  <div class="article-item-summary">
+    <amp-img
+     src="https://image.liyaodong.com/uploads/2013/06/4041.png"
+     alt="404 "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/06/4041.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/06/4041.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/06/4041.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/06/4041.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/06/4041.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2013/06/4041.png 2000w"
+    
+    
+    
+    
+    
+     width="700"
+     height="307"
+     layout="responsive"
+    on="tap: 920 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="920"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p> </p>
+<p>404是神马？404就是一种HTTP状态码，表示该页面没有找到，告诉浏览者：这页面丢了，你换别的页面看看吧。常看人家的404页面，今天咱也DIY一个！</p>
+  </div>
+</article>
+
     
     
 
@@ -827,7 +898,7 @@ a {
      width="700"
      height="336"
      layout="responsive"
-    on="tap: 87 "
+    on="tap: 659 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -835,7 +906,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="87"
+    id="659"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -877,7 +948,7 @@ a {
      width="630"
      height="300"
      layout="responsive"
-    on="tap: 176 "
+    on="tap: 577 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -885,7 +956,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="176"
+    id="577"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -930,7 +1001,7 @@ a {
      width="1440"
      height="900"
      layout="responsive"
-    on="tap: 382 "
+    on="tap: 691 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -938,7 +1009,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="382"
+    id="691"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1001,7 +1072,7 @@ a {
      width="307"
      height="313"
      layout="intrinsic"
-    on="tap: 12 "
+    on="tap: 186 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1009,7 +1080,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="12"
+    id="186"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1054,7 +1125,7 @@ a {
      width="384"
      height="332"
      layout="intrinsic"
-    on="tap: 835 "
+    on="tap: 370 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1062,7 +1133,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="835"
+    id="370"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1107,7 +1178,7 @@ a {
      width="1280"
      height="960"
      layout="responsive"
-    on="tap: 370 "
+    on="tap: 491 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1115,7 +1186,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="370"
+    id="491"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1160,7 +1231,7 @@ a {
      width="668"
      height="328"
      layout="responsive"
-    on="tap: 868 "
+    on="tap: 921 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1168,7 +1239,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="868"
+    id="921"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1223,7 +1294,7 @@ a {
      width="670"
      height="502"
      layout="responsive"
-    on="tap: 757 "
+    on="tap: 152 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1231,7 +1302,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="757"
+    id="152"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1242,116 +1313,37 @@ a {
 </article>
 
     
-    
-
-<article class="article-item">
-  <a
-    href="/posts/use-chrome-inspector-to-speed-up-video/"
-    target='_self'
-    rel=''
-    class="article-item-link"
-  >
-    <h1 class="article-item-title">学校网速太慢？想看视频太卡？用这招解决！</h1>
-  </a>
-  <time class="article-item-date">2012年2月25日</time>
-  <div class="article-item-summary">
-    <p>刚刚想在土豆上看一个视频，无奈发现网速太不给力了，缓冲半天只缓冲了一点。最后想了想校园网的特点，还是总结出了一个办法，分享给校园网的用户们。</p>
-  </div>
-</article>
 
     
-
-    
-
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-    <a href="/page/4/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/4/">4</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/page/5/">5</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/6/">6</a></li>
-    
-    
-    <li class="page-item">
-    <a href="/page/6/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-
-
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/6/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
 </div>
 
 <footer class="site-footer">
@@ -1381,6 +1373,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

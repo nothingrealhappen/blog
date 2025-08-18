@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/font-face-cross-site-issue/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/font-face-cross-site-issue/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/font-face-cross-site-issue/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/font-face-cross-site-issue/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/font-face-cross-site-issue/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/font-face-cross-site-issue/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/font-face-cross-site-issue\/",
           "name": "font-face-cross-site-issue"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 298 "
+    on="tap: 715 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="298"
+    id="715"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -838,8 +858,7 @@ a {
 <h3 id="为什么另外一个域名没有图标">为什么另外一个域名没有图标？</h3>
 <p>一般情况下是因为跨域问题，打开console你可以看到这么一段话：</p>
 <blockquote>
-<p>Font from origin &lsquo;<a href="http://liyaodong.sinaapp.com">http://liyaodong.sinaapp.com</a>&rsquo; has been blocked from loading by Cross-Origin Resource Sharing policy: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource. Origin &lsquo;<a href="http://liyaodong.com">http://liyaodong.com</a>&rsquo; is therefore not allowed access.</p>
-</blockquote>
+<p>Font from origin &lsquo;<a href="http://liyaodong.sinaapp.com">http://liyaodong.sinaapp.com</a>&rsquo; has been blocked from loading by Cross-Origin Resource Sharing policy: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource. Origin &lsquo;<a href="http://liyaodong.com">http://liyaodong.com</a>&rsquo; is therefore not allowed access.</p></blockquote>
 <h3 id="解决办法">解决办法？</h3>
 <h5 id="1-简单粗暴型">1. 简单粗暴型</h5>
 <p>把字体文件放到绝对路径下，并且将要请求的页面加入到防盗链白名单。这是博主最后的做法，在折腾其他方法无果后。</p>
@@ -848,7 +867,7 @@ a {
 <p>那么问题来了该怎么办？机智的程序员灵光一现拍案说到，为什么不用<code>.htaccess</code> ？楼主机智，说的好。</p>
 <p>[code]</p>
 <h1 id="apache-config">Apache config</h1>
-<p>&lt;FilesMatch &lsquo;.(eot|ttf|otf|woff)&lsquo;&gt;
+<p>&lt;FilesMatch &lsquo;.(eot|ttf|otf|woff)&rsquo;&gt;
 Header set Access-Control-Allow-Origin &lsquo;*&rsquo;</p>
 <h1 id="nginx-config">nginx config</h1>
 <p>if ($filename ~* ^.*?.(eot)|(ttf)|(woff)$){
@@ -894,7 +913,7 @@ add_header Access-Control-Allow-Origin *;
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 296 "
+    on="tap: 205 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -902,7 +921,7 @@ add_header Access-Control-Allow-Origin *;
 </amp-img>
 
 <amp-image-lightbox
-    id="296"
+    id="205"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -947,7 +966,7 @@ add_header Access-Control-Allow-Origin *;
      width="800"
      height="536"
      layout="responsive"
-    on="tap: 345 "
+    on="tap: 648 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -955,7 +974,7 @@ add_header Access-Control-Allow-Origin *;
 </amp-img>
 
 <amp-image-lightbox
-    id="345"
+    id="648"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1006,6 +1025,18 @@ add_header Access-Control-Allow-Origin *;
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

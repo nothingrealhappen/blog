@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/sticker-wall-build-by-html5-localstorage/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/sticker-wall-build-by-html5-localstorage\/",
           "name": "sticker-wall-build-by-html5-localstorage"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="1440"
      height="900"
      layout="responsive"
-    on="tap: 382 "
+    on="tap: 691 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="382"
+    id="691"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -836,8 +856,8 @@ a {
 
 <p>放寒假了，整日昏昏欲睡，实在无聊。今天看了一会书，忽然发现一个让自己感兴趣的玩意——HTML5 localStorage，于是花了一下午加半晚上的时间完成了这个应用。</p>
 <p>很多该说的，该写的已经在源码里了。相信大家都和我一样，喜欢看源码。源码来的直接一点。遂奉上源码，当然还有整个项目的百度网盘地址，由于只使用了3张很小的图片，遂整个应用显的很苗条，压缩之后只剩下156KB了。</p>
-<h3 id="应用地址httpliyaodongsinaappcomlocalstoragehttpliyaodongsinaappcomlocalstorage">应用地址：<a href="http://liyaodong.sinaapp.com/localStorage/">http://liyaodong.sinaapp.com/localStorage/</a></h3>
-<h3 id="百度网盘源码下载httppanbaiducomsharelinkshareid249047ampuk3171893396httppanbaiducomsharelinkshareid249047ampuk3171893396">百度网盘源码下载：<a href="http://pan.baidu.com/share/link?shareid=249047&amp;uk=3171893396">http://pan.baidu.com/share/link?shareid=249047&amp;uk=3171893396</a></h3>
+<h3 id="应用地址httpliyaodongsinaappcomlocalstorage">应用地址：<a href="http://liyaodong.sinaapp.com/localStorage/">http://liyaodong.sinaapp.com/localStorage/</a></h3>
+<h3 id="百度网盘源码下载httppanbaiducomsharelinkshareid249047uk3171893396">百度网盘源码下载：<a href="http://pan.baidu.com/share/link?shareid=249047&amp;uk=3171893396">http://pan.baidu.com/share/link?shareid=249047&amp;uk=3171893396</a></h3>
 <p>Tip:源码下来后直接是看不到效果的，localStorage需要服务器的支持。wamp搭建个临时的吧。</p>
 
 
@@ -870,7 +890,7 @@ a {
      width="1440"
      height="900"
      layout="responsive"
-    on="tap: 718 "
+    on="tap: 251 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -878,7 +898,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="718"
+    id="251"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -918,7 +938,7 @@ a {
      width="815"
      height="314"
      layout="responsive"
-    on="tap: 497 "
+    on="tap: 573 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -926,7 +946,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="497"
+    id="573"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -937,489 +957,240 @@ a {
 <p>难点三呢就是没有了，其他的CSS、响应式WEB都不算难点，因为写JS是最花时间和脑细胞的。看起来就会觉得头疼。不是吗？</p>
 <p>下面不废话了，奉上源码，给不能再百度网盘下载源码的亲们，希望大家寒假都能有所收获：</p>
 <h3 id="html源码">HTML源码：</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;zh_cn&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p"></span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">title</span><span class="p"></span><span class="p">&gt;</span>HTML5 localStorage 便利贴<span class="p">&lt;</span><span class="p">/</span><span class="nt">title</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span> <span class="p">/</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;author&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;晓风东东&#34;</span> <span class="p">/</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;keywords&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;HTML5,locaStorage,HSL,便利贴,即时贴&#34;</span> <span class="p">/</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;一个基于HTML5和CSS3技术的便利贴应用，你可以写入一些待办事项。这些东西会完整的保存在你的浏览器里，除非你清空缓存。&#34;</span> <span class="p">/</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;css/style.css&#34;</span><span class="p"></span><span class="p">&gt;</span>
-	<span class="c">&lt;!--</span><span class="c">[if lt IE 9]&gt;
-</span><span class="c">		&lt;script src=&#34;http://html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
-</span><span class="c">	&lt;![endif]</span><span class="c">--&gt;</span>
-	<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;js/jquery.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;js/js.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">head</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">body</span><span class="p"></span><span class="p">&gt;</span>
-		<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;shell&#34;</span><span class="p"></span><span class="p">&gt;</span>
-			<span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;ctrl_form&#34;</span><span class="p"></span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;title&#34;</span><span class="p"></span><span class="p">&gt;</span>HTML5 localStorage 便利贴<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;note_color&#34;</span><span class="p"></span><span class="p">&gt;</span>颜色：<span class="p">&lt;</span><span class="p">/</span><span class="nt">label</span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;note_color&#34;</span><span class="p"></span><span class="p">&gt;</span>
-					<span class="p">&lt;</span><span class="nt">option</span><span class="p"></span><span class="p">&gt;</span>随机<span class="p">&lt;</span><span class="p">/</span><span class="nt">option</span><span class="p">&gt;</span>
-					<span class="p">&lt;</span><span class="nt">option</span><span class="p"></span><span class="p">&gt;</span>科技蓝<span class="p">&lt;</span><span class="p">/</span><span class="nt">option</span><span class="p">&gt;</span>
-					<span class="p">&lt;</span><span class="nt">option</span><span class="p"></span><span class="p">&gt;</span>淡雅黄<span class="p">&lt;</span><span class="p">/</span><span class="nt">option</span><span class="p">&gt;</span>
-					<span class="p">&lt;</span><span class="nt">option</span><span class="p"></span><span class="p">&gt;</span>清新绿<span class="p">&lt;</span><span class="p">/</span><span class="nt">option</span><span class="p">&gt;</span>
-					<span class="p">&lt;</span><span class="nt">option</span><span class="p"></span><span class="p">&gt;</span>暧昧粉<span class="p">&lt;</span><span class="p">/</span><span class="nt">option</span><span class="p">&gt;</span>
-					<span class="p">&lt;</span><span class="nt">option</span><span class="p"></span><span class="p">&gt;</span>高贵紫<span class="p">&lt;</span><span class="p">/</span><span class="nt">option</span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="p">/</span><span class="nt">select</span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;note_text&#34;</span> <span class="p">/</span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;add_btn&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;增加&#34;</span> <span class="p">/</span><span class="p">&gt;</span>
-			<span class="p">&lt;</span><span class="p">/</span><span class="nt">form</span><span class="p">&gt;</span>
-			<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;note_display&#34;</span><span class="p"></span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;note_display_ul&#34;</span><span class="p"></span><span class="p">&gt;</span>
-				<span class="p">&lt;</span><span class="p">/</span><span class="nt">ul</span><span class="p">&gt;</span>
-			<span class="p">&lt;</span><span class="p">/</span><span class="nt">section</span><span class="p">&gt;</span><span class="c">&lt;!--</span><span class="c">note_display end</span><span class="c">--&gt;</span>
-		<span class="p">&lt;</span><span class="p">/</span><span class="nt">section</span><span class="p">&gt;</span><span class="c">&lt;!--</span><span class="c">shell end</span><span class="c">--&gt;</span>
-	<span class="p">&lt;</span><span class="p">/</span><span class="nt">body</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="css源码">CSS源码：</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">html</span><span class="o">,</span><span class="nt">body</span> <span class="p">{</span>
-	<span class="k">background</span><span class="p">:</span><span class="nb">url</span><span class="p">(</span><span class="sx">../images/bg.png</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">font-family</span><span class="p">:</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="err">微</span><span class="err">软</span><span class="err">雅</span><span class="err">黑</span><span class="err">&amp;</span><span class="err">q</span><span class="err">u</span><span class="err">o</span><span class="err">t</span><span class="p">;</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">ctrl_form</span> <span class="p">{</span>
-	<span class="k">background</span><span class="p">:</span><span class="kp">-webkit-</span><span class="nf">gradient</span><span class="p">(</span><span class="kc">linear</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">100</span><span class="kt">%</span><span class="p">,</span> <span class="nf">from</span><span class="p">(</span><span class="mh">#2c2f36</span><span class="p">)</span><span class="p">,</span> <span class="nf">to</span><span class="p">(</span><span class="mh">#16181c</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">width</span><span class="p">:</span><span class="mi">60</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">border-radius</span><span class="p">:</span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
-	<span class="k">margin</span><span class="p">:</span><span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
-	<span class="k">margin-top</span><span class="p">:</span><span class="mi">5</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">text-align</span><span class="p">:</span><span class="kc">center</span><span class="p">;</span>
-	<span class="k">padding</span><span class="p">:</span><span class="mi">1</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">color</span><span class="p">:</span><span class="mh">#fff</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">title</span> <span class="p">{</span>
-	<span class="k">font-size</span><span class="p">:</span><span class="mi">200</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">padding-bottom</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-	<span class="k">margin-bottom</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-	<span class="k">border-bottom</span><span class="p">:</span><span class="mi">2</span><span class="kt">px</span> <span class="kc">dashed</span> <span class="mh">#888</span><span class="p">;</span>
-	<span class="k">text-shadow</span><span class="p">:</span><span class="mi">2</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="mh">#888</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">note_display</span> <span class="p">{</span>
-	<span class="k">width</span><span class="p">:</span><span class="mi">90</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">margin</span><span class="p">:</span><span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
-	<span class="k">text-align</span><span class="p">:</span><span class="kc">center</span><span class="p">;</span>
-	<span class="k">margin-top</span><span class="p">:</span><span class="mi">5</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">note_display</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
-	<span class="k">width</span><span class="p">:</span><span class="mi">10</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">background</span><span class="p">:</span><span class="nb">hsl</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span><span class="mi">53</span><span class="kt">%</span><span class="p">,</span><span class="mi">60</span><span class="kt">%</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">background-image</span><span class="p">:</span><span class="nb">url</span><span class="p">(</span><span class="sx">../images/wangge.png</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">height</span><span class="p">:</span><span class="mi">150</span><span class="kt">px</span><span class="p">;</span>
-	<span class="k">float</span><span class="p">:</span><span class="kc">left</span><span class="p">;</span>
-	<span class="k">border</span><span class="p">:</span><span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#aeaeae</span><span class="p">;</span>
-	<span class="k">color</span><span class="p">:</span><span class="mh">#222</span><span class="p">;</span>
-	<span class="k">font-size</span><span class="p">:</span><span class="mi">150</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">padding</span><span class="p">:</span><span class="mi">1</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">margin</span><span class="p">:</span><span class="mi">1</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">cursor</span><span class="p">:</span><span class="kc">pointer</span><span class="p">;</span>
-	<span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span><span class="p">;</span>
-	<span class="k">box-shadow</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">8</span><span class="kt">px</span> <span class="mh">#222</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">note_display</span> <span class="nt">ul</span> <span class="nt">li</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
-	<span class="k">opacity</span><span class="p">:</span><span class="mf">.8</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">add_btn</span><span class="o">,</span><span class="p">#</span><span class="nn">note_text</span><span class="o">,</span><span class="p">#</span><span class="nn">note_color</span><span class="o">,</span><span class="nt">label</span> <span class="p">{</span>
-	<span class="k">font-family</span><span class="p">:</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="err">微</span><span class="err">软</span><span class="err">雅</span><span class="err">黑</span><span class="err">&amp;</span><span class="err">q</span><span class="err">u</span><span class="err">o</span><span class="err">t</span><span class="p">;</span><span class="p">;</span>
-	<span class="k">font-size</span><span class="p">:</span><span class="mi">150</span><span class="kt">%</span><span class="p">;</span>
-	<span class="k">padding</span><span class="p">:</span><span class="mf">.5</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">note_color</span> <span class="p">{</span>
-	<span class="k">padding</span><span class="p">:</span><span class="mf">.4</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">add_btn</span> <span class="p">{</span>
-	<span class="k">background</span><span class="p">:</span><span class="kp">-webkit-</span><span class="nf">gradient</span><span class="p">(</span><span class="kc">linear</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">100</span><span class="kt">%</span><span class="p">,</span> <span class="nf">from</span><span class="p">(</span><span class="mh">#aeaeae</span><span class="p">)</span><span class="p">,</span> <span class="nf">to</span><span class="p">(</span><span class="mh">#888</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">border</span><span class="p">:</span><span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#aeaeae</span><span class="p">;</span>
-	<span class="k">color</span><span class="p">:</span><span class="mh">#000</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">add_btn</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
-	<span class="k">background</span><span class="p">:</span><span class="kp">-webkit-</span><span class="nf">gradient</span><span class="p">(</span><span class="kc">linear</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">100</span><span class="kt">%</span><span class="p">,</span> <span class="nf">from</span><span class="p">(</span><span class="mh">#888</span><span class="p">)</span><span class="p">,</span> <span class="nf">to</span><span class="p">(</span><span class="mh">#aeaeae</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">#</span><span class="nn">note_text</span> <span class="p">{</span>
-	<span class="k">width</span><span class="p">:</span><span class="mi">30</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c">/*响应式web设计的核心，为不同设备屏幕写出独立的CSS，同时尽量避免使用PX作为宽度的单位，更多的使用相对单位。*/</span>
-<span class="p">@</span><span class="k">media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="p">:</span><span class="nd">720px</span><span class="o">)</span> <span class="p">{</span>
-	<span class="p">#</span><span class="nn">note_display</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
-		<span class="k">width</span><span class="p">:</span><span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-<span class="p">@</span><span class="k">media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="p">:</span><span class="nd">480px</span><span class="o">)</span> <span class="p">{</span>
-	<span class="p">#</span><span class="nn">note_display</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
-		<span class="k">width</span><span class="p">:</span><span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
-		<span class="k">font-size</span><span class="p">:</span><span class="mi">120</span><span class="kt">%</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="终于要到了最头疼的js源码了不过也是最有技术含量的部分">终于要到了最头疼的JS源码了，不过也是最有技术含量的部分：</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">)</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
-	<span class="c1">//给增加按钮绑定事件，并设置在点击增加后输入框内清空
-</span><span class="c1"></span>	<span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">#</span><span class="nx">add_btn</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">note_text_val</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">#</span><span class="nx">note_text</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="nx">note_text_val</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">{</span>
-			<span class="nx">alert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">亲</span><span class="err">，</span><span class="nx">你还没有填写任何内容喔</span><span class="err">！</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="k">else</span> <span class="p">{</span>
-			<span class="nx">createSticky</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-			<span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">#</span><span class="nx">note_text</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">;</span>
-	<span class="c1">//遍历便利贴数组，同时传递值给其他函数
-</span><span class="c1"></span>	<span class="c1">//JSON.parse是个非常神奇的函数，可以给你把数组或者对象的内容转化为字符串。就像JSON那样，很棒！这使的我可以在Cookies或者localStore中存储更多的数据
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">stickiesArray</span> <span class="o">=</span> <span class="nx">getStickiesArray</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">stickiesArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>  <span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">stickiesArray</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
-		<span class="nx">addStickyToDOM</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
-<span class="c1">//创建stickiesArray，存放一个类似电话本的键，并且对localStorage中的stickiesArray这个“母键”初始化
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">getStickiesArray</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">stickiesArray</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">stickiesArray</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">]</span><span class="p">;</span>
-	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">stickiesArray</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">stickiesArray</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
-		<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">stickiesArray</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">stickiesArray</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="p">{</span>
-		<span class="nx">stickiesArray</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stickiesArray</span><span class="p">)</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">stickiesArray</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//创建其他键值，并且从用户界面得到所选颜色值，并且转换为HSL值，写入localStorage
-</span><span class="c1"></span><span class="c1">//stickyObj是一个对象，不同于数组了。对象是个很抽象的玩意，Everything is an object
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">createSticky</span> <span class="p">(</span><span class="p">)</span><span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">stickiesArray</span> <span class="o">=</span> <span class="nx">getStickiesArray</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">currentDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="p">)</span><span class="p">;</span><span class="c1">//按照时间获得一个随机数，保证键值不重复
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">colorSelectObj</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">note_color</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">colorSelectObj</span><span class="p">.</span><span class="nx">selectedIndex</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">colorName</span> <span class="o">=</span> <span class="nx">colorSelectObj</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">colorHSL</span> <span class="o">=</span> <span class="nx">colorNameToHSL</span><span class="p">(</span><span class="nx">colorName</span><span class="p">)</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">#</span><span class="nx">note_text</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">sticky_</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="o">+</span> <span class="nx">currentDate</span><span class="p">.</span><span class="nx">getTime</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">stickyObj</span> <span class="o">=</span> <span class="p">{</span>
-		<span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">value</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">:</span> <span class="nx">value</span><span class="p">,</span>
-		<span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">colorHSL</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="o">:</span> <span class="nx">colorHSL</span>
-	<span class="p">}</span>
-	<span class="c1">//将对象写入localStorage
-</span><span class="c1"></span>	<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">stickyObj</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-	<span class="c1">//将键名添加到哪个神奇的母键的最后一项
-</span><span class="c1"></span>	<span class="nx">stickiesArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">stickiesArray</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">stickiesArray</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-	<span class="c1">//添加便贴到DOM
-</span><span class="c1"></span>	<span class="nx">addStickyToDOM</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">stickyObj</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//添加便贴到DOM的具体步骤，stickyObj是一个对象，要用.来访问子元素
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">addStickyToDOM</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">stickyObj</span><span class="p">)</span><span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">sticky</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">li</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">sticky</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">id</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">sticky</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">style</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span><span class="nx">hsl</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span> <span class="o">+</span> <span class="nx">stickyObj</span><span class="p">.</span><span class="nx">colorHSL</span> <span class="o">+</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="mi">56</span><span class="o">%</span><span class="p">,</span> <span class="mi">60</span><span class="o">%</span><span class="p">)</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span><span class="c1">//HSL中的色相保持随机，其他的固定上。保证颜色的饱和度和亮度
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">span</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">span</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">span</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="kr">class</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">sticky</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">span</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">stickyObj</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-	<span class="nx">sticky</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">span</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">$</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="err">#</span><span class="nx">note_display_ul</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">sticky</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">sticky</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">deleteSticky</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//删除即时贴的函数，做了一个判断，判断点击对象并确保为ul下的li元素，而不是span
-</span><span class="c1"></span><span class="c1">//同时还要更新删除过后的stickiesArray数组
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">deleteSticky</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="p">{</span>
-	<span class="k">if</span><span class="p">(</span><span class="nx">confirm</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">你确定要删除这个即时贴吗</span><span class="err">？</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-		<span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">tagName</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">(</span><span class="p">)</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">span</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">key</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="p">;</span>
-		<span class="kd">var</span> <span class="nx">stickiesArray</span> <span class="o">=</span> <span class="nx">getStickiesArray</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-		<span class="k">if</span><span class="p">(</span><span class="nx">stickiesArray</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">stickiesArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">if</span><span class="p">(</span><span class="nx">key</span> <span class="o">==</span> <span class="nx">stickiesArray</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">)</span><span class="p">{</span>
-					<span class="nx">stickiesArray</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-			<span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">stickiesArray</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">stickiesArray</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-			<span class="nx">removeStickyFromDom</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">//从DOM中删除已经删除的便贴
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">removeStickyFromDom</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">sticky</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="p">;</span>
-	<span class="nx">sticky</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">sticky</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//将colorName根据HSL的颜色值进行分析并返回
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">colorNameToHSL</span><span class="p">(</span><span class="nx">colorName</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span><span class="p">(</span><span class="nx">colorName</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">科技蓝</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">200</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">colorName</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">淡雅黄</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">{</span>
-		<span class="k">return</span> <span class="mi">60</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">colorName</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">清新绿</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">{</span>
-		<span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">colorName</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">暧昧粉</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">{</span>
-		<span class="k">return</span> <span class="mi">325</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">colorName</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="nx">高贵紫</span><span class="o">&amp;</span><span class="nx">quot</span><span class="p">;</span><span class="p">)</span><span class="p">{</span>
-		<span class="k">return</span> <span class="mi">250</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">else</span><span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">random_num</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="p">)</span><span class="o">*</span><span class="mi">359</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-		<span class="k">return</span> <span class="nx">random_num</span><span class="p">;</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zh_cn&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">title</span>&gt;HTML5 localStorage 便利贴&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;author&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;晓风东东&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;keywords&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;HTML5,locaStorage,HSL,便利贴,即时贴&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;description&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;一个基于HTML5和CSS3技术的便利贴应用，你可以写入一些待办事项。这些东西会完整的保存在你的浏览器里，除非你清空缓存。&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/style.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">&lt;!--[if lt IE 9]&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">		&lt;script src=&#34;http://html5shiv.googlecode.com/svn/trunk/html5.js&#34;&gt;&lt;/script&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	&lt;![endif]--&gt;</span>
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/jquery.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/js.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shell&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ctrl_form&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;HTML5 localStorage 便利贴&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note_color&#34;</span>&gt;颜色：&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note_color&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;<span style="color:#f92672">option</span>&gt;随机&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;<span style="color:#f92672">option</span>&gt;科技蓝&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;<span style="color:#f92672">option</span>&gt;淡雅黄&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;<span style="color:#f92672">option</span>&gt;清新绿&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;<span style="color:#f92672">option</span>&gt;暧昧粉&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>					&lt;<span style="color:#f92672">option</span>&gt;高贵紫&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note_text&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add_btn&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;增加&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>			&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note_display&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note_display_ul&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>				&lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>			&lt;/<span style="color:#f92672">section</span>&gt;<span style="color:#75715e">&lt;!--note_display end--&gt;</span>
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">section</span>&gt;<span style="color:#75715e">&lt;!--shell end--&gt;</span>
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h3 id="css源码">CSS源码：</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">html</span><span style="color:#f92672">,</span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background</span>:url(<span style="color:#e6db74">../images/bg.png</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">font-family</span>:<span style="color:#f92672">&amp;</span>quot;<span style="color:#960050;background-color:#1e0010">微软雅黑&amp;quot</span>;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#ctrl_form {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background</span>:<span style="color:#66d9ef">-webkit-</span><span style="color:#a6e22e">gradient</span>(<span style="color:#66d9ef">linear</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#a6e22e">from</span>(<span style="color:#ae81ff">#2c2f36</span>), <span style="color:#a6e22e">to</span>(<span style="color:#ae81ff">#16181c</span>));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">60</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">border-radius</span>:<span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin-top</span>:<span style="color:#ae81ff">5</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">text-align</span>:<span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#title {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">200</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding-bottom</span>:<span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin-bottom</span>:<span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">border-bottom</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">dashed</span> <span style="color:#ae81ff">#888</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">text-shadow</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#888</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#note_display {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">90</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">text-align</span>:<span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin-top</span>:<span style="color:#ae81ff">5</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#note_display <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">10</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background</span>:hsl(<span style="color:#ae81ff">110</span>,<span style="color:#ae81ff">53</span><span style="color:#66d9ef">%</span>,<span style="color:#ae81ff">60</span><span style="color:#66d9ef">%</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background-image</span>:url(<span style="color:#e6db74">../images/wangge.png</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">height</span>:<span style="color:#ae81ff">150</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">float</span>:<span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">border</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#aeaeae</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#222</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">150</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">cursor</span>:<span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">overflow</span>:<span style="color:#66d9ef">hidden</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#222</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#note_display <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">opacity</span>:<span style="color:#ae81ff">.8</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#add_btn<span style="color:#f92672">,</span>#note_text<span style="color:#f92672">,</span>#note_color<span style="color:#f92672">,</span><span style="color:#f92672">label</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">font-family</span>:<span style="color:#f92672">&amp;</span>quot;<span style="color:#960050;background-color:#1e0010">微软雅黑&amp;quot</span>;;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">150</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">.5</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#note_color {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">.4</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#add_btn {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background</span>:<span style="color:#66d9ef">-webkit-</span><span style="color:#a6e22e">gradient</span>(<span style="color:#66d9ef">linear</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#a6e22e">from</span>(<span style="color:#ae81ff">#aeaeae</span>), <span style="color:#a6e22e">to</span>(<span style="color:#ae81ff">#888</span>));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">border</span>:<span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#aeaeae</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#000</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#add_btn:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background</span>:<span style="color:#66d9ef">-webkit-</span><span style="color:#a6e22e">gradient</span>(<span style="color:#66d9ef">linear</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#a6e22e">from</span>(<span style="color:#ae81ff">#888</span>), <span style="color:#a6e22e">to</span>(<span style="color:#ae81ff">#aeaeae</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>#note_text {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">30</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*响应式web设计的核心，为不同设备屏幕写出独立的CSS，同时尽量避免使用PX作为宽度的单位，更多的使用相对单位。*/</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">screen</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span>:<span style="color:#a6e22e">720px</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>	#note_display <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">20</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">screen</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span>:<span style="color:#a6e22e">480px</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>	#note_display <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">40</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">120</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="终于要到了最头疼的js源码了不过也是最有技术含量的部分">终于要到了最头疼的JS源码了，不过也是最有技术含量的部分：</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//给增加按钮绑定事件，并设置在点击增加后输入框内清空
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">$</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">add_btn</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">note_text_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">note_text</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;).<span style="color:#a6e22e">val</span>();
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">note_text_val</span> <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;){
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">alert</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">亲</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">你还没有填写任何内容喔</span><span style="color:#960050;background-color:#1e0010">！</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">createSticky</span>();
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">$</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">note_text</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;).<span style="color:#a6e22e">val</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//遍历便利贴数组，同时传递值给其他函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//JSON.parse是个非常神奇的函数，可以给你把数组或者对象的内容转化为字符串。就像JSON那样，很棒！这使的我可以在Cookies或者localStore中存储更多的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stickiesArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getStickiesArray</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">lt</span>; <span style="color:#a6e22e">stickiesArray</span>.<span style="color:#a6e22e">length</span>;  <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stickiesArray</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">localStorage</span>[<span style="color:#a6e22e">key</span>]);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">addStickyToDOM</span>(<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//创建stickiesArray，存放一个类似电话本的键，并且对localStorage中的stickiesArray这个“母键”初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getStickiesArray</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stickiesArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>[<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">stickiesArray</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;];
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">stickiesArray</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">stickiesArray</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">stickiesArray</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">stickiesArray</span>));
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">stickiesArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">stickiesArray</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stickiesArray</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//创建其他键值，并且从用户界面得到所选颜色值，并且转换为HSL值，写入localStorage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//stickyObj是一个对象，不同于数组了。对象是个很抽象的玩意，Everything is an object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createSticky</span> (){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stickiesArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getStickiesArray</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">currentDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();<span style="color:#75715e">//按照时间获得一个随机数，保证键值不重复
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">colorSelectObj</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">note_color</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorSelectObj</span>.<span style="color:#a6e22e">selectedIndex</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">colorName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorSelectObj</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">colorHSL</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorNameToHSL</span>(<span style="color:#a6e22e">colorName</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">note_text</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;).<span style="color:#a6e22e">val</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">sticky_</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>; <span style="color:#f92672">+</span> <span style="color:#a6e22e">currentDate</span>.<span style="color:#a6e22e">getTime</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stickyObj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">value</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">colorHSL</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#f92672">:</span> <span style="color:#a6e22e">colorHSL</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//将对象写入localStorage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">stickyObj</span>));
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//将键名添加到哪个神奇的母键的最后一项
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">stickiesArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">stickiesArray</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">stickiesArray</span>));
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//添加便贴到DOM
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">addStickyToDOM</span>(<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">stickyObj</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//添加便贴到DOM的具体步骤，stickyObj是一个对象，要用.来访问子元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">addStickyToDOM</span> (<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">stickyObj</span>){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sticky</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">li</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sticky</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">id</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sticky</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">style</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">background</span><span style="color:#f92672">-</span><span style="color:#a6e22e">color</span><span style="color:#f92672">:</span><span style="color:#a6e22e">hsl</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>; <span style="color:#f92672">+</span> <span style="color:#a6e22e">stickyObj</span>.<span style="color:#a6e22e">colorHSL</span> <span style="color:#f92672">+&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#ae81ff">56</span><span style="color:#f92672">%</span>, <span style="color:#ae81ff">60</span><span style="color:#f92672">%</span>);<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);<span style="color:#75715e">//HSL中的色相保持随机，其他的固定上。保证颜色的饱和度和亮度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">span</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">span</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">span</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#66d9ef">class</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">sticky</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">span</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">stickyObj</span>.<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sticky</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">span</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">$</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">note_display_ul</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;).<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">sticky</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sticky</span>.<span style="color:#a6e22e">onclick</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">deleteSticky</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//删除即时贴的函数，做了一个判断，判断点击对象并确保为ul下的li元素，而不是span
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//同时还要更新删除过后的stickiesArray数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">deleteSticky</span> (<span style="color:#a6e22e">e</span>){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">confirm</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">你确定要删除这个即时贴吗</span><span style="color:#960050;background-color:#1e0010">？</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;)){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">id</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">tagName</span>.<span style="color:#a6e22e">toLowerCase</span>() <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">span</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;) {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">id</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">removeItem</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stickiesArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getStickiesArray</span>();
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">stickiesArray</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">lt</span>; <span style="color:#a6e22e">stickiesArray</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">key</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">stickiesArray</span>[<span style="color:#a6e22e">i</span>]){
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">stickiesArray</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">i</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">stickiesArray</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">stickiesArray</span>));
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">removeStickyFromDom</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//从DOM中删除已经删除的便贴
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">removeStickyFromDom</span>(<span style="color:#a6e22e">key</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sticky</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#a6e22e">key</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sticky</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">sticky</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//将colorName根据HSL的颜色值进行分析并返回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">colorNameToHSL</span>(<span style="color:#a6e22e">colorName</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">colorName</span> <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">科技蓝</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">200</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">colorName</span> <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">淡雅黄</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">60</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">colorName</span> <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">清新绿</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">colorName</span> <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">暧昧粉</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">325</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">colorName</span> <span style="color:#f92672">==</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;<span style="color:#a6e22e">高贵紫</span><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">quot</span>;){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">250</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">random_num</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>()<span style="color:#f92672">*</span><span style="color:#ae81ff">359</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">random_num</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
     </article>
 
     
@@ -1455,7 +1226,7 @@ a {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 339 "
+    on="tap: 313 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1463,7 +1234,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="339"
+    id="313"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1508,7 +1279,7 @@ a {
      width="700"
      height="250"
      layout="responsive"
-    on="tap: 982 "
+    on="tap: 718 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1516,7 +1287,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="982"
+    id="718"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1567,6 +1338,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

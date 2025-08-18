@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/webgeek-app-retro/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/webgeek-app-retro/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/webgeek-app-retro/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/webgeek-app-retro/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/webgeek-app-retro/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/webgeek-app-retro/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/webgeek-app-retro\/",
           "name": "webgeek-app-retro"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="1024"
      height="512"
      layout="responsive"
-    on="tap: 779 "
+    on="tap: 97 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="779"
+    id="97"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -847,8 +867,7 @@ a {
 <li>使用JSON作为数据交换格式</li>
 <li>Zepto.js作为javascript框架</li>
 <li>应用地址：<a href="http://geekers.sinaapp.com/mobile/">点击进入</a></li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <p>App功能实际上主要是模拟登陆教务系统，然后对成绩、课表等进行抓取，并按照手机排版格式优化输出。除此之外，还对数据进行收集，做数据的二次挖掘。</p>
 <h3 id="心得">心得</h3>
 <h5 id="1-关于用户登录">1. 关于用户登录</h5>
@@ -857,23 +876,12 @@ a {
 <p>这个本身是没有什么好说的，但是本次在设计的时候使用到了JSON。如果一个二维数组想要存储进数据库，可以把某一列数据格式化为JSON后再存储进去，非常方便，PHP需要用的时候再解析出来。不过再要新加数据的话就要全部解析出来，转化成数组再格式化回去，适合没有多少数据量的列。</p>
 <h5 id="3-移动端的html-meta标记">3. 移动端的HTML meta标记</h5>
 <p>第一个当然要说的是屏幕比例，第一行meta可以禁用用户双击放大、所小用户屏幕。我们已经为移动端做了优化，放大缩小功能当然是不需要的。而viewport则是设定了网页最大宽度等于设备的显示宽度。第二个meta表示是否禁止ios safari浏览器的工具栏。第三个则是工具栏的颜色调试。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;wx_pic&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#39;margin:0 auto;display:none;&#39;</span><span class="p">&gt;</span>
-	    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$images_url</span><span class="p">;</span><span class="cp">?&gt;</span><span class="s">/icon.jpg&#39;</span> <span class="p">/&gt;</span>
-	<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h5 id="4-移动端框架选择">4. 移动端框架选择：</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;wx_pic&#39;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;margin:0 auto;display:none;&#39;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&lt;?php echo $images_url;?&gt;/icon.jpg&#39;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h5 id="4-移动端框架选择">4. 移动端框架选择：</h5>
 <p>最初尝试了jQuery Mobile，这款框架功能很丰富，尤其是Ajax方面做的很好。但是性能着实堪忧，在Android的低端手机上反应很慢，有时候进一个网页需要30s + 。这当然是无法忍受的，所以又尝试了很多发现Ratchet不错，这个框架是twitter公司开发出的bootstrap“移动版”。这一点令我很纳闷，bootstrap 3.0本身就是移动优先的，那为何又有一个Ratchet？不过使用之后发现这款框架仍然不够成熟，而且用的人也比较少。后来我甚至去掉了框架里的JS，只是使用了布局和图标。</p>
 <h5 id="5-性能优化">5. 性能优化：</h5>
 <p>性能是移动端的瓶颈之一，如果不是引入了jiathis分享和多说评论，我对性能还是很满意的。从测试来看访问速度都很快，毕竟做了很多优化。不过还好，jiathis和多说都是ajax加载的，不会影响太多。说道优化必须说的就是图片优化，这个项目中首先采用了服务器端的gzip优化，将静态资源CSS、JS、图片等在服务器端压缩，然后浏览器会自动解压，节省传输中的带宽。其次对有所有的图片进行了压缩。因为采用了前端构建工具Grunt，所以很方便。Grunt会自动编译Less、压缩所有CSS到style.min.css、压缩所有JS、压缩所有图片。在Google的PageSpeed评分中各项指标都达到了L，只有一项是M。没有H。
@@ -890,76 +898,38 @@ a {
 <li>
 <p>SEO优化、分享时的标题文字和图片优化。每个页面单独有SEO Title和Description，通过单独设计这些文字，页面被分享的时候才会更加吸引人。如果有必要可以借鉴微信朋友圈很火的游戏“围住神经猫”在分享中带上自己的得分等，引起社交攀比，有利于应用推广。同时附上微信分享中的图片设置代码：</p>
 </li>
-</ol>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;wx_pic&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;margin: 0 auto; display: none;&#34;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$images_url</span><span class="p">;</span><span class="cp">?&gt;</span><span class="s">/icon.jpg&#34;</span><span class="p">/&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>对的，你没看错，是在head标签中加入<code>div#wx_pic</code>我也很郁闷这不是破坏了HTML结构么，但是微信就是这么二。</p>
-</blockquote>
+</ol></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wx_pic&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin: 0 auto; display: none;&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;?php echo </span><span style="color:#e6db74">$images_url</span><span style="color:#e6db74">;?&gt;/icon.jpg&#34;</span><span style="color:#f92672">/&gt;&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><blockquote>
+<p>对的，你没看错，是在head标签中加入<code>div#wx_pic</code>我也很郁闷这不是破坏了HTML结构么，但是微信就是这么二。</p></blockquote>
 <h5 id="8-关于移动端的布局">8. 关于移动端的布局</h5>
 <p>移动端浏览器对<code>position:fixed</code>支持不是很好，想要尝试固定你的标题栏导航栏之类的可以试试iscroll这个JS框架。除此之外对全局使用<code>position:absolute</code>然后所以页面包含在这个标签内也会有问题，测试发现当网页需要想下翻动时由于浏览器的工具栏有时会隐藏，此种方式会造成<code>position:absolute</code>的判定不准。从形式上来看就会感觉网页有卡顿。所以不再非不得已的情况下不要我觉得还是不要使用<code>absolute</code>和<code>fixed</code>的比较好。</p>
 <h5 id="9-关于移动端的event事件">9. 关于移动端的Event事件</h5>
 <p>移动端的不叫click事件。而且当你使用jQuery的<code>click function</code>的时候会发现有迟钝甚至没反应。因为在移动端的点击事件叫做<code>tap</code>事件，双击<code>double tap</code>等等。推荐在移动端使用Zepto.js作为替代jQuery的选择，用法几乎和jQuery一样，所以不存在学习成本。</p>
 <h5 id="10-input标签的tabindexautofocusplaceholder">10. input标签的tabindex、autofocus、placeholder</h5>
 <p>各个标签的意义就不用解释了，不懂的请自行百度。只是这次新认识一个tabindex表示tab切换的标签，以及一个小的技巧就是隐藏的submit标签，用来enter提交表单。不需要去做事件监听，性能应该好点。只需要在JS端检测submit事件即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-group bind_form&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;jwweb&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;jwweb&#34;</span> <span class="na">onsubmit</span><span class="o">=</span><span class="s">&#34;return false&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-row&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;xh&#34;</span><span class="p">&gt;</span>学号：<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;number&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;201193014000&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;xh&#34;</span> <span class="na">autofocus</span><span class="o">=</span><span class="s">&#34;autofocus&#34;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-row&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;password&#34;</span><span class="p">&gt;</span>密码：<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-row&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>验证码：<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void(0)&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;reloadcode&#34;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;codeimg&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">base_url</span><span class="p">(</span><span class="s2">&#34;jwweb/getvalidcode&#34;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="s">&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;
-</span><span class="s">        margin-top: 4px;&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-row&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;cCode&#34;</span><span class="p">&gt;</span>请输入：<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;4&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;abcd&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;cCode&#34;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&#34;3&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;display:none&#34;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>暂时能想到的就是这么多了，这个项目做完后准备学习一下<code>Node</code>和<code>Angularjs</code>，备战十月份的找工作，如果有哪个公司要招前端的烦劳联系我一下。大四准毕业生，有三年web开发经验，准备在北京找全职工作。会设计、懂代码、前后端通吃。邮箱：mail@liyaodong.com 还有两个月，好好加油！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-group bind_form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jwweb&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jwweb&#34;</span> <span style="color:#a6e22e">onsubmit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;return false&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xh&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">学号：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;201193014000&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xh&#34;</span> <span style="color:#a6e22e">autofocus</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;autofocus&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">密码：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">验证码：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript:void(0)&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;reloadcode&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;codeimg&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;?php echo base_url(&#34;</span><span style="color:#a6e22e">jwweb</span><span style="color:#f92672">/</span><span style="color:#a6e22e">getvalidcode</span><span style="color:#e6db74">&#34;);?&gt;&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        margin-top: 4px;&#34;</span><span style="color:#f92672">&gt;&lt;/</span><span style="color:#a6e22e">a</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cCode&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">请输入：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abcd&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cCode&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display:none&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">form</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>暂时能想到的就是这么多了，这个项目做完后准备学习一下<code>Node</code>和<code>Angularjs</code>，备战十月份的找工作，如果有哪个公司要招前端的烦劳联系我一下。大四准毕业生，有三年web开发经验，准备在北京找全职工作。会设计、懂代码、前后端通吃。邮箱：mail@liyaodong.com 还有两个月，好好加油！</p>
     </article>
 
     
@@ -1005,7 +975,7 @@ a {
      width="700"
      height="400"
      layout="responsive"
-    on="tap: 768 "
+    on="tap: 474 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1013,7 +983,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="768"
+    id="474"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1049,7 +1019,7 @@ a {
      width="700"
      height="394"
      layout="responsive"
-    on="tap: 650 "
+    on="tap: 450 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1057,7 +1027,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="650"
+    id="450"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1093,7 +1063,7 @@ a {
      width="800"
      height="536"
      layout="responsive"
-    on="tap: 345 "
+    on="tap: 648 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1101,7 +1071,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="345"
+    id="648"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1152,6 +1122,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

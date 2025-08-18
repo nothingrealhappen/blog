@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/rss-list-for-software-development/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/rss-list-for-software-development/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/rss-list-for-software-development/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/rss-list-for-software-development/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/rss-list-for-software-development/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/rss-list-for-software-development/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/rss-list-for-software-development\/",
           "name": "rss-list-for-software-development"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="3750"
      height="1842"
      layout="responsive"
-    on="tap: 139 "
+    on="tap: 436 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="139"
+    id="436"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -849,8 +869,7 @@ a {
 <h3 id="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</h3>
 <p>最早接触张鑫旭的文章是自己还在学 CSS 的时候，正是他的文章让我搞懂了 CSS Flex 的布局。不得不说我觉得张鑫旭是个很聪明踏实的人，能够日复一日年复一年的坚持学习和写作（可能还有钓鱼？），正如他所说的一样：</p>
 <blockquote>
-<p>技术比人情更可靠，你所学习的技术知识，积累的那些细节和经验，百分之一百日后可以给你带来令你欣喜的价值，而且这个价值连绵不绝，持续不断，越筑越高。因为技术不像人，技术不会欺骗你，而且越基础的技术越忠诚。</p>
-</blockquote>
+<p>技术比人情更可靠，你所学习的技术知识，积累的那些细节和经验，百分之一百日后可以给你带来令你欣喜的价值，而且这个价值连绵不绝，持续不断，越筑越高。因为技术不像人，技术不会欺骗你，而且越基础的技术越忠诚。</p></blockquote>
 <p>网站：<a href="https://www.zhangxinxu.com/">https://www.zhangxinxu.com/</a></p>
 <p>RSS: <a href="https://www.zhangxinxu.com/wordpress/feed/">https://www.zhangxinxu.com/wordpress/feed/</a></p>
 <h3 id="thoughtworks-洞见">ThoughtWorks 洞见</h3>
@@ -921,7 +940,7 @@ a {
      width="1920"
      height="937"
      layout="responsive"
-    on="tap: 842 "
+    on="tap: 248 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -929,7 +948,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="842"
+    id="248"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -965,7 +984,7 @@ a {
      width="2560"
      height="1347"
      layout="responsive"
-    on="tap: 660 "
+    on="tap: 43 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -973,7 +992,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="660"
+    id="43"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1009,7 +1028,7 @@ a {
      width="1920"
      height="1267"
      layout="responsive"
-    on="tap: 767 "
+    on="tap: 494 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1017,7 +1036,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="767"
+    id="494"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1068,6 +1087,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

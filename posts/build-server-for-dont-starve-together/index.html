@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/build-server-for-dont-starve-together/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/build-server-for-dont-starve-together/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/build-server-for-dont-starve-together/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/build-server-for-dont-starve-together/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/build-server-for-dont-starve-together/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/build-server-for-dont-starve-together/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/build-server-for-dont-starve-together\/",
           "name": "build-server-for-dont-starve-together"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="1920"
      height="937"
      layout="responsive"
-    on="tap: 842 "
+    on="tap: 248 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="842"
+    id="248"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -872,7 +892,7 @@ a {
      width="751"
      height="380"
      layout="responsive"
-    on="tap: 1000 "
+    on="tap: 5 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -880,7 +900,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="1000"
+    id="5"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -889,68 +909,31 @@ a {
 <p>从图上可以看到实际上是绕路美国了一圈然后才到新加坡的，造成这样的结果原因很复杂，可能和你的运营商所在的线路有关系。在看了一些文章以后发现香港可能是个更好的选择，国内到香港的速度一般都比较快，而香港大多数情况下又能直接连接到新加坡。如果能在香港找一个服务器那便是相当于强制从香港路过，想必要比走美国绕路要快的多。另外之前是西安到美国再到新加坡，优化之后将会变成 A 从西安出发去香港，B 同时从新加坡出发去香港，这样也会比一个人开服务器直连的效果好很多。因此这个方案最主要的是找到稳定的中间点，不一定是地理意义上的，但最好 ping 一下你即将要选择的中间节点，看看延迟和丢包率的情况如何。</p>
 <h2 id="搭建饥荒服务器">搭建饥荒服务器</h2>
 <p>网上搭建饥荒服务器的教程非常多，通常都很冗余。而我坚信 2020 年了搭建一个服务器完全不需要运行如此冗余的脚本，不出所料一个 <a href="https://github.com/Jamesits/docker-dst-server">docker 命令</a>搞定所有。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -v <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.klei/DoNotStarveTogether:/data -p 10999-11000:10999-11000/udp -p 12346-12347:12346-12347/udp -it jamesits/dst-server:latest
-</code></pre></td></tr></table>
-</div>
-</div><p>在 docker 搭建完成后，你的 home 目录会有 <code>.klei</code> 文件夹，<a href="http://blog.ttionya.com/article-1235.html">按照网上的一些教程</a>来进行 token 以及世界相关的配置之后便可以畅快玩耍了。轻车熟路后这样的一个服务器搭建可能只需要最多20分钟即可搭建完毕。然而还没高兴起来就发现当我导入了一个 400 天的存档到我买的单核 1G 内存的服务器上时服务器爆了，因为存档的时间太长数据太多，服务器性能不足无法。辗转搜索后发现如果你想支持地上和洞穴两个世界那你的服务器至少需要双核 4G 内存，乍一想这成本有点高啊，一个搬瓦工这样配置的服务器一年需要 200 USD。只是为了解决两三个人联机玩游戏的问题似乎有点杀鸡用牛刀的感觉。有没有其他办法呢？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -v <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/.klei/DoNotStarveTogether:/data -p 10999-11000:10999-11000/udp -p 12346-12347:12346-12347/udp -it jamesits/dst-server:latest
+</span></span></code></pre></div><p>在 docker 搭建完成后，你的 home 目录会有 <code>.klei</code> 文件夹，<a href="http://blog.ttionya.com/article-1235.html">按照网上的一些教程</a>来进行 token 以及世界相关的配置之后便可以畅快玩耍了。轻车熟路后这样的一个服务器搭建可能只需要最多20分钟即可搭建完毕。然而还没高兴起来就发现当我导入了一个 400 天的存档到我买的单核 1G 内存的服务器上时服务器爆了，因为存档的时间太长数据太多，服务器性能不足无法。辗转搜索后发现如果你想支持地上和洞穴两个世界那你的服务器至少需要双核 4G 内存，乍一想这成本有点高啊，一个搬瓦工这样配置的服务器一年需要 200 USD。只是为了解决两三个人联机玩游戏的问题似乎有点杀鸡用牛刀的感觉。有没有其他办法呢？</p>
 <h2 id="曲线救国之代理模式">曲线救国之代理模式</h2>
 <p>如果这样的一个服务器太贵那是否能走一个中间人代理呢？在本地架设服务器，本地机器的性能是完全足够的。然后把本机的服务器通过某个中间服务器代理出去，这样看起来别人访问的是你在香港的服务器但实际上数据是从你本地发送过去的。虽然比之前的方案路长了一点，但是仍然是一个不错的方案至少不用绕路美国。</p>
 <p><a href="https://github.com/fatedier/frp">frp</a> 便是这样的一个工具，设置你在香港的中转服务器为 frp server，只需要设置一个密码和端口即可：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">[common]
-bind_port = 7000
-token = yourpassword
-</code></pre></td></tr></table>
-</div>
-</div><p>然后启动饥荒服务器的本地机器设置好饥荒服务器的代理端口：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">[common]
-server_addr = 106.54.56.15
-token = yourpassword
-
-[dst_master_udp]
-type = udp
-local_port = 10999
-local_ip = 127.0.0.1
-remote_port = 10999
-
-[dst_cave_udp]
-type = udp
-local_port = 10998
-local_ip = 127.0.0.1
-remote_port = 10998
-</code></pre></td></tr></table>
-</div>
-</div><p>直接在 Steam 中启动饥荒即可，这样的方案好处是你完全不需要中间的代理服务器有多强的性能，单核 500M 完全够用。你所需要的仅仅是一个好的网络节点，这样的成本一个月完全可以控制在 10$ 以内了。看起来现在可以愉快地玩耍了？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[common]
+</span></span><span style="display:flex;"><span>bind_port = 7000
+</span></span><span style="display:flex;"><span>token = yourpassword
+</span></span></code></pre></div><p>然后启动饥荒服务器的本地机器设置好饥荒服务器的代理端口：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[common]
+</span></span><span style="display:flex;"><span>server_addr = 106.54.56.15
+</span></span><span style="display:flex;"><span>token = yourpassword
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[dst_master_udp]
+</span></span><span style="display:flex;"><span>type = udp
+</span></span><span style="display:flex;"><span>local_port = 10999
+</span></span><span style="display:flex;"><span>local_ip = 127.0.0.1
+</span></span><span style="display:flex;"><span>remote_port = 10999
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[dst_cave_udp]
+</span></span><span style="display:flex;"><span>type = udp
+</span></span><span style="display:flex;"><span>local_port = 10998
+</span></span><span style="display:flex;"><span>local_ip = 127.0.0.1
+</span></span><span style="display:flex;"><span>remote_port = 10998
+</span></span></code></pre></div><p>直接在 Steam 中启动饥荒即可，这样的方案好处是你完全不需要中间的代理服务器有多强的性能，单核 500M 完全够用。你所需要的仅仅是一个好的网络节点，这样的成本一个月完全可以控制在 10$ 以内了。看起来现在可以愉快地玩耍了？</p>
 <h2 id="主机想关机怎么办">主机想关机怎么办？</h2>
 <p>对的，如果你期望你的朋友们可以随时进入你的饥荒服务器，那上面的方案要求你的这台电脑一直开启 steam，你可能不舍得让你的 6700k/1070 彻夜工作，毕竟费电而且吵。这个时候如果你的家里有 NAS 服务器并且性能还可以，那你就可以用这台服务器装上 docker 然后按照上面的 docker 教程一键启动一台服务器了。家里的这台 NAS 可以同时承担 NAS、饥荒游戏服务器、软路由等多种功能，也算是一机多用了。另外你在香港某地的 500M 内存服务器除了开个 frp 做游戏代理之外也可以用作他用，顺手 docker 启动一个 xxx 服务器岂不美哉。</p>
 <p>服务器总算是折腾好了，现在终于可以安心的在饥荒里种地了，希望各位也能玩的开心。</p>
@@ -989,7 +972,7 @@ remote_port = 10998
      width="3750"
      height="1842"
      layout="responsive"
-    on="tap: 139 "
+    on="tap: 436 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -997,7 +980,7 @@ remote_port = 10998
 </amp-img>
 
 <amp-image-lightbox
-    id="139"
+    id="436"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1033,7 +1016,7 @@ remote_port = 10998
      width="2560"
      height="1347"
      layout="responsive"
-    on="tap: 660 "
+    on="tap: 43 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1041,7 +1024,7 @@ remote_port = 10998
 </amp-img>
 
 <amp-image-lightbox
-    id="660"
+    id="43"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1077,7 +1060,7 @@ remote_port = 10998
      width="1920"
      height="1267"
      layout="responsive"
-    on="tap: 767 "
+    on="tap: 494 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1085,7 +1068,7 @@ remote_port = 10998
 </amp-img>
 
 <amp-image-lightbox
-    id="767"
+    id="494"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1136,6 +1119,18 @@ remote_port = 10998
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

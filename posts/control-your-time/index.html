@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/control-your-time/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/control-your-time/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/control-your-time/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/control-your-time/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/control-your-time/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/control-your-time/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/control-your-time\/",
           "name": "control-your-time"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -830,7 +850,7 @@ a {
      width="1600"
      height="1200"
      layout="responsive"
-    on="tap: 972 "
+    on="tap: 437 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -838,7 +858,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="972"
+    id="437"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -847,8 +867,7 @@ a {
 时间管理这个看起来虚无缥缈的事情必须有一些简单可实现的原则，从一点一滴做起慢慢养成好习惯。</p>
 <p>最近在看<a href="https://twitter.com/xiaolai">李笑来</a>老师的<a href="http://zhibimo.com/explore/books/ba-shi-jian-dang-zuo-peng-you">把时间当朋友</a>一书，深有感触。书中提到的最多的一句话便是：</p>
 <blockquote>
-<p>时间不可被管理，一切都靠积累</p>
-</blockquote>
+<p>时间不可被管理，一切都靠积累</p></blockquote>
 <p>相对于以前看过的各种<strong>时间管理</strong>文章来说，笑来老师的文章很贴近真实。没有说教的感觉，学习了。</p>
 <h3 id="先来说说态度上">先来说说态度上</h3>
 <p><strong>人并不是完美的</strong>，要承认自己不完美并正视自己的缺点。所以当自己懒，或者拖延症又犯了或者效率又低了的时候，一定要调整好心态。有时候事情很多人就很容易焦躁，既焦虑又难受，好多事情啊！做不完了怎么办怎么办！于是抱怨了一会又去刷微博了，结果到晚上了还是一件事情都没做。</p>
@@ -911,7 +930,7 @@ a {
      width="630"
      height="300"
      layout="responsive"
-    on="tap: 404 "
+    on="tap: 386 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -919,7 +938,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="404"
+    id="386"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -966,7 +985,7 @@ a {
      width="1440"
      height="677"
      layout="responsive"
-    on="tap: 506 "
+    on="tap: 137 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -974,7 +993,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="506"
+    id="137"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1020,7 +1039,7 @@ a {
      width="1440"
      height="875"
      layout="responsive"
-    on="tap: 552 "
+    on="tap: 778 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1028,7 +1047,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="552"
+    id="778"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1079,6 +1098,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

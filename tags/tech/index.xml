@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tech on 晓风博客</title>
+    <title>Tech on 晓风博客</title>
     <link>https://blog.liyaodong.com/tags/tech/</link>
-    <description>Recent content in tech on 晓风博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Tech on 晓风博客</description>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 05 Feb 2012 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.liyaodong.com/tags/tech/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 05 Feb 2012 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.liyaodong.com/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>别轻易放弃，或许下一步就是成功。</title>
       <link>https://blog.liyaodong.com/posts/dont-give-up-early/</link>
-      <pubDate>Sun, 05 Feb 2012 00:00:00 +0000</pubDate>
-      
+      <pubDate>Sun, 05 Feb 2012 00:00:00 +0800</pubDate>
       <guid>https://blog.liyaodong.com/posts/dont-give-up-early/</guid>
-      <description>&lt;p&gt;记住，别轻易放弃抠门，成功会在你下一次抠门时，微笑着迎接你的。&lt;/p&gt;
-&lt;p&gt;昨天给去姐姐家修理电脑，遇到了些可笑的问题。分享给各位朋友，希望大家以后不再走弯路。&lt;/p&gt;</description>
+      <description>&lt;p&gt;记住，别轻易放弃抠门，成功会在你下一次抠门时，微笑着迎接你的。&lt;/p&gt;&#xA;&lt;p&gt;昨天给去姐姐家修理电脑，遇到了些可笑的问题。分享给各位朋友，希望大家以后不再走弯路。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

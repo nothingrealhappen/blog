@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/use-css-to-optimize-browser-scrollbar/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/use-css-to-optimize-browser-scrollbar/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/use-css-to-optimize-browser-scrollbar/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/use-css-to-optimize-browser-scrollbar/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/use-css-to-optimize-browser-scrollbar/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/use-css-to-optimize-browser-scrollbar/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/use-css-to-optimize-browser-scrollbar\/",
           "name": "use-css-to-optimize-browser-scrollbar"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -805,47 +825,24 @@ a {
 <p>我博客：<a href="http://liyaodong.sinaapp.com">http://liyaodong.sinaapp.com</a></p>
 <p>文理微博墙：<a href="http://wlwbq.sinaapp.com">http://wlwbq.sinaapp.com</a></p>
 <h3 id="具体代码以文理微博墙的滚动条为例">具体代码（以文理微博墙的滚动条为例）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/* 定义滚动条宽度 */</span>
-<span class="p">::</span><span class="nd">-webkit-scrollbar</span> <span class="p">{</span>
-    <span class="k">width</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c">/* 定义那个轨道的样式 */</span>
-<span class="p">::</span><span class="nd">-webkit-scrollbar-track</span> <span class="p">{</span>
-    <span class="k">background</span><span class="p">:</span><span class="mh">#222</span><span class="p">;</span>
-    <span class="kp">-webkit-</span><span class="k">box-shadow</span><span class="p">:</span> <span class="kc">inset</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c">/* 定义滚动按钮的样式，就是那个bar */</span>
-<span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span> <span class="p">{</span>
-    <span class="kp">-webkit-</span><span class="k">border-radius</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">background</span><span class="p">:</span> <span class="kp">-webkit-</span><span class="nf">gradient</span><span class="p">(</span><span class="kc">linear</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">100</span><span class="kt">%</span><span class="p">,</span> <span class="nf">from</span><span class="p">(</span><span class="mh">#43bbe7</span><span class="p">)</span><span class="p">,</span> <span class="nf">to</span><span class="p">(</span><span class="mh">#2188d5</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>看前缀应该就知道，这个是浏览器的自定义样式。而不是普通的样式。浏览器的样式是用::两个冒号来开头的，很奇怪吧。以前没见过。然后看代码，track就是轨道，thumb就是滚动按钮，-weibkit-gradient是渐变，linear是线性渐变。下面给出这个伪元素的相关属性吧：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* 定义滚动条宽度 */</span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">-webkit-scrollbar</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 定义那个轨道的样式 */</span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">-webkit-scrollbar-track</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#222</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">box-shadow</span>: <span style="color:#66d9ef">inset</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 定义滚动按钮的样式，就是那个bar */</span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">-webkit-scrollbar-thumb</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">-webkit-</span><span style="color:#a6e22e">gradient</span>(<span style="color:#66d9ef">linear</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#a6e22e">from</span>(<span style="color:#ae81ff">#43bbe7</span>), <span style="color:#a6e22e">to</span>(<span style="color:#ae81ff">#2188d5</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>看前缀应该就知道，这个是浏览器的自定义样式。而不是普通的样式。浏览器的样式是用::两个冒号来开头的，很奇怪吧。以前没见过。然后看代码，track就是轨道，thumb就是滚动按钮，-weibkit-gradient是渐变，linear是线性渐变。下面给出这个伪元素的相关属性吧：</p>
 <p>::-webkit-scrollbar 滚动条整体部分
 ::-webkit-scrollbar-button 滚动条两端的按钮
 ::-webkit-scrollbar-track 外层轨道
@@ -889,7 +886,7 @@ a {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 298 "
+    on="tap: 715 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -897,7 +894,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="298"
+    id="715"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -933,7 +930,7 @@ a {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 296 "
+    on="tap: 205 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -941,7 +938,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="296"
+    id="205"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -977,7 +974,7 @@ a {
      width="700"
      height="250"
      layout="responsive"
-    on="tap: 982 "
+    on="tap: 718 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -985,7 +982,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="982"
+    id="718"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1036,6 +1033,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -56,12 +59,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/dont-give-up-early/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/dont-give-up-early/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/dont-give-up-early/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/dont-give-up-early/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/dont-give-up-early/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/dont-give-up-early/" title="">
 
 
 
@@ -77,7 +83,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -85,17 +91,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -126,19 +128,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/dont-give-up-early\/",
           "name": "dont-give-up-early"
@@ -553,7 +555,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -674,6 +676,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -785,7 +805,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -837,7 +857,7 @@ a {
      width="234"
      height="125"
      layout="intrinsic"
-    on="tap: 951 "
+    on="tap: 198 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -845,7 +865,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="951"
+    id="198"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -883,7 +903,7 @@ a {
      width="234"
      height="125"
      layout="intrinsic"
-    on="tap: 820 "
+    on="tap: 917 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -891,13 +911,13 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="820"
+    id="917"
     layout="nodisplay"
 >
 </amp-image-lightbox>
 
 
-<p>这个错误导致Onekey Ghost不能启动，一键还原失败。此时我自然想到了手动运行Ghost没想到手动运行Ghost也失败。试过打开迅雷也同样弹出错误。为什么会弹出这样的错误呢？经过分析应该是系统的问题，那换个系统应该可以了。用什么呢？当然是装机人员必备的Windows PE了。没有多余U盘，只有用内存卡+读卡器安装U盘PE了。于是乎轻车熟路，UltraISO写入磁盘映像，写入成功。重启，Press Del进入 BIOS , First Boot Device,USB Boot，F10，确定。重启进入PE后再运行Onekey Ghost ，另我郁闷的是，同样弹出了这个错误窗口。这是为什么呢？这个时候就只有求助伟大的度娘了，度娘上提这个问题的有10个人左右。粗略地翻过百度知道后总结是硬盘分区表的问题，重新分区之就可以解决。好吧，看似很小的问题其实很严重，竟然要对硬盘重新分区。无奈之下我将重要资料转移到U盘上后开始进行重新分区。分完区后利用手动Ghost安装了系统。谢天谢地，总算把系统重新换掉了。可是进入新系统后发现网卡驱动安装失败，驱动不能正常工作。哎~真是“刚翻过了一座山，又遇到一条河”&hellip;Ghost版本的xp系统一般都自带网卡驱动的，这次怎么回事？竟然没网卡驱动？郁闷~只有自己重新安装一个驱动了。因为没网，也没带驱动人生的离线安装包，所以只有用手机下载驱动了。哈哈，关键时刻还是手机给力，费了一番周折后终于下载好了驱动。遂立即安装之，令我崩溃的是驱动竟然也安装失败。弹出一串串鸟语@￥#%&amp;只看懂了一句话：安装失败！郁闷吖~纠结吖~今天怎么这么衰呢？想到了刚才的错误，我又去打开Onekey Ghost，乞求那个错误已经被重装系统解决。没想到错误还在&hellip;唉~山还没翻过去，又遇到泥石流了。经过N分钟挣扎后，我绝望了，或许是硬盘质量的问题&hellip;</p>
+<p>这个错误导致Onekey Ghost不能启动，一键还原失败。此时我自然想到了手动运行Ghost没想到手动运行Ghost也失败。试过打开迅雷也同样弹出错误。为什么会弹出这样的错误呢？经过分析应该是系统的问题，那换个系统应该可以了。用什么呢？当然是装机人员必备的Windows PE了。没有多余U盘，只有用内存卡+读卡器安装U盘PE了。于是乎轻车熟路，UltraISO写入磁盘映像，写入成功。重启，Press Del进入 BIOS , First Boot Device,USB Boot，F10，确定。重启进入PE后再运行Onekey Ghost ，另我郁闷的是，同样弹出了这个错误窗口。这是为什么呢？这个时候就只有求助伟大的度娘了，度娘上提这个问题的有10个人左右。粗略地翻过百度知道后总结是硬盘分区表的问题，重新分区之就可以解决。好吧，看似很小的问题其实很严重，竟然要对硬盘重新分区。无奈之下我将重要资料转移到U盘上后开始进行重新分区。分完区后利用手动Ghost安装了系统。谢天谢地，总算把系统重新换掉了。可是进入新系统后发现网卡驱动安装失败，驱动不能正常工作。哎<del>真是“刚翻过了一座山，又遇到一条河”&hellip;Ghost版本的xp系统一般都自带网卡驱动的，这次怎么回事？竟然没网卡驱动？郁闷</del>只有自己重新安装一个驱动了。因为没网，也没带驱动人生的离线安装包，所以只有用手机下载驱动了。哈哈，关键时刻还是手机给力，费了一番周折后终于下载好了驱动。遂立即安装之，令我崩溃的是驱动竟然也安装失败。弹出一串串鸟语@￥#%&amp;只看懂了一句话：安装失败！郁闷吖<del>纠结吖</del>今天怎么这么衰呢？想到了刚才的错误，我又去打开Onekey Ghost，乞求那个错误已经被重装系统解决。没想到错误还在&hellip;唉~山还没翻过去，又遇到泥石流了。经过N分钟挣扎后，我绝望了，或许是硬盘质量的问题&hellip;</p>
 <p>我给姐说修不好了，打赛格“大脑”城的维修电话问问吧。找到购机时候的主板盒子后，拿了当初的发票，我打电话问之——@#￥%&amp;只听见了一句话：你把主机抱来吧。没办法，没能力自己解决就只有这样了。无奈之中又把发票放到主板盒子里。这时一张主板驱动光碟映入我的眼帘。“这不是驱动么！”我像是中几百万彩票似的&hellip;二话不说立马塞进电脑，进去光碟后发现这碟子做的甚是精致。以前根本没用过这玩意，今天就用上了，这厮应该有网卡驱动的。原来光碟中集成了主板所用到的所有官方驱动，是官方驱动！我找到小螃蟹（Realtek）的网卡驱动后立马就安装。官方到底是官方，没有弹出任何错误，网卡驱动成功安装。有了网就好办了，于是我到百度重新寻找ntax错误的原因找了好多好多都说是硬盘分区表的问题。可是我这硬盘已经被我重新分过两次了，问题依旧存在。忽然有人说：你看看你的时间。我看了下系统时间：2099年2月4日。2099年？莫非..我穿越了？恩。。。或许不是我穿越了，而是时间不对。我想了想，恩。。是的，是时间不对，我没有穿越。我把时间调到2012后马上去试了试，错误全部消失！！我当时。。那个百感交集啊，可笑不？这么小的一个问题。。竟然把硬盘整过来整过去的。希望以后有人再遇到这样的问题不要再像我一样了。接下来的一切都顺手了，电脑也修好了，圆满完成任务。回家~</p>
 <p>P.S.</p>
 <p>1.小螃蟹指的是<a href="http://baike.baidu.com/view/664104.htm" title="瑞昱百度百科">Realtek</a>（瑞昱）公司。因为Realtek公司的logo是一只螃蟹，有图有真相喔：</p>
@@ -932,7 +952,7 @@ a {
      width="300"
      height="60"
      layout="intrinsic"
-    on="tap: 188 "
+    on="tap: 97 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -940,7 +960,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="188"
+    id="97"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -985,7 +1005,7 @@ a {
      width="384"
      height="332"
      layout="intrinsic"
-    on="tap: 835 "
+    on="tap: 370 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -993,7 +1013,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="835"
+    id="370"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1029,7 +1049,7 @@ a {
      width="1280"
      height="960"
      layout="responsive"
-    on="tap: 370 "
+    on="tap: 491 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1037,7 +1057,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="370"
+    id="491"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1073,7 +1093,7 @@ a {
      width="668"
      height="328"
      layout="responsive"
-    on="tap: 868 "
+    on="tap: 921 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1081,7 +1101,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="868"
+    id="921"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1132,6 +1152,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

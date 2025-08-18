@@ -6,7 +6,7 @@
 
 <html amp lang="zh-cn" class="no-js">
 <head>
-	<meta name="generator" content="Hugo 0.63.1" />
+	<meta name="generator" content="Hugo 0.148.2">
     <title>晓风博客</title>
     <link rel="manifest" href="/manifest.webmanifest">
 
@@ -49,12 +49,15 @@
 <meta name="twitter:description" content="晓风博客是一个以技术成长、设计生活、个人心得为主题的个人博客，旨在与你分享生活点滴，共同成长。" />
 
 <base href="https://blog.liyaodong.com/">
+<link rel="canonical" href="https://blog.liyaodong.com/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/" />
 <meta property="og:url" content="https://blog.liyaodong.com/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/" title="">
 
 
 
@@ -70,7 +73,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -78,17 +81,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -107,7 +106,7 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     }]
@@ -520,7 +519,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -641,6 +640,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -752,7 +769,7 @@ a {
 
 
 <header class="site-header">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title">
             晓风博客
         </h1>
@@ -764,6 +781,59 @@ a {
 
 
 <div class="container">
+    
+    
+
+<article class="article-item">
+  <a
+    href="/posts/obsidian-to-hugo-blog/"
+    target='_self'
+    rel=''
+    class="article-item-link"
+  >
+    <h1 class="article-item-title">Obsidian 自动发布到 Hugo 博客</h1>
+  </a>
+  <time class="article-item-date">2025年8月18日</time>
+  <div class="article-item-summary">
+    <amp-img
+     src="https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg"
+    
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2025/08/18/obsidian-to-hugo-featured.jpg 2000w"
+    
+    
+    
+    
+    
+     width="896"
+     height="504"
+     layout="responsive"
+    on="tap: 417 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="417"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>作为一个重度 Obsidian 用户，我一直在寻找一种更高效的方式来将我的笔记发布到 Hugo 博客上。经过不断的探索和优化，我开发了一套完整的自动化解决方案，让你可以通过一键操作将 Obsidian 笔记转换并发布到 Hugo 博客。</p>
+  </div>
+</article>
+
     
     
 
@@ -799,7 +869,7 @@ a {
      width="3750"
      height="1842"
      layout="responsive"
-    on="tap: 139 "
+    on="tap: 436 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -807,7 +877,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="139"
+    id="436"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -852,7 +922,7 @@ a {
      width="1920"
      height="937"
      layout="responsive"
-    on="tap: 842 "
+    on="tap: 248 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -860,7 +930,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="842"
+    id="248"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -905,7 +975,7 @@ a {
      width="2560"
      height="1347"
      layout="responsive"
-    on="tap: 660 "
+    on="tap: 43 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -913,7 +983,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="660"
+    id="43"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -958,7 +1028,7 @@ a {
      width="1920"
      height="1267"
      layout="responsive"
-    on="tap: 767 "
+    on="tap: 494 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -966,7 +1036,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="767"
+    id="494"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1011,7 +1081,7 @@ a {
      width="1920"
      height="1281"
      layout="responsive"
-    on="tap: 12 "
+    on="tap: 125 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1019,7 +1089,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="12"
+    id="125"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1064,7 +1134,7 @@ a {
      width="5472"
      height="3648"
      layout="responsive"
-    on="tap: 544 "
+    on="tap: 681 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1072,7 +1142,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="544"
+    id="681"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1117,7 +1187,7 @@ a {
      width="4032"
      height="3024"
      layout="responsive"
-    on="tap: 515 "
+    on="tap: 436 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1125,7 +1195,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="515"
+    id="436"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1170,7 +1240,7 @@ a {
      width="1200"
      height="800"
      layout="responsive"
-    on="tap: 19 "
+    on="tap: 80 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1178,7 +1248,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="19"
+    id="80"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1207,149 +1277,37 @@ a {
 </article>
 
     
-    
-
-<article class="article-item">
-  <a
-    href="/posts/about-front-end-basic-concept/"
-    target='_self'
-    rel=''
-    class="article-item-link"
-  >
-    <h1 class="article-item-title">写给外行的前端入门教程</h1>
-  </a>
-  <time class="article-item-date">2018年2月10日</time>
-  <div class="article-item-summary">
-    <amp-img
-     src="https://image.liyaodong.com/2019/beginner-level.jpg"
-    
-    
-    sizes="(min-width: 720px) 700px, 100vw"
-    
-         srcset="
-        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 450w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 750w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 900w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 1200w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 1500w,
-        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/2019/beginner-level.jpg 2000w"
-    
-    
-    
-    
-    
-     width="1000"
-     height="621"
-     layout="responsive"
-    on="tap: 613 "
-    role="button"
-    aria-label="Image lightbox button"
-   tabindex="0"
->
-</amp-img>
-
-<amp-image-lightbox
-    id="613"
-    layout="nodisplay"
->
-</amp-image-lightbox>
-
-
-<p>一些简单通俗的前端领域相关名词解释，帮助各位想学前端的同学尽快入门。</p>
-  </div>
-</article>
 
     
-
-    
-
-<ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/6/">6</a></li>
-    
-    
-    <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
-
-
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
 </div>
 
 <footer class="site-footer">
@@ -1379,6 +1337,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

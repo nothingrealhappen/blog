@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/sae-version-wordpress-open-qiniu-cdn/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/sae-version-wordpress-open-qiniu-cdn\/",
           "name": "sae-version-wordpress-open-qiniu-cdn"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -820,7 +840,7 @@ a {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 339 "
+    on="tap: 313 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -828,7 +848,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="339"
+    id="313"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -839,8 +859,7 @@ a {
 <blockquote>
 <p>1.Wordpress 版本：<a href="http://blog.gimhoy.com/archives/wordpress-on-sae.html">wordpress 3.9 for SAE</a></p>
 <p>2.<a href="https://wyr.me/qiniu-sae-bae.html">七牛云Wordpress专版插件及参考教程</a></p>
-<p>3.参考资料：<a href="http://t.cn/RZkql1t">迁移博客图片资源从SAE到七牛</a></p>
-</blockquote>
+<p>3.参考资料：<a href="http://t.cn/RZkql1t">迁移博客图片资源从SAE到七牛</a></p></blockquote>
 <h3 id="现在来说说那些坑">现在来说说那些坑</h3>
 <p>1.如果你也启用插件了，但是博客显示部分图片无法访问。这个时候你需要在七牛云后台找到「空https://image.liyaodong.com站为例就是<code>http://7o500k.com1.z0.glb.clouddn.com</code>，使用这个地址作为插件后台设置中的「七牛绑定的域名」这一项。</p>
 <p>2.在七牛云后台设置镜像源的时候需要设置成你的SAE Storage的地址，本站为例：<code>https://image.liyaodong.com/</code></p>
@@ -886,7 +905,7 @@ a {
      width="1440"
      height="900"
      layout="responsive"
-    on="tap: 382 "
+    on="tap: 691 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -894,7 +913,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="382"
+    id="691"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -939,7 +958,7 @@ a {
      width="800"
      height="536"
      layout="responsive"
-    on="tap: 345 "
+    on="tap: 648 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -947,7 +966,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="345"
+    id="648"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -998,6 +1017,18 @@ a {
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>

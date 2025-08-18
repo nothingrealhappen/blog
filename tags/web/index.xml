@@ -1,78 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>web on 晓风博客</title>
+    <title>Web on 晓风博客</title>
     <link>https://blog.liyaodong.com/tags/web/</link>
-    <description>Recent content in web on 晓风博客</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Web on 晓风博客</description>
+    <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 12 Jan 2016 00:00:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.liyaodong.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://blog.liyaodong.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>聊聊信息渠道这件事</title>
       <link>https://blog.liyaodong.com/posts/how-to-get-valueable-information/</link>
       <pubDate>Tue, 12 Jan 2016 00:00:00 +0800</pubDate>
-      
       <guid>https://blog.liyaodong.com/posts/how-to-get-valueable-information/</guid>
       <description>&lt;p&gt;想想真是件可怕的事情，媒体一直以来都是件很重要的工具——法西斯用来控制人心、宗教用来控制思想、百度告诉你什么是「最好的」医院，朋友圈告诉你，什么是「最好的」祖传秘方。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>web滚动性能优化及兼容问题</title>
       <link>https://blog.liyaodong.com/posts/web-scroll-performance-and-compatibility/</link>
-      <pubDate>Thu, 07 May 2015 00:00:00 +0000</pubDate>
-      
+      <pubDate>Thu, 07 May 2015 00:00:00 +0800</pubDate>
       <guid>https://blog.liyaodong.com/posts/web-scroll-performance-and-compatibility/</guid>
-      <description>&lt;p&gt;
-
-
-
-
-
-    
-    
-
-
-&lt;amp-img
-     src=&#34;https://image.liyaodong.com/uploads/2015/05/mouse.jpg&#34;
-     alt=&#34;mouse &#34;
-    
-    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;
-    
-         srcset=&#34;
-        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 450w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 750w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 900w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 1200w,
-        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 1500w,
-        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 2000w&#34;
-    
-    
-    
-    
-    
-     width=&#34;700&#34;
-     height=&#34;350&#34;
-     layout=&#34;responsive&#34;
-    on=&#34;tap: 349 &#34;
-    role=&#34;button&#34;
-    aria-label=&#34;Image lightbox button&#34;
-   tabindex=&#34;0&#34;
-&gt;
-&lt;/amp-img&gt;
-
-&lt;amp-image-lightbox
-    id=&#34;349&#34;
-    layout=&#34;nodisplay&#34;
-&gt;
-&lt;/amp-image-lightbox&gt;
-
-
-如果滚动仅仅是onscroll那么简单那么本文就没有存在的必要了，至于兼容这个老生常谈的问题&amp;hellip;&amp;hellip;还是呵呵吧。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;    &#xA;&#xA;&#xA;&lt;amp-img&#xA;     src=&#34;https://image.liyaodong.com/uploads/2015/05/mouse.jpg&#34;&#xA;     alt=&#34;mouse &#34;&#xA;    &#xA;    sizes=&#34;(min-width: 720px) 700px, 100vw&#34;&#xA;    &#xA;         srcset=&#34;&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 450w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 750w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 900w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 1200w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 1500w,&#xA;        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/uploads/2015/05/mouse.jpg 2000w&#34;&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;     width=&#34;700&#34;&#xA;     height=&#34;350&#34;&#xA;     layout=&#34;responsive&#34;&#xA;    on=&#34;tap: 259 &#34;&#xA;    role=&#34;button&#34;&#xA;    aria-label=&#34;Image lightbox button&#34;&#xA;   tabindex=&#34;0&#34;&#xA;&gt;&#xA;&lt;/amp-img&gt;&#xA;&#xA;&lt;amp-image-lightbox&#xA;    id=&#34;259&#34;&#xA;    layout=&#34;nodisplay&#34;&#xA;&gt;&#xA;&lt;/amp-image-lightbox&gt;&#xA;&#xA;&#xA;如果滚动仅仅是onscroll那么简单那么本文就没有存在的必要了，至于兼容这个老生常谈的问题&amp;hellip;&amp;hellip;还是呵呵吧。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

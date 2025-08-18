@@ -27,6 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
     
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
 
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
@@ -52,12 +55,15 @@
 " />
 
 <base href="https://blog.liyaodong.com/posts/using-you-get-to-download-the-video/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/using-you-get-to-download-the-video/" itemprop="url" />
 <meta name="url" content="https://blog.liyaodong.com/posts/using-you-get-to-download-the-video/" />
 <meta name="twitter:url" content="https://blog.liyaodong.com/posts/using-you-get-to-download-the-video/" />
 <meta property="og:url" content="https://blog.liyaodong.com/posts/using-you-get-to-download-the-video/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/using-you-get-to-download-the-video/" title="">
 
 
 
@@ -73,7 +79,7 @@
     "@type": "WebSite",
     "name": "晓风博客",
     "alternateName": "Xiaofeng Blog",
-    "url": "https:\/\/blog.liyaodong.com"
+    "url": "https:\/\/blog.liyaodong.com\/"
 }
 </script>
 <script type="application/ld+json">
@@ -81,17 +87,13 @@
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/blog.liyaodong.com"
+  "url": "https:\/\/blog.liyaodong.com\/"
   , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
   
   
   
 }
 </script>
-
-
-
-
 
 
 
@@ -122,19 +124,19 @@
         "@type": "ListItem",
         "position":  1 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com",
+          "@id": "https:\/\/blog.liyaodong.com\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
-        "position":  3 ,
+        "position":  2 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/",
           "name": "posts"
         }
     },{
         "@type": "ListItem",
-        "position":  4 ,
+        "position":  3 ,
         "item": {
           "@id": "https:\/\/blog.liyaodong.com\/posts\/using-you-get-to-download-the-video\/",
           "name": "using-you-get-to-download-the-video"
@@ -549,7 +551,7 @@ a {
 .site-header--float {
   font-family: "Songti SC";
   padding: 15px 30px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #dcdcdc;
   width: 100%;
   overflow: hidden;
@@ -670,6 +672,24 @@ a {
   margin-bottom: 20px;
 }
 
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -781,7 +801,7 @@ a {
 
 
 <header class="site-header--float" amp-fx="float-in-top">
-    <a href="https://blog.liyaodong.com">
+    <a href="https://blog.liyaodong.com/">
         <h1 class="site-title--float">
             晓风博客
         </h1>
@@ -830,7 +850,7 @@ a {
      width="800"
      height="600"
      layout="responsive"
-    on="tap: 312 "
+    on="tap: 293 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -838,7 +858,7 @@ a {
 </amp-img>
 
 <amp-image-lightbox
-    id="312"
+    id="293"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -852,8 +872,7 @@ a {
 <p>或者你会用一些在线视频网站提取的网站之类的方法。</p>
 <p>如果你已经会这项技能那就没有必要看了，除非你想更有B格的下载视频。</p>
 <blockquote>
-<p>You-Get is a video downloader for YouTube, Youku, niconico and a few other sites.</p>
-</blockquote>
+<p>You-Get is a video downloader for YouTube, Youku, niconico and a few other sites.</p></blockquote>
 <p><a href="https://you-get.org/">官方网站</a>
 <a href="https://github.com/soimort/you-get">Github</a></p>
 <p>简单的来说 <code>you-get</code> 是一个用来下载视频网站的命令行工具。用它下载视频只需要在命令行输入：</p>
@@ -900,7 +919,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
      width="1152"
      height="474"
      layout="responsive"
-    on="tap: 290 "
+    on="tap: 782 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -908,7 +927,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
 </amp-img>
 
 <amp-image-lightbox
-    id="290"
+    id="782"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -963,7 +982,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
      width="630"
      height="300"
      layout="responsive"
-    on="tap: 404 "
+    on="tap: 386 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -971,7 +990,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
 </amp-img>
 
 <amp-image-lightbox
-    id="404"
+    id="386"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1018,7 +1037,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
      width="1440"
      height="677"
      layout="responsive"
-    on="tap: 506 "
+    on="tap: 137 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1026,7 +1045,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
 </amp-img>
 
 <amp-image-lightbox
-    id="506"
+    id="137"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1072,7 +1091,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
      width="1440"
      height="875"
      layout="responsive"
-    on="tap: 552 "
+    on="tap: 778 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1080,7 +1099,7 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
 </amp-img>
 
 <amp-image-lightbox
-    id="552"
+    id="778"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1131,6 +1150,18 @@ Windows 用户打开命令控制台 输入 <code>pip3 install you-get</code>
         }
     </script>
 </amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
 
 </body>
 </html>
