@@ -151,631 +151,7 @@
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
-        /* Background */
-.chroma {
-  background-color: #eeeedd;
-}
-
-/* Error */
-.chroma .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-
-/* LineTableTD */
-.chroma .lntd {
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineTable */
-.chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: auto;
-  overflow: auto;
-  display: block;
-}
-
-/* LineHighlight */
-.chroma .hl {
-  display: block;
-  width: 100%;
-  background-color: #ffffcc;
-}
-
-/* LineNumbersTable */
-.chroma .lnt {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-
-/* LineNumbers */
-.chroma .ln {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-
-/* Keyword */
-.chroma .k {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordConstant */
-.chroma .kc {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordDeclaration */
-.chroma .kd {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordNamespace */
-.chroma .kn {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordPseudo */
-.chroma .kp {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordReserved */
-.chroma .kr {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordType */
-.chroma .kt {
-  color: #00688b;
-  font-weight: bold;
-}
-
-/* NameAttribute */
-.chroma .na {
-  color: #658b00;
-}
-
-/* NameBuiltin */
-.chroma .nb {
-  color: #658b00;
-}
-
-/* NameClass */
-.chroma .nc {
-  color: #008b45;
-  font-weight: bold;
-}
-
-/* NameConstant */
-.chroma .no {
-  color: #00688b;
-}
-
-/* NameDecorator */
-.chroma .nd {
-  color: #707a7c;
-}
-
-/* NameException */
-.chroma .ne {
-  color: #008b45;
-  font-weight: bold;
-}
-
-/* NameFunction */
-.chroma .nf {
-  color: #008b45;
-}
-
-/* NameNamespace */
-.chroma .nn {
-  color: #008b45;
-  text-decoration: underline;
-}
-
-/* NameTag */
-.chroma .nt {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* NameVariable */
-.chroma .nv {
-  color: #00688b;
-}
-
-/* LiteralString */
-.chroma .s {
-  color: #cd5555;
-}
-
-/* LiteralStringAffix */
-.chroma .sa {
-  color: #cd5555;
-}
-
-/* LiteralStringBacktick */
-.chroma .sb {
-  color: #cd5555;
-}
-
-/* LiteralStringChar */
-.chroma .sc {
-  color: #cd5555;
-}
-
-/* LiteralStringDelimiter */
-.chroma .dl {
-  color: #cd5555;
-}
-
-/* LiteralStringDoc */
-.chroma .sd {
-  color: #cd5555;
-}
-
-/* LiteralStringDouble */
-.chroma .s2 {
-  color: #cd5555;
-}
-
-/* LiteralStringEscape */
-.chroma .se {
-  color: #cd5555;
-}
-
-/* LiteralStringHeredoc */
-.chroma .sh {
-  color: #1c7e71;
-  font-style: italic;
-}
-
-/* LiteralStringInterpol */
-.chroma .si {
-  color: #cd5555;
-}
-
-/* LiteralStringOther */
-.chroma .sx {
-  color: #cb6c20;
-}
-
-/* LiteralStringRegex */
-.chroma .sr {
-  color: #1c7e71;
-}
-
-/* LiteralStringSingle */
-.chroma .s1 {
-  color: #cd5555;
-}
-
-/* LiteralStringSymbol */
-.chroma .ss {
-  color: #cd5555;
-}
-
-/* LiteralNumber */
-.chroma .m {
-  color: #b452cd;
-}
-
-/* LiteralNumberBin */
-.chroma .mb {
-  color: #b452cd;
-}
-
-/* LiteralNumberFloat */
-.chroma .mf {
-  color: #b452cd;
-}
-
-/* LiteralNumberHex */
-.chroma .mh {
-  color: #b452cd;
-}
-
-/* LiteralNumberInteger */
-.chroma .mi {
-  color: #b452cd;
-}
-
-/* LiteralNumberIntegerLong */
-.chroma .il {
-  color: #b452cd;
-}
-
-/* LiteralNumberOct */
-.chroma .mo {
-  color: #b452cd;
-}
-
-/* OperatorWord */
-.chroma .ow {
-  color: #8b008b;
-}
-
-/* Comment */
-.chroma .c {
-  color: #228b22;
-}
-
-/* CommentHashbang */
-.chroma .ch {
-  color: #228b22;
-}
-
-/* CommentMultiline */
-.chroma .cm {
-  color: #228b22;
-}
-
-/* CommentSingle */
-.chroma .c1 {
-  color: #228b22;
-}
-
-/* CommentSpecial */
-.chroma .cs {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* CommentPreproc */
-.chroma .cp {
-  color: #1e889b;
-}
-
-/* CommentPreprocFile */
-.chroma .cpf {
-  color: #1e889b;
-}
-
-/* GenericDeleted */
-.chroma .gd {
-  color: #aa0000;
-}
-
-/* GenericEmph */
-.chroma .ge {
-  font-style: italic;
-}
-
-/* GenericError */
-.chroma .gr {
-  color: #aa0000;
-}
-
-/* GenericHeading */
-.chroma .gh {
-  color: #000080;
-  font-weight: bold;
-}
-
-/* GenericInserted */
-.chroma .gi {
-  color: #00aa00;
-}
-
-/* GenericOutput */
-.chroma .go {
-  color: #888888;
-}
-
-/* GenericPrompt */
-.chroma .gp {
-  color: #555555;
-}
-
-/* GenericStrong */
-.chroma .gs {
-  font-weight: bold;
-}
-
-/* GenericSubheading */
-.chroma .gu {
-  color: #800080;
-  font-weight: bold;
-}
-
-/* GenericTraceback */
-.chroma .gt {
-  color: #aa0000;
-}
-
-/* GenericUnderline */
-.chroma .gl {
-  text-decoration: underline;
-}
-
-/* TextWhitespace */
-.chroma .w {
-  color: #bbbbbb;
-}
-
-body {
-  background-color: #f9f8f0;
-  color: #222;
-  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
-}
-
-.tac {
-  text-align: center;
-}
-
-a {
-  color: #222;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-}
-.container img,
-.container amp-img {
-  max-width: 100%;
-}
-
-.site-header {
-  text-align: center;
-  margin-top: 40px;
-  font-family: "Songti SC";
-}
-
-.site-title {
-  margin: 0;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.site-subtitle {
-  margin: 5px;
-  font-size: 14px;
-}
-
-.site-header--float {
-  font-family: "Songti SC";
-  padding: 15px 30px;
-  background: rgb(255, 255, 255);
-  border-bottom: 1px solid #dcdcdc;
-  width: 100%;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}
-
-.site-header--float a {
-  display: flex;
-  align-items: center;
-}
-
-.site-title--float {
-  font-size: 20px;
-  margin: 0px;
-  margin-right: 20px;
-}
-
-.site-subtitle--float {
-  font-size: 12px;
-  margin: 0px;
-}
-
-.site-footer {
-  padding: 10px;
-  margin: 20px;
-  text-align: center;
-}
-.site-footer em {
-  color: #d82222;
-}
-
-.article-item-title {
-  font-size: 24px;
-  font-weight: bold;
-  display: inline-block;
-  vertical-align: middle;
-  font-family: "Songti SC";
-  margin: 0;
-}
-.article-item-title:hover {
-  text-decoration: underline;
-}
-
-.article-item-date {
-  font-size: 12px;
-  display: block;
-  color: #555;
-}
-
-.article-item-summary {
-  margin-top: 20px;
-  color: #555;
-}
-
-.article-item-link {
-  color: #222;
-  text-decoration: none;
-  margin: 30px 0 5px;
-}
-
-.article-item {
-  max-width: 700px;
-  padding-bottom: 40px;
-  margin: 0 auto 40px auto;
-}
-.article-item:not(:last-of-type) {
-  border-bottom: 1px solid #efefef;
-}
-.article-item amp-img {
-  margin-bottom: 20px;
-}
-
-.post-title {
-  text-align: center;
-  font-family: "Songti SC";
-  font-size: 32px;
-  margin-bottom: 5px;
-}
-
-.single {
-  line-height: 1.625;
-  color: #4a4a4a;
-  max-width: 700px;
-}
-.single.has-header {
-  margin-top: 60px;
-}
-.single amp-img {
-  margin: 15px auto;
-  text-align: center;
-}
-.single code {
-  color: #AA8D5B;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 5px;
-}
-.single pre > code {
-  font-weight: 600;
-  margin: 0;
-}
-.single div.highlight {
-  box-shadow: 0 3px 3px 1px #d2c7b5;
-}
-.single .chroma {
-  background-color: transparent;
-}
-.single a {
-  text-decoration: underline;
-}
-.single a:hover {
-  color: #000;
-}
-
-.single-content {
-  margin-bottom: 20px;
-}
-
-.mermaid-chart {
-  margin: 20px 0;
-  text-align: center;
-  padding: 10px;
-  background-color: #fafafa;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-}
-
-pre code.language-mermaid {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  display: block;
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  padding: 0;
-}
-.pagination .page-item {
-  list-style-type: none;
-}
-.pagination .page-item a {
-  font-size: 16px;
-  margin: 0 5px;
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 2px;
-}
-.pagination .page-item.active, .pagination .page-item:hover {
-  color: #fff;
-  transition: all 200ms;
-}
-.pagination .page-item.active a, .pagination .page-item:hover a {
-  color: #fff;
-  background: #ad9616;
-  transition: all 200ms;
-}
-
-.read-more {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #efefef;
-  position: relative;
-}
-.read-more__title {
-  font-size: 13px;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
-  background-color: #f9f8f0;
-  padding: 0 10px;
-}
-.read-more__item {
-  margin-bottom: 20px;
-}
-.read-more__item__container {
-  background-color: #fefefe;
-  border-radius: 4px;
-  padding: 5px 15px;
-  box-sizing: border-box;
-}
-.read-more__item a {
-  text-decoration: none;
-}
-.read-more__item h4 {
-  margin: 10px 0 0 0;
-}
-.read-more__summary {
-  font-size: 14px;
-}
-@media screen and (min-width: 767px) {
-  .read-more__list {
-    display: flex;
-    justify-content: space-between;
-  }
-  .read-more__item {
-    display: flex;
-    flex: 1;
-    padding: 0 10px;
-  }
-  .read-more__item__container {
-    flex-grow: 1;
-  }
-  .read-more__item:first-of-type {
-    padding-left: 0;
-  }
-  .read-more__item:last-of-type {
-    padding-right: 0;
-  }
-  .read-more__item amp-img {
-    display: none;
-  }
-}
-
-/*# sourceMappingURL=stylesheet.html.map */
-
+        {"version":3,"sourceRoot":"","sources":["../../amp_custom/syntax.css","../../amp_custom/index.scss"],"names":[],"mappings":"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","file":"stylesheet.html"}
     </style>
 
 <link rel="shortcut icon" href="/favicon.ico" />
@@ -840,7 +216,7 @@ pre code.language-mermaid {
      width="1024"
      height="512"
      layout="responsive"
-    on="tap: 97 "
+    on="tap: 485 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -848,7 +224,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="97"
+    id="485"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -867,7 +243,8 @@ pre code.language-mermaid {
 <li>使用JSON作为数据交换格式</li>
 <li>Zepto.js作为javascript框架</li>
 <li>应用地址：<a href="http://geekers.sinaapp.com/mobile/">点击进入</a></li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <p>App功能实际上主要是模拟登陆教务系统，然后对成绩、课表等进行抓取，并按照手机排版格式优化输出。除此之外，还对数据进行收集，做数据的二次挖掘。</p>
 <h3 id="心得">心得</h3>
 <h5 id="1-关于用户登录">1. 关于用户登录</h5>
@@ -876,12 +253,23 @@ pre code.language-mermaid {
 <p>这个本身是没有什么好说的，但是本次在设计的时候使用到了JSON。如果一个二维数组想要存储进数据库，可以把某一列数据格式化为JSON后再存储进去，非常方便，PHP需要用的时候再解析出来。不过再要新加数据的话就要全部解析出来，转化成数组再格式化回去，适合没有多少数据量的列。</p>
 <h5 id="3-移动端的html-meta标记">3. 移动端的HTML meta标记</h5>
 <p>第一个当然要说的是屏幕比例，第一行meta可以禁用用户双击放大、所小用户屏幕。我们已经为移动端做了优化，放大缩小功能当然是不需要的。而viewport则是设定了网页最大宽度等于设备的显示宽度。第二个meta表示是否禁止ios safari浏览器的工具栏。第三个则是工具栏的颜色调试。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;wx_pic&#39;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;margin:0 auto;display:none;&#39;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&lt;?php echo $images_url;?&gt;/icon.jpg&#39;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><h5 id="4-移动端框架选择">4. 移动端框架选择：</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">&#39;wx_pic&#39;</span> <span class="nx">style</span><span class="o">=</span><span class="s1">&#39;margin:0 auto;display:none;&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">	    <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;&lt;?php echo $images_url;?&gt;/icon.jpg&#39;</span> <span class="o">/&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="4-移动端框架选择">4. 移动端框架选择：</h5>
 <p>最初尝试了jQuery Mobile，这款框架功能很丰富，尤其是Ajax方面做的很好。但是性能着实堪忧，在Android的低端手机上反应很慢，有时候进一个网页需要30s + 。这当然是无法忍受的，所以又尝试了很多发现Ratchet不错，这个框架是twitter公司开发出的bootstrap“移动版”。这一点令我很纳闷，bootstrap 3.0本身就是移动优先的，那为何又有一个Ratchet？不过使用之后发现这款框架仍然不够成熟，而且用的人也比较少。后来我甚至去掉了框架里的JS，只是使用了布局和图标。</p>
 <h5 id="5-性能优化">5. 性能优化：</h5>
 <p>性能是移动端的瓶颈之一，如果不是引入了jiathis分享和多说评论，我对性能还是很满意的。从测试来看访问速度都很快，毕竟做了很多优化。不过还好，jiathis和多说都是ajax加载的，不会影响太多。说道优化必须说的就是图片优化，这个项目中首先采用了服务器端的gzip优化，将静态资源CSS、JS、图片等在服务器端压缩，然后浏览器会自动解压，节省传输中的带宽。其次对有所有的图片进行了压缩。因为采用了前端构建工具Grunt，所以很方便。Grunt会自动编译Less、压缩所有CSS到style.min.css、压缩所有JS、压缩所有图片。在Google的PageSpeed评分中各项指标都达到了L，只有一项是M。没有H。
@@ -898,38 +286,74 @@ pre code.language-mermaid {
 <li>
 <p>SEO优化、分享时的标题文字和图片优化。每个页面单独有SEO Title和Description，通过单独设计这些文字，页面被分享的时候才会更加吸引人。如果有必要可以借鉴微信朋友圈很火的游戏“围住神经猫”在分享中带上自己的得分等，引起社交攀比，有利于应用推广。同时附上微信分享中的图片设置代码：</p>
 </li>
-</ol></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wx_pic&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin: 0 auto; display: none;&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;?php echo </span><span style="color:#e6db74">$images_url</span><span style="color:#e6db74">;?&gt;/icon.jpg&#34;</span><span style="color:#f92672">/&gt;&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><blockquote>
-<p>对的，你没看错，是在head标签中加入<code>div#wx_pic</code>我也很郁闷这不是破坏了HTML结构么，但是微信就是这么二。</p></blockquote>
+</ol>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;wx_pic&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;margin: 0 auto; display: none;&#34;</span><span class="o">&gt;&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;&lt;?php echo </span><span class="si">$images_url</span><span class="s2">;?&gt;/icon.jpg&#34;</span><span class="o">/&gt;&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>对的，你没看错，是在head标签中加入<code>div#wx_pic</code>我也很郁闷这不是破坏了HTML结构么，但是微信就是这么二。</p>
+</blockquote>
 <h5 id="8-关于移动端的布局">8. 关于移动端的布局</h5>
 <p>移动端浏览器对<code>position:fixed</code>支持不是很好，想要尝试固定你的标题栏导航栏之类的可以试试iscroll这个JS框架。除此之外对全局使用<code>position:absolute</code>然后所以页面包含在这个标签内也会有问题，测试发现当网页需要想下翻动时由于浏览器的工具栏有时会隐藏，此种方式会造成<code>position:absolute</code>的判定不准。从形式上来看就会感觉网页有卡顿。所以不再非不得已的情况下不要我觉得还是不要使用<code>absolute</code>和<code>fixed</code>的比较好。</p>
 <h5 id="9-关于移动端的event事件">9. 关于移动端的Event事件</h5>
 <p>移动端的不叫click事件。而且当你使用jQuery的<code>click function</code>的时候会发现有迟钝甚至没反应。因为在移动端的点击事件叫做<code>tap</code>事件，双击<code>double tap</code>等等。推荐在移动端使用Zepto.js作为替代jQuery的选择，用法几乎和jQuery一样，所以不存在学习成本。</p>
 <h5 id="10-input标签的tabindexautofocusplaceholder">10. input标签的tabindex、autofocus、placeholder</h5>
 <p>各个标签的意义就不用解释了，不懂的请自行百度。只是这次新认识一个tabindex表示tab切换的标签，以及一个小的技巧就是隐藏的submit标签，用来enter提交表单。不需要去做事件监听，性能应该好点。只需要在JS端检测submit事件即可。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-group bind_form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jwweb&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jwweb&#34;</span> <span style="color:#a6e22e">onsubmit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;return false&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xxx&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xh&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">学号：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;201193014000&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xh&#34;</span> <span style="color:#a6e22e">autofocus</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;autofocus&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">密码：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">验证码：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript:void(0)&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;reloadcode&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;codeimg&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;?php echo base_url(&#34;</span><span style="color:#a6e22e">jwweb</span><span style="color:#f92672">/</span><span style="color:#a6e22e">getvalidcode</span><span style="color:#e6db74">&#34;);?&gt;&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        margin-top: 4px;&#34;</span><span style="color:#f92672">&gt;&lt;/</span><span style="color:#a6e22e">a</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-row&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label</span> <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cCode&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">请输入：</span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">label</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abcd&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cCode&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display:none&#34;</span> <span style="color:#f92672">/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span><span style="color:#a6e22e">form</span><span style="color:#f92672">&gt;</span>
-</span></span></code></pre></div><p>暂时能想到的就是这么多了，这个项目做完后准备学习一下<code>Node</code>和<code>Angularjs</code>，备战十月份的找工作，如果有哪个公司要招前端的烦劳联系我一下。大四准毕业生，有三年web开发经验，准备在北京找全职工作。会设计、懂代码、前后端通吃。邮箱：mail@liyaodong.com 还有两个月，好好加油！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">form</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;input-group bind_form&#34;</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;jwweb&#34;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;jwweb&#34;</span> <span class="nx">onsubmit</span><span class="o">=</span><span class="s2">&#34;return false&#34;</span> <span class="nx">action</span><span class="o">=</span><span class="s2">&#34;xxx&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;input-row&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&#34;xh&#34;</span><span class="o">&gt;</span><span class="nx">学号：</span><span class="o">&lt;/</span><span class="nx">label</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;number&#34;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&#34;201193014000&#34;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;xh&#34;</span> <span class="nx">autofocus</span><span class="o">=</span><span class="s2">&#34;autofocus&#34;</span> <span class="nx">tabindex</span><span class="o">=</span><span class="s2">&#34;1&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;input-row&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&#34;password&#34;</span><span class="o">&gt;</span><span class="nx">密码：</span><span class="o">&lt;/</span><span class="nx">label</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;password&#34;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&#34;password&#34;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;password&#34;</span> <span class="nx">tabindex</span><span class="o">=</span><span class="s2">&#34;2&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;input-row&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="nx">验证码：</span><span class="o">&lt;/</span><span class="nx">label</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;javascript:void(0)&#34;</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;reloadcode&#34;</span><span class="o">&gt;&lt;</span><span class="nx">img</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;codeimg&#34;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;&lt;?php echo base_url(&#34;</span><span class="nx">jwweb</span><span class="o">/</span><span class="nx">getvalidcode</span><span class="s2">&#34;);?&gt;&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        margin-top: 4px;&#34;</span><span class="o">&gt;&lt;/</span><span class="nx">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;input-row&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&#34;cCode&#34;</span><span class="o">&gt;</span><span class="nx">请输入：</span><span class="o">&lt;/</span><span class="nx">label</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;4&#34;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&#34;abcd&#34;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;cCode&#34;</span> <span class="nx">tabindex</span><span class="o">=</span><span class="s2">&#34;3&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;submit&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;display:none&#34;</span> <span class="o">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>暂时能想到的就是这么多了，这个项目做完后准备学习一下<code>Node</code>和<code>Angularjs</code>，备战十月份的找工作，如果有哪个公司要招前端的烦劳联系我一下。大四准毕业生，有三年web开发经验，准备在北京找全职工作。会设计、懂代码、前后端通吃。邮箱：mail@liyaodong.com 还有两个月，好好加油！</p>
     </article>
 
     
@@ -975,7 +399,7 @@ pre code.language-mermaid {
      width="700"
      height="400"
      layout="responsive"
-    on="tap: 474 "
+    on="tap: 384 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -983,7 +407,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="474"
+    id="384"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1019,7 +443,7 @@ pre code.language-mermaid {
      width="700"
      height="394"
      layout="responsive"
-    on="tap: 450 "
+    on="tap: 334 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1027,7 +451,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="450"
+    id="334"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1063,7 +487,7 @@ pre code.language-mermaid {
      width="800"
      height="536"
      layout="responsive"
-    on="tap: 648 "
+    on="tap: 388 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1071,7 +495,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="648"
+    id="388"
     layout="nodisplay"
 >
 </amp-image-lightbox>

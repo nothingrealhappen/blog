@@ -151,631 +151,7 @@
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
-        /* Background */
-.chroma {
-  background-color: #eeeedd;
-}
-
-/* Error */
-.chroma .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-
-/* LineTableTD */
-.chroma .lntd {
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineTable */
-.chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: auto;
-  overflow: auto;
-  display: block;
-}
-
-/* LineHighlight */
-.chroma .hl {
-  display: block;
-  width: 100%;
-  background-color: #ffffcc;
-}
-
-/* LineNumbersTable */
-.chroma .lnt {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-
-/* LineNumbers */
-.chroma .ln {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-
-/* Keyword */
-.chroma .k {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordConstant */
-.chroma .kc {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordDeclaration */
-.chroma .kd {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordNamespace */
-.chroma .kn {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordPseudo */
-.chroma .kp {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordReserved */
-.chroma .kr {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordType */
-.chroma .kt {
-  color: #00688b;
-  font-weight: bold;
-}
-
-/* NameAttribute */
-.chroma .na {
-  color: #658b00;
-}
-
-/* NameBuiltin */
-.chroma .nb {
-  color: #658b00;
-}
-
-/* NameClass */
-.chroma .nc {
-  color: #008b45;
-  font-weight: bold;
-}
-
-/* NameConstant */
-.chroma .no {
-  color: #00688b;
-}
-
-/* NameDecorator */
-.chroma .nd {
-  color: #707a7c;
-}
-
-/* NameException */
-.chroma .ne {
-  color: #008b45;
-  font-weight: bold;
-}
-
-/* NameFunction */
-.chroma .nf {
-  color: #008b45;
-}
-
-/* NameNamespace */
-.chroma .nn {
-  color: #008b45;
-  text-decoration: underline;
-}
-
-/* NameTag */
-.chroma .nt {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* NameVariable */
-.chroma .nv {
-  color: #00688b;
-}
-
-/* LiteralString */
-.chroma .s {
-  color: #cd5555;
-}
-
-/* LiteralStringAffix */
-.chroma .sa {
-  color: #cd5555;
-}
-
-/* LiteralStringBacktick */
-.chroma .sb {
-  color: #cd5555;
-}
-
-/* LiteralStringChar */
-.chroma .sc {
-  color: #cd5555;
-}
-
-/* LiteralStringDelimiter */
-.chroma .dl {
-  color: #cd5555;
-}
-
-/* LiteralStringDoc */
-.chroma .sd {
-  color: #cd5555;
-}
-
-/* LiteralStringDouble */
-.chroma .s2 {
-  color: #cd5555;
-}
-
-/* LiteralStringEscape */
-.chroma .se {
-  color: #cd5555;
-}
-
-/* LiteralStringHeredoc */
-.chroma .sh {
-  color: #1c7e71;
-  font-style: italic;
-}
-
-/* LiteralStringInterpol */
-.chroma .si {
-  color: #cd5555;
-}
-
-/* LiteralStringOther */
-.chroma .sx {
-  color: #cb6c20;
-}
-
-/* LiteralStringRegex */
-.chroma .sr {
-  color: #1c7e71;
-}
-
-/* LiteralStringSingle */
-.chroma .s1 {
-  color: #cd5555;
-}
-
-/* LiteralStringSymbol */
-.chroma .ss {
-  color: #cd5555;
-}
-
-/* LiteralNumber */
-.chroma .m {
-  color: #b452cd;
-}
-
-/* LiteralNumberBin */
-.chroma .mb {
-  color: #b452cd;
-}
-
-/* LiteralNumberFloat */
-.chroma .mf {
-  color: #b452cd;
-}
-
-/* LiteralNumberHex */
-.chroma .mh {
-  color: #b452cd;
-}
-
-/* LiteralNumberInteger */
-.chroma .mi {
-  color: #b452cd;
-}
-
-/* LiteralNumberIntegerLong */
-.chroma .il {
-  color: #b452cd;
-}
-
-/* LiteralNumberOct */
-.chroma .mo {
-  color: #b452cd;
-}
-
-/* OperatorWord */
-.chroma .ow {
-  color: #8b008b;
-}
-
-/* Comment */
-.chroma .c {
-  color: #228b22;
-}
-
-/* CommentHashbang */
-.chroma .ch {
-  color: #228b22;
-}
-
-/* CommentMultiline */
-.chroma .cm {
-  color: #228b22;
-}
-
-/* CommentSingle */
-.chroma .c1 {
-  color: #228b22;
-}
-
-/* CommentSpecial */
-.chroma .cs {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* CommentPreproc */
-.chroma .cp {
-  color: #1e889b;
-}
-
-/* CommentPreprocFile */
-.chroma .cpf {
-  color: #1e889b;
-}
-
-/* GenericDeleted */
-.chroma .gd {
-  color: #aa0000;
-}
-
-/* GenericEmph */
-.chroma .ge {
-  font-style: italic;
-}
-
-/* GenericError */
-.chroma .gr {
-  color: #aa0000;
-}
-
-/* GenericHeading */
-.chroma .gh {
-  color: #000080;
-  font-weight: bold;
-}
-
-/* GenericInserted */
-.chroma .gi {
-  color: #00aa00;
-}
-
-/* GenericOutput */
-.chroma .go {
-  color: #888888;
-}
-
-/* GenericPrompt */
-.chroma .gp {
-  color: #555555;
-}
-
-/* GenericStrong */
-.chroma .gs {
-  font-weight: bold;
-}
-
-/* GenericSubheading */
-.chroma .gu {
-  color: #800080;
-  font-weight: bold;
-}
-
-/* GenericTraceback */
-.chroma .gt {
-  color: #aa0000;
-}
-
-/* GenericUnderline */
-.chroma .gl {
-  text-decoration: underline;
-}
-
-/* TextWhitespace */
-.chroma .w {
-  color: #bbbbbb;
-}
-
-body {
-  background-color: #f9f8f0;
-  color: #222;
-  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
-}
-
-.tac {
-  text-align: center;
-}
-
-a {
-  color: #222;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-}
-.container img,
-.container amp-img {
-  max-width: 100%;
-}
-
-.site-header {
-  text-align: center;
-  margin-top: 40px;
-  font-family: "Songti SC";
-}
-
-.site-title {
-  margin: 0;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.site-subtitle {
-  margin: 5px;
-  font-size: 14px;
-}
-
-.site-header--float {
-  font-family: "Songti SC";
-  padding: 15px 30px;
-  background: rgb(255, 255, 255);
-  border-bottom: 1px solid #dcdcdc;
-  width: 100%;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}
-
-.site-header--float a {
-  display: flex;
-  align-items: center;
-}
-
-.site-title--float {
-  font-size: 20px;
-  margin: 0px;
-  margin-right: 20px;
-}
-
-.site-subtitle--float {
-  font-size: 12px;
-  margin: 0px;
-}
-
-.site-footer {
-  padding: 10px;
-  margin: 20px;
-  text-align: center;
-}
-.site-footer em {
-  color: #d82222;
-}
-
-.article-item-title {
-  font-size: 24px;
-  font-weight: bold;
-  display: inline-block;
-  vertical-align: middle;
-  font-family: "Songti SC";
-  margin: 0;
-}
-.article-item-title:hover {
-  text-decoration: underline;
-}
-
-.article-item-date {
-  font-size: 12px;
-  display: block;
-  color: #555;
-}
-
-.article-item-summary {
-  margin-top: 20px;
-  color: #555;
-}
-
-.article-item-link {
-  color: #222;
-  text-decoration: none;
-  margin: 30px 0 5px;
-}
-
-.article-item {
-  max-width: 700px;
-  padding-bottom: 40px;
-  margin: 0 auto 40px auto;
-}
-.article-item:not(:last-of-type) {
-  border-bottom: 1px solid #efefef;
-}
-.article-item amp-img {
-  margin-bottom: 20px;
-}
-
-.post-title {
-  text-align: center;
-  font-family: "Songti SC";
-  font-size: 32px;
-  margin-bottom: 5px;
-}
-
-.single {
-  line-height: 1.625;
-  color: #4a4a4a;
-  max-width: 700px;
-}
-.single.has-header {
-  margin-top: 60px;
-}
-.single amp-img {
-  margin: 15px auto;
-  text-align: center;
-}
-.single code {
-  color: #AA8D5B;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 5px;
-}
-.single pre > code {
-  font-weight: 600;
-  margin: 0;
-}
-.single div.highlight {
-  box-shadow: 0 3px 3px 1px #d2c7b5;
-}
-.single .chroma {
-  background-color: transparent;
-}
-.single a {
-  text-decoration: underline;
-}
-.single a:hover {
-  color: #000;
-}
-
-.single-content {
-  margin-bottom: 20px;
-}
-
-.mermaid-chart {
-  margin: 20px 0;
-  text-align: center;
-  padding: 10px;
-  background-color: #fafafa;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-}
-
-pre code.language-mermaid {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  display: block;
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  padding: 0;
-}
-.pagination .page-item {
-  list-style-type: none;
-}
-.pagination .page-item a {
-  font-size: 16px;
-  margin: 0 5px;
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 2px;
-}
-.pagination .page-item.active, .pagination .page-item:hover {
-  color: #fff;
-  transition: all 200ms;
-}
-.pagination .page-item.active a, .pagination .page-item:hover a {
-  color: #fff;
-  background: #ad9616;
-  transition: all 200ms;
-}
-
-.read-more {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #efefef;
-  position: relative;
-}
-.read-more__title {
-  font-size: 13px;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
-  background-color: #f9f8f0;
-  padding: 0 10px;
-}
-.read-more__item {
-  margin-bottom: 20px;
-}
-.read-more__item__container {
-  background-color: #fefefe;
-  border-radius: 4px;
-  padding: 5px 15px;
-  box-sizing: border-box;
-}
-.read-more__item a {
-  text-decoration: none;
-}
-.read-more__item h4 {
-  margin: 10px 0 0 0;
-}
-.read-more__summary {
-  font-size: 14px;
-}
-@media screen and (min-width: 767px) {
-  .read-more__list {
-    display: flex;
-    justify-content: space-between;
-  }
-  .read-more__item {
-    display: flex;
-    flex: 1;
-    padding: 0 10px;
-  }
-  .read-more__item__container {
-    flex-grow: 1;
-  }
-  .read-more__item:first-of-type {
-    padding-left: 0;
-  }
-  .read-more__item:last-of-type {
-    padding-right: 0;
-  }
-  .read-more__item amp-img {
-    display: none;
-  }
-}
-
-/*# sourceMappingURL=stylesheet.html.map */
-
+        {"version":3,"sourceRoot":"","sources":["../../amp_custom/syntax.css","../../amp_custom/index.scss"],"names":[],"mappings":"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","file":"stylesheet.html"}
     </style>
 
 <link rel="shortcut icon" href="/favicon.ico" />
@@ -850,7 +226,7 @@ pre code.language-mermaid {
      width="700"
      height="350"
      layout="responsive"
-    on="tap: 259 "
+    on="tap: 923 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -858,7 +234,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="259"
+    id="923"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -869,90 +245,173 @@ pre code.language-mermaid {
 <p>某日看到某文发现其网站有一很舒适的设计，即当你向下看文章的时候会提示你看到多少了。细心一想这个主意还是蛮有用的，遂「<!-- raw HTML omitted -->抄袭<!-- raw HTML omitted -->」之。</p>
 <blockquote>
 <p>某文某网站：<a href="http://www.ozy.com/pov/teaching-kids-code/3238">http://www.ozy.com/pov/teaching-kids-code/3238</a></p>
-<p>最终效果：<a href="http://www.geekpark.net/topics/171430">http://www.geekpark.net/topics/171430</a></p></blockquote>
+<p>最终效果：<a href="http://www.geekpark.net/topics/171430">http://www.geekpark.net/topics/171430</a></p>
+</blockquote>
 <h3 id="开撸">开撸</h3>
 <p>呵，不就是这么个小小的功能么，都不用打开我的Sublime，vi都搞定了。</p>
 <blockquote>
 <ol>
 <li>先画个 <code>div</code> ，然后 <code>position: fixed</code> 到最顶部，然后 <code>width: 0</code> 调整颜色 balabala&hellip;.<!-- raw HTML omitted --></li>
 <li>然后根据js监听浏览器滚动，用已滚动的部分的高度 <code>-</code> 文章距离顶部的高度 <code>=</code> 已阅读部分文章的高度。然后用这个高度除以文章总高度就等于阅读百分比。</li>
-</ol></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$line</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#reading_progress&#39;</span>),
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">$article</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#article&#39;</span>),
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">articleH</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$article</span>.<span style="color:#a6e22e">height</span>(),
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">articleMt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$article</span>.<span style="color:#a6e22e">offset</span>().<span style="color:#a6e22e">top</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">onscroll</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">render</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">readed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(window).<span style="color:#a6e22e">scrollTop</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">articleMt</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">progress</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果超出阅读则不进行操作
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">readed</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">lt</span>; <span style="color:#ae81ff">0</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">progress</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">readed</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gt</span>; <span style="color:#a6e22e">articleH</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">progress</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">progress</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">readed</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">articleH</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$line</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;width&#39;</span>, <span style="color:#a6e22e">progress</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;px&#39;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><p>看起来好像咩有什么问题了，于是浏览器刷新调试&hellip; 好像和别人的效果不太一样，别人的是舒畅的音乐的感觉，我这一卡一卡的感觉像便秘&hellip;</p>
+</ol>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">$line</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#reading_progress&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">$article</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">articleH</span> <span class="o">=</span> <span class="nx">$article</span><span class="p">.</span><span class="nx">height</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">articleMt</span> <span class="o">=</span> <span class="nx">$article</span><span class="p">.</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">onscroll</span> <span class="o">=</span> <span class="nx">render</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">readed</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">-</span> <span class="nx">articleMt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">progress</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 如果超出阅读则不进行操作
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">readed</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">progress</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">readed</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">articleH</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">progress</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">progress</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readed</span> <span class="o">/</span> <span class="nx">articleH</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">$line</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="nx">progress</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看起来好像咩有什么问题了，于是浏览器刷新调试&hellip; 好像和别人的效果不太一样，别人的是舒畅的音乐的感觉，我这一卡一卡的感觉像便秘&hellip;</p>
 <p>恩，可能是因为没有动画吧。祭出我的杀器：<code>transition: all 0.3s</code> 动画神马必备，看了看效果好像好点了。不过感觉还是有些卡顿，心理作用？</p>
 <p>好吧，<!-- raw HTML omitted -->可能<!-- raw HTML omitted -->是 <code>width</code> 触发重绘（repaint）了。</p>
 <p>关于浏览器重绘请移步：<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">Avoiding Unnecessary Paints</a></p>
 <p>那不用 <code>width: 100%</code> 如何做到从 0% - 100% 的阅读进度提示呢？另外一个好的方案是 <code>translateX</code> 或者更好的方案 <code>translate3d</code> ， 为啥？因为相比 <code>width</code> 的变换，<code>translate</code> 不会引发重绘，这对于性能上有优势。而 <code>translateX</code> 和 <code>translate3d</code> 相比，前者已经足够好了但是后者会开启GPU加速，理论上性能更好。所以最后的CSS看起来是酱紫的：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">reading_progress</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">width</span><span style="color:#f92672">:</span> <span style="color:#f92672">100</span><span style="color:#f92672">%</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">height</span><span style="color:#f92672">:</span> <span style="color:#f92672">3px</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">position</span><span style="color:#f92672">:</span> <span style="color:#f92672">fixed</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">z-index</span><span style="color:#f92672">:</span> <span style="color:#f92672">999</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">background-color</span><span style="color:#f92672">:</span> #7fc042
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">transform</span><span style="color:#f92672">:</span> <span style="color:#f92672">translate3d</span><span style="color:#f92672">(</span><span style="color:#f92672">-100</span><span style="color:#f92672">%,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">transition</span><span style="color:#f92672">:</span> <span style="color:#f92672">all</span> <span style="color:#f92672">0</span>.<span style="color:#a6e22e">3s</span>
-</span></span></code></pre></div><p>CSS的性能优化到这里就要结束啦，其实 <code>position: fixed</code> 已经引发了重绘，优化 <code>width</code> 什么的都是自我安慰。但在以后的项目中还是尽量少的触发重绘，用户体验毕竟是由众多细小的细节组成的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading_progress</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">width</span><span class="o">:</span> <span class="nt">100</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">height</span><span class="o">:</span> <span class="nt">3px</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">position</span><span class="o">:</span> <span class="nt">fixed</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">z-index</span><span class="o">:</span> <span class="nt">999</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">background-color</span><span class="o">:</span> <span class="p">#</span><span class="nn">7fc042</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">transform</span><span class="o">:</span> <span class="nt">translate3d</span><span class="o">(</span><span class="nt">-100</span><span class="o">%,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">transition</span><span class="o">:</span> <span class="nt">all</span> <span class="nt">0</span><span class="p">.</span><span class="nc">3s</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>CSS的性能优化到这里就要结束啦，其实 <code>position: fixed</code> 已经引发了重绘，优化 <code>width</code> 什么的都是自我安慰。但在以后的项目中还是尽量少的触发重绘，用户体验毕竟是由众多细小的细节组成的。</p>
 <p>接下来聊聊JS，这样写功能上是没有太大问题的。问题在于 <code>onscroll</code> 是否性能足够优秀？</p>
 <p>参考该文：
 <a href="http://www.html5rocks.com/zh/tutorials/speed/scrolling/">Scrolling Performance</a>
 <a href="http://kristerkari.github.io/adventures-in-webkit-land/blog/2013/08/30/fixing-a-parallax-scrolling-website-to-run-in-60-fps/">Fixing a parallax scrolling website to run in 60 FPS</a>
 <a href="http://www.html5rocks.com/en/tutorials/speed/animations/">Leaner, Meaner, Faster Animations with requestAnimationFrame</a></p>
 <p>夜太长，字太多。不如我来总结一下，总得来说在浏览器滚动的过程中尽量<strong>避免</strong>图片大小的缩放、<code>bow-shadow</code>、<code>width</code>、<code>height</code>等变化。在循环动画等问题上尽量避免使用 <code>setTimeout</code> 而是使用 <code>requestAnimationFrame</code>去代替。这和本文有什么关系呢？在我们的 <code>onscroll</code> 中调用的 render()函数会在滚动发生的时候去触发。其实这是很没有必要的，可以通过加锁的形式让其 <code>60fps</code> 的速度去刷新。具体来看代码可能是酱紫的：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">didScroll</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ua</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">userAgent</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isMobile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/iPhone|iPad|iPod|Android/i</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">userAgent</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// better way to loop animation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">requestAnimFrame</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">function</span>(){
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span>  window.<span style="color:#a6e22e">requestAnimationFrame</span>       <span style="color:#f92672">||</span>
-</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">webkitRequestAnimationFrame</span> <span style="color:#f92672">||</span>
-</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">mozRequestAnimationFrame</span>    <span style="color:#f92672">||</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">function</span>( <span style="color:#a6e22e">callback</span> ){
-</span></span><span style="display:flex;"><span>            window.<span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">callback</span>, <span style="color:#ae81ff">1000</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>);
-</span></span><span style="display:flex;"><span>          };
-</span></span><span style="display:flex;"><span>})();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isMobile</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">bind</span>(<span style="color:#e6db74">&#39;touchmove&#39;</span>, <span style="color:#a6e22e">updateProgress</span>);
-</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">$</span>(window).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;scroll&#39;</span>, <span style="color:#a6e22e">updateProgress</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateProgress</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">didScroll</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这个东西不应该在 updateProgress里么？好吧，我试着放进去然后没动画效果了，原因未知。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 这样的话即时不滚动也会不停的检查高度信息，但是... 谁看文章不滚动呢...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">animloop</span>(){
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">requestAnimFrame</span>(<span style="color:#a6e22e">animloop</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">didScroll</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">didScroll</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>();
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>})();
-</span></span></code></pre></div><p>在移动端应该使用 <code>touchmove</code> 事件而不是 <code>onscroll</code> 事件，但即使使用了 <code>touchmove</code> 事件在我的 ios 8.3 chrome version 42.0上仍然有问题，因为Chrome考虑到性能问题跳过了 <code>touchmove</code>事件。通常来说使用 <code>onscroll</code> 事件在众多移动端浏览器上事件触发是在滚动结束后才触发。而PC端是只要滚动就能触发，因此随滚动而产生的动画会比较流畅。但如果是滚动结束后才产生，那就会表现的有点卡。其实不是性能问题。而 <code>touchmove</code> 在移动端却可以连续触发。虽然在某些浏览器上还是有Bug。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">didScroll</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isMobile</span> <span class="o">=</span> <span class="sr">/iPhone|iPad|iPod|Android/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// better way to loop animation
+</span></span></span><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimFrame</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span>  <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span>       <span class="o">||</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">window</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">window</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span>    <span class="o">||</span>
+</span></span><span class="line"><span class="cl">          <span class="kd">function</span><span class="p">(</span> <span class="nx">callback</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">})();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">isMobile</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;touchmove&#39;</span><span class="p">,</span> <span class="nx">updateProgress</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">updateProgress</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">updateProgress</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">didScroll</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 这个东西不应该在 updateProgress里么？好吧，我试着放进去然后没动画效果了，原因未知。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 这样的话即时不滚动也会不停的检查高度信息，但是... 谁看文章不滚动呢...
+</span></span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span> <span class="nx">animloop</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">requestAnimFrame</span><span class="p">(</span><span class="nx">animloop</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="nx">didScroll</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">didScroll</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">render</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在移动端应该使用 <code>touchmove</code> 事件而不是 <code>onscroll</code> 事件，但即使使用了 <code>touchmove</code> 事件在我的 ios 8.3 chrome version 42.0上仍然有问题，因为Chrome考虑到性能问题跳过了 <code>touchmove</code>事件。通常来说使用 <code>onscroll</code> 事件在众多移动端浏览器上事件触发是在滚动结束后才触发。而PC端是只要滚动就能触发，因此随滚动而产生的动画会比较流畅。但如果是滚动结束后才产生，那就会表现的有点卡。其实不是性能问题。而 <code>touchmove</code> 在移动端却可以连续触发。虽然在某些浏览器上还是有Bug。</p>
 <p><a href="http://tjvantoll.com/2012/08/19/onscroll-event-issues-on-mobile-browsers/">onscroll Event Issues on Mobile Browsers</a>
 <a href="http://wilsonpage.co.uk/touch-events-in-chrome-android/">Touch events in Chrome Android</a></p>
 <p>那么这个问题真的没法解决吗？ iScroll 的解决办法是用 JS 模拟滚动，而对于本需求来说确实有那么点杀鸡用牛刀的感觉，毕竟不是什么核心需求。所以直到目前位置这个问题依然在 ios android上 没有解决，期待以后的解决方案。</p>
@@ -1011,7 +470,7 @@ pre code.language-mermaid {
      width="630"
      height="300"
      layout="responsive"
-    on="tap: 386 "
+    on="tap: 416 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1019,7 +478,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="386"
+    id="416"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1066,7 +525,7 @@ pre code.language-mermaid {
      width="1440"
      height="677"
      layout="responsive"
-    on="tap: 137 "
+    on="tap: 489 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1074,7 +533,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="137"
+    id="489"
     layout="nodisplay"
 >
 </amp-image-lightbox>

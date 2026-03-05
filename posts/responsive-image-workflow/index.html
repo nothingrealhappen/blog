@@ -151,631 +151,7 @@
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
-        /* Background */
-.chroma {
-  background-color: #eeeedd;
-}
-
-/* Error */
-.chroma .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-
-/* LineTableTD */
-.chroma .lntd {
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineTable */
-.chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: auto;
-  overflow: auto;
-  display: block;
-}
-
-/* LineHighlight */
-.chroma .hl {
-  display: block;
-  width: 100%;
-  background-color: #ffffcc;
-}
-
-/* LineNumbersTable */
-.chroma .lnt {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-
-/* LineNumbers */
-.chroma .ln {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-
-/* Keyword */
-.chroma .k {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordConstant */
-.chroma .kc {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordDeclaration */
-.chroma .kd {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordNamespace */
-.chroma .kn {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordPseudo */
-.chroma .kp {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordReserved */
-.chroma .kr {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* KeywordType */
-.chroma .kt {
-  color: #00688b;
-  font-weight: bold;
-}
-
-/* NameAttribute */
-.chroma .na {
-  color: #658b00;
-}
-
-/* NameBuiltin */
-.chroma .nb {
-  color: #658b00;
-}
-
-/* NameClass */
-.chroma .nc {
-  color: #008b45;
-  font-weight: bold;
-}
-
-/* NameConstant */
-.chroma .no {
-  color: #00688b;
-}
-
-/* NameDecorator */
-.chroma .nd {
-  color: #707a7c;
-}
-
-/* NameException */
-.chroma .ne {
-  color: #008b45;
-  font-weight: bold;
-}
-
-/* NameFunction */
-.chroma .nf {
-  color: #008b45;
-}
-
-/* NameNamespace */
-.chroma .nn {
-  color: #008b45;
-  text-decoration: underline;
-}
-
-/* NameTag */
-.chroma .nt {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* NameVariable */
-.chroma .nv {
-  color: #00688b;
-}
-
-/* LiteralString */
-.chroma .s {
-  color: #cd5555;
-}
-
-/* LiteralStringAffix */
-.chroma .sa {
-  color: #cd5555;
-}
-
-/* LiteralStringBacktick */
-.chroma .sb {
-  color: #cd5555;
-}
-
-/* LiteralStringChar */
-.chroma .sc {
-  color: #cd5555;
-}
-
-/* LiteralStringDelimiter */
-.chroma .dl {
-  color: #cd5555;
-}
-
-/* LiteralStringDoc */
-.chroma .sd {
-  color: #cd5555;
-}
-
-/* LiteralStringDouble */
-.chroma .s2 {
-  color: #cd5555;
-}
-
-/* LiteralStringEscape */
-.chroma .se {
-  color: #cd5555;
-}
-
-/* LiteralStringHeredoc */
-.chroma .sh {
-  color: #1c7e71;
-  font-style: italic;
-}
-
-/* LiteralStringInterpol */
-.chroma .si {
-  color: #cd5555;
-}
-
-/* LiteralStringOther */
-.chroma .sx {
-  color: #cb6c20;
-}
-
-/* LiteralStringRegex */
-.chroma .sr {
-  color: #1c7e71;
-}
-
-/* LiteralStringSingle */
-.chroma .s1 {
-  color: #cd5555;
-}
-
-/* LiteralStringSymbol */
-.chroma .ss {
-  color: #cd5555;
-}
-
-/* LiteralNumber */
-.chroma .m {
-  color: #b452cd;
-}
-
-/* LiteralNumberBin */
-.chroma .mb {
-  color: #b452cd;
-}
-
-/* LiteralNumberFloat */
-.chroma .mf {
-  color: #b452cd;
-}
-
-/* LiteralNumberHex */
-.chroma .mh {
-  color: #b452cd;
-}
-
-/* LiteralNumberInteger */
-.chroma .mi {
-  color: #b452cd;
-}
-
-/* LiteralNumberIntegerLong */
-.chroma .il {
-  color: #b452cd;
-}
-
-/* LiteralNumberOct */
-.chroma .mo {
-  color: #b452cd;
-}
-
-/* OperatorWord */
-.chroma .ow {
-  color: #8b008b;
-}
-
-/* Comment */
-.chroma .c {
-  color: #228b22;
-}
-
-/* CommentHashbang */
-.chroma .ch {
-  color: #228b22;
-}
-
-/* CommentMultiline */
-.chroma .cm {
-  color: #228b22;
-}
-
-/* CommentSingle */
-.chroma .c1 {
-  color: #228b22;
-}
-
-/* CommentSpecial */
-.chroma .cs {
-  color: #8b008b;
-  font-weight: bold;
-}
-
-/* CommentPreproc */
-.chroma .cp {
-  color: #1e889b;
-}
-
-/* CommentPreprocFile */
-.chroma .cpf {
-  color: #1e889b;
-}
-
-/* GenericDeleted */
-.chroma .gd {
-  color: #aa0000;
-}
-
-/* GenericEmph */
-.chroma .ge {
-  font-style: italic;
-}
-
-/* GenericError */
-.chroma .gr {
-  color: #aa0000;
-}
-
-/* GenericHeading */
-.chroma .gh {
-  color: #000080;
-  font-weight: bold;
-}
-
-/* GenericInserted */
-.chroma .gi {
-  color: #00aa00;
-}
-
-/* GenericOutput */
-.chroma .go {
-  color: #888888;
-}
-
-/* GenericPrompt */
-.chroma .gp {
-  color: #555555;
-}
-
-/* GenericStrong */
-.chroma .gs {
-  font-weight: bold;
-}
-
-/* GenericSubheading */
-.chroma .gu {
-  color: #800080;
-  font-weight: bold;
-}
-
-/* GenericTraceback */
-.chroma .gt {
-  color: #aa0000;
-}
-
-/* GenericUnderline */
-.chroma .gl {
-  text-decoration: underline;
-}
-
-/* TextWhitespace */
-.chroma .w {
-  color: #bbbbbb;
-}
-
-body {
-  background-color: #f9f8f0;
-  color: #222;
-  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
-}
-
-.tac {
-  text-align: center;
-}
-
-a {
-  color: #222;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-}
-.container img,
-.container amp-img {
-  max-width: 100%;
-}
-
-.site-header {
-  text-align: center;
-  margin-top: 40px;
-  font-family: "Songti SC";
-}
-
-.site-title {
-  margin: 0;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.site-subtitle {
-  margin: 5px;
-  font-size: 14px;
-}
-
-.site-header--float {
-  font-family: "Songti SC";
-  padding: 15px 30px;
-  background: rgb(255, 255, 255);
-  border-bottom: 1px solid #dcdcdc;
-  width: 100%;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}
-
-.site-header--float a {
-  display: flex;
-  align-items: center;
-}
-
-.site-title--float {
-  font-size: 20px;
-  margin: 0px;
-  margin-right: 20px;
-}
-
-.site-subtitle--float {
-  font-size: 12px;
-  margin: 0px;
-}
-
-.site-footer {
-  padding: 10px;
-  margin: 20px;
-  text-align: center;
-}
-.site-footer em {
-  color: #d82222;
-}
-
-.article-item-title {
-  font-size: 24px;
-  font-weight: bold;
-  display: inline-block;
-  vertical-align: middle;
-  font-family: "Songti SC";
-  margin: 0;
-}
-.article-item-title:hover {
-  text-decoration: underline;
-}
-
-.article-item-date {
-  font-size: 12px;
-  display: block;
-  color: #555;
-}
-
-.article-item-summary {
-  margin-top: 20px;
-  color: #555;
-}
-
-.article-item-link {
-  color: #222;
-  text-decoration: none;
-  margin: 30px 0 5px;
-}
-
-.article-item {
-  max-width: 700px;
-  padding-bottom: 40px;
-  margin: 0 auto 40px auto;
-}
-.article-item:not(:last-of-type) {
-  border-bottom: 1px solid #efefef;
-}
-.article-item amp-img {
-  margin-bottom: 20px;
-}
-
-.post-title {
-  text-align: center;
-  font-family: "Songti SC";
-  font-size: 32px;
-  margin-bottom: 5px;
-}
-
-.single {
-  line-height: 1.625;
-  color: #4a4a4a;
-  max-width: 700px;
-}
-.single.has-header {
-  margin-top: 60px;
-}
-.single amp-img {
-  margin: 15px auto;
-  text-align: center;
-}
-.single code {
-  color: #AA8D5B;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 5px;
-}
-.single pre > code {
-  font-weight: 600;
-  margin: 0;
-}
-.single div.highlight {
-  box-shadow: 0 3px 3px 1px #d2c7b5;
-}
-.single .chroma {
-  background-color: transparent;
-}
-.single a {
-  text-decoration: underline;
-}
-.single a:hover {
-  color: #000;
-}
-
-.single-content {
-  margin-bottom: 20px;
-}
-
-.mermaid-chart {
-  margin: 20px 0;
-  text-align: center;
-  padding: 10px;
-  background-color: #fafafa;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-}
-
-pre code.language-mermaid {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  display: block;
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  padding: 0;
-}
-.pagination .page-item {
-  list-style-type: none;
-}
-.pagination .page-item a {
-  font-size: 16px;
-  margin: 0 5px;
-  display: inline-block;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 2px;
-}
-.pagination .page-item.active, .pagination .page-item:hover {
-  color: #fff;
-  transition: all 200ms;
-}
-.pagination .page-item.active a, .pagination .page-item:hover a {
-  color: #fff;
-  background: #ad9616;
-  transition: all 200ms;
-}
-
-.read-more {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #efefef;
-  position: relative;
-}
-.read-more__title {
-  font-size: 13px;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
-  background-color: #f9f8f0;
-  padding: 0 10px;
-}
-.read-more__item {
-  margin-bottom: 20px;
-}
-.read-more__item__container {
-  background-color: #fefefe;
-  border-radius: 4px;
-  padding: 5px 15px;
-  box-sizing: border-box;
-}
-.read-more__item a {
-  text-decoration: none;
-}
-.read-more__item h4 {
-  margin: 10px 0 0 0;
-}
-.read-more__summary {
-  font-size: 14px;
-}
-@media screen and (min-width: 767px) {
-  .read-more__list {
-    display: flex;
-    justify-content: space-between;
-  }
-  .read-more__item {
-    display: flex;
-    flex: 1;
-    padding: 0 10px;
-  }
-  .read-more__item__container {
-    flex-grow: 1;
-  }
-  .read-more__item:first-of-type {
-    padding-left: 0;
-  }
-  .read-more__item:last-of-type {
-    padding-right: 0;
-  }
-  .read-more__item amp-img {
-    display: none;
-  }
-}
-
-/*# sourceMappingURL=stylesheet.html.map */
-
+        {"version":3,"sourceRoot":"","sources":["../../amp_custom/syntax.css","../../amp_custom/index.scss"],"names":[],"mappings":"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","file":"stylesheet.html"}
     </style>
 
 <link rel="shortcut icon" href="/favicon.ico" />
@@ -850,7 +226,7 @@ pre code.language-mermaid {
      width="1440"
      height="677"
      layout="responsive"
-    on="tap: 137 "
+    on="tap: 489 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -858,7 +234,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="137"
+    id="489"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -880,7 +256,8 @@ pre code.language-mermaid {
 <h3 id="定义">定义</h3>
 <p>第一步就是定义所有响应式图片的尺寸和断点，这些信息在网页原型中就应该被精确的标示出来。重要的一点是 <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#content">你的断点应该取决于你的内容</a> 而不是不同设备的宽度。这么做是因为设备的参数是在不断变化的，流行的设备尺寸总是在变。通过让内容来决定断点位置，这将确保我们的界面在所有屏幕上响应而不是特殊的几个设备。</p>
 <blockquote>
-<p><strong>注意</strong> 当决定哪些图片应该被做成响应式时，要记住一点，大多数都是放在内容中的图片。例如在 <code>HTML</code> 中插入的图片而不是在 <code>CSS</code> 中的背景图片。</p></blockquote>
+<p><strong>注意</strong> 当决定哪些图片应该被做成响应式时，要记住一点，大多数都是放在内容中的图片。例如在 <code>HTML</code> 中插入的图片而不是在 <code>CSS</code> 中的背景图片。</p>
+</blockquote>
 <h4 id="图片尺寸">图片尺寸</h4>
 <p>首先将你的浏览器窗口放到最大（或者你规定的内容展示最大宽度），然后记录下此时你的内容宽度和你想要展示的图片宽度，通过浏览器的开发者工具或者类似的插件。</p>
 <p>接下来缩放你的浏览器窗口直到你想要给图片设置宽度的下一个断点，再继续缩放直到你记录下所有的作用于图片宽度断点。当你完成的时候你应该记录下每张图片在不同大小下应该载入的宽度。</p>
@@ -892,7 +269,8 @@ pre code.language-mermaid {
 <li>[reakpoint small] : [400]</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong> 关于决定断点需要注意的是：断点越多，代码越难维护。除此之外大量的断点会使 CSS 变得臃肿。所以尽量在保证效果的情况下保持最少的断点。</p></blockquote>
+<p><strong>注意</strong> 关于决定断点需要注意的是：断点越多，代码越难维护。除此之外大量的断点会使 CSS 变得臃肿。所以尽量在保证效果的情况下保持最少的断点。</p>
+</blockquote>
 <h4 id="高分辨率">高分辨率</h4>
 <p>下一步是根据你想要支持的分辨率 <a href="http://www.html5rocks.com/en/mobile/high-dpi/">对图片宽度进行计算</a>。决定要支持那些分辨率是很困难的，因为有 <a href="http://screensiz.es/phone">太多的不同的分辨率</a>，并且每支持一种分辨率你需要计算宽度并放在你的图片加载列表里。所以需要做的是根据实际情况和你的用户群体去选择支持不同的分辨率。</p>
 <p>如果你已经决定了需要支持那些高分辨率，那图片加载列表会像下面这样：</p>
@@ -911,11 +289,13 @@ pre code.language-mermaid {
 <li>(min-width:400px) : 400px, 600px, <del>800px</del></li>
 </ul>
 <blockquote>
-<p><strong>注意</strong> 这里用像素来做断点值只是为了好对应图片宽度，实际上你的 <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative">断点应该使用相对单位</a>（em/rem not px）</p></blockquote>
+<p><strong>注意</strong> 这里用像素来做断点值只是为了好对应图片宽度，实际上你的 <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative">断点应该使用相对单位</a>（em/rem not px）</p>
+</blockquote>
 <h3 id="输出">输出</h3>
 <p>现在我们有了一个慎重考虑的图片宽度列表，下一步则要将每个图片导出为以「断点名」+「<a href="http://sebastien-gabriel.com/designers-guide-to-dpi/#multiplier">像素密度倍数</a>」为名的文件。例如我将最大的断点称为 &ldquo;large&rdquo; 并且图片像素密度倍数为两倍，那么我的文件名则为 &lsquo;<a href="mailto:image_large@2x.jpg">image_large@2x.jpg</a>&rsquo;。我倾向于在 Photoshop 中保存图片为 70% 压缩，因为 70% 压缩能确保达到最优的图片大小并且不会损失过多的清晰度（这取决于不同图片，目的是在保证清晰度的情况下尽量减小文件大小）。如果你倾向于保存为 JPEG 格式，那确保通过勾选 <a href="http://calendar.perfplanet.com/2012/progressive-jpegs-a-new-best-practice/">progressive(渐进)</a> 来让图片从模糊到清晰的加载效果。</p>
 <blockquote>
-<p><strong>译者注</strong> PS/AI 中保存图片请使用「存储为 web 格式/save for web」，快捷键 ctrl/command + shift + alt + s。PNG 格式请勾选 交错/interlaced，JPEG 格式请勾选 渐进/progressive。</p></blockquote>
+<p><strong>译者注</strong> PS/AI 中保存图片请使用「存储为 web 格式/save for web」，快捷键 ctrl/command + shift + alt + s。PNG 格式请勾选 交错/interlaced，JPEG 格式请勾选 渐进/progressive。</p>
+</blockquote>
 <h4 id="脚本">脚本</h4>
 <p>通过提前写好动作脚本（宏）可以让你批量自动化导出你想要的图片大小。根据你选择的设计软件，自动化的脚本可以很容易的设置使用。不幸的是你仍然需要手动重命名每张图片为 &lsquo;<a href="mailto:xxx_large@2x.png">xxx_large@2x.png</a>&rsquo; 这样的命名格式。如果你使用 Photoshop 这里有一个 <a href="http://www.creativebloq.com/adobe/create-own-photoshop-actions-61411918">指南</a> 可以帮助你编写你自己的脚本批处理。或者你也可以用这个 <a href="https://github.com/bjango/Bjango-Actions">写好的 PS 脚本</a>。</p>
 <h4 id="构建工具">构建工具</h4>
@@ -927,26 +307,46 @@ pre code.language-mermaid {
 <p>最终的步骤是在网页中实现响应式图片。这种方法即所谓的 <a href="https://usecases.responsiveimages.org/#resolution-based-selection">分辨率切换</a>，因为我们只是切换了同一张图片在不同尺寸和分辨率下的源文件地址，以达到在不同的尺寸和像素密度下达到响应的目的。所以我们会使用 picture 标准的一部分 <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-picture-source-srcset">srcset</a> 和 <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-picture-source-sizes">sizes</a> 属性。这些属性继承了 <code>&lt;img&gt;</code> <code>&lt;source&gt;</code> 标签，提供了一个可供浏览器选择最佳图片的图片地址列表。我们实际上提供给浏览器的是我们所知道的信息，而具体会加载那个源则是未知的。这取决于用户设备的带宽、像素密度等。</p>
 <h4 id="srcset-属性">srcset 属性</h4>
 <p>让我们从 <code>srcset</code> 属性开始，首先我们会提供一个 <code>src</code> 属性给那些不支持 <code>srcset</code> 属性的浏览器。中等大小和分辨率就足够了（不支持 srcset 属性的浏览器用户电脑的尺寸和分辨率也不会大）。接下来通过 <code>srcset</code> 指定给 <code>&lt;img&gt;</code> 标签所有图片源的信息。然后使用逗号分隔列出一个从小到大的图片源列表。每个图片源后可以跟<code>w</code>描述符或者<code>x</code>描述符。最后的结果看起来像是这样：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image_medium.jpg&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image_small.jpg 400w, image_small@1.5x.jpg 600w, image_medium.jpg 800w, image_xlarge.jpg 1040w, image_large@1.5x.jpg 1386w, image_medium@2x.jpg 1600w, image_large@2x.jpg 1848w, image_xlarge@2x.jpg 2080w&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Image description&#34;</span> /&gt;
-</span></span></code></pre></div><p>现在我们有了一个可供选择源的图片标签，浏览器可以根据选择采用最佳的源，同时我们还有一个回退方案填写在 <code>src</code> 属性中。如果浏览器支持 <code>srcset</code> 则会下载最佳的图像，否则直接下载 <code>src</code> 属性内的图像。因此带宽浪费和页面大小冗余会被降到最低。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;image_medium.jpg&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">srcset</span><span class="o">=</span><span class="s">&#34;image_small.jpg 400w, image_small@1.5x.jpg 600w, image_medium.jpg 800w, image_xlarge.jpg 1040w, image_large@1.5x.jpg 1386w, image_medium@2x.jpg 1600w, image_large@2x.jpg 1848w, image_xlarge@2x.jpg 2080w&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">alt</span><span class="o">=</span><span class="s">&#34;Image description&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在我们有了一个可供选择源的图片标签，浏览器可以根据选择采用最佳的源，同时我们还有一个回退方案填写在 <code>src</code> 属性中。如果浏览器支持 <code>srcset</code> 则会下载最佳的图像，否则直接下载 <code>src</code> 属性内的图像。因此带宽浪费和页面大小冗余会被降到最低。</p>
 <p>需要注意的是 <strong><code>srcset</code> 只是描述了一个 <code>&lt;img&gt;</code> 有哪些可用的源</strong>，后面的 <code>w</code> 描述符并不是说某个宽度下就一定会加载这个源。<strong>具体的情况还是取决于用户的浏览器环境、带宽等</strong> 同时对于同一源，只能标示一个符号<code>w/x</code>，不能同时标记两者，也建议不要在列表中混用 <code>w/x</code>，混用将会导致计算过于复杂。</p>
 <h4 id="sizes-属性">sizes 属性</h4>
 <p>我们也可以通过设置 <code>sizes</code> 属性来<strong>帮助浏览器选择不同的图片源</strong>，通过 <code>size</code> 属性浏览器知道我们的图片在不同的 viewport 下占了多大，也就是<strong>图片相对于 viewport 的比例</strong>。<code>sizes</code> 属性并不是必填的，没有<code>sizes</code> 属性 <code>srcset</code> 仍然有效。但是如果 <code>srcset</code> 属性没有那么 <code>sizes</code> 属性将不会生效。</p>
 <p>如果没有 <code>sizes</code> 属性，那么 <code>srcset</code> 则被认为不论图片占多宽，都始终采用和 viewport 相同宽度的源（排除分辨率的影响）。建议 <code>sizes</code> 应该配合 <code>srcset</code> 一起使用：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image_medium.jpg&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sizes </span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(min-width:1120px) 924px, (min-width:1280px) 1040px, 100vw&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image_small.jpg 400w, image_small@1.5x.jpg 600w, image_medium.jpg 800w, image_xlarge.jpg 1040w, image_large@1.5x.jpg 1386w, image_medium@2x.jpg 1600w, image_large@2x.jpg 1848w, image_xlarge@2x.jpg 2080w&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Image description&#34;</span> /&gt;
-</span></span></code></pre></div><p>上面的代码告诉浏览器，在视窗宽度小于 1120px 的时候这个图片要加载 924px 宽度的，在视窗宽度小于 1280px 大于 1120px 的时候要加载 1040px 的图片，视窗大于 1280px 的加载和视窗宽度相同的图片。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;image_medium.jpg&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">sizes </span><span class="o">=</span><span class="s">&#34;(min-width:1120px) 924px, (min-width:1280px) 1040px, 100vw&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">srcset</span><span class="o">=</span><span class="s">&#34;image_small.jpg 400w, image_small@1.5x.jpg 600w, image_medium.jpg 800w, image_xlarge.jpg 1040w, image_large@1.5x.jpg 1386w, image_medium@2x.jpg 1600w, image_large@2x.jpg 1848w, image_xlarge@2x.jpg 2080w&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">alt</span><span class="o">=</span><span class="s">&#34;Image description&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的代码告诉浏览器，在视窗宽度小于 1120px 的时候这个图片要加载 924px 宽度的，在视窗宽度小于 1280px 大于 1120px 的时候要加载 1040px 的图片，视窗大于 1280px 的加载和视窗宽度相同的图片。</p>
 <p>浏览器将使用这些属性来进一步为用户选择合适的图片源，你可以选择增加更多的断点和不同宽度下图片的加载列表（但这会显著的增加布局内的信息），或者你也可以保持相对简单。关键是现在浏览器知道了关于图片的更多信息，它将在不同的情况下选择最佳的图片源。</p>
 <h4 id="艺术指导art-direction-use-case">艺术指导（ART-DIRECTION USE CASE）</h4>
 <p>大多数情况下 <code>srcset</code> 和 <code>sizes</code> 都已经够用了。但是仍然有时候你需要根据不同的尺寸修改图片的内容。例如使用类似于 <code>srcset</code> 和 <code>sizes</code> 标准的 <code>&lt;picture&gt;</code> 标签。关于 <code>&lt;picture&gt;</code> 的更多信息可以了解 <a href="http://blog.cloudfour.com/dont-use-picture-most-of-the-time/">Jason Grigsby’s article</a> （这篇文章其实说的大多数情况下不要用 picture，个人认为其实不同的图片内容也可依赖 <code>srcset</code>，<code>picture</code> 过于复杂。并且兼容性上 <a href="http://caniuse.com/#search=picture"><code>picture</code></a> 不如 <a href="http://caniuse.com/#search=srcset"><code>srcset</code></a> ）。</p>
 <h4 id="浏览器兼容">浏览器兼容</h4>
 <p><a href="http://caniuse.com/#feat=srcset"><code>srcset</code> 和 <code>sizes</code>的浏览器兼容性</a> 已经获得了更多的支持，但对于大多数项目你需要更多的考虑兼容。幸运的是 <a href="http://scottjehl.github.io/picturefill/">Picturefill</a> 是一个很棒的支持跨浏览器的兼容库，它支持 <code>&lt;picture&gt;</code> 和 <code>srcset</code> 以及 <code>sizes</code> 特性。这个兼容库允许你使用推荐的 <code>&lt;picture&gt;</code> 语法，因此可以在浏览器兼容性没有问题的时候移除该库。虽然 Picturefill 还有一些缺点，但这么做仍然利大于弊。</p>
 <blockquote>
-<p><strong>注意</strong> 在使用 picturefill 库的时候，作者推荐抛弃使用 <code>src</code> 标签，因为这将 <a href="https://www.filamentgroup.com/lab/to-picturefill.html">导致图片的重复下载</a>。</p></blockquote>
+<p><strong>注意</strong> 在使用 picturefill 库的时候，作者推荐抛弃使用 <code>src</code> 标签，因为这将 <a href="https://www.filamentgroup.com/lab/to-picturefill.html">导致图片的重复下载</a>。</p>
+</blockquote>
 <p>中文资料：</p>
 <ul>
 <li><a href="https://www.zfanw.com/blog/srcset-and-sizes.html">Srcset 和 sizes（推荐）</a></li>
@@ -1008,7 +408,7 @@ pre code.language-mermaid {
      width="630"
      height="300"
      layout="responsive"
-    on="tap: 386 "
+    on="tap: 416 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1016,7 +416,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="386"
+    id="416"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1063,7 +463,7 @@ pre code.language-mermaid {
      width="1440"
      height="875"
      layout="responsive"
-    on="tap: 778 "
+    on="tap: 701 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1071,7 +471,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="778"
+    id="701"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -1117,7 +517,7 @@ pre code.language-mermaid {
      width="1200"
      height="799"
      layout="responsive"
-    on="tap: 484 "
+    on="tap: 510 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -1125,7 +525,7 @@ pre code.language-mermaid {
 </amp-img>
 
 <amp-image-lightbox
-    id="484"
+    id="510"
     layout="nodisplay"
 >
 </amp-image-lightbox>
