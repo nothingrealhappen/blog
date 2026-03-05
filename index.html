@@ -162,6 +162,45 @@
 
 <article class="article-item">
   <a
+    href="/ai-engineering-paradigm/"
+    target='_self'
+    rel=''
+    class="article-item-link"
+  >
+    <h1 class="article-item-title">从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</h1>
+  </a>
+  <time class="article-item-date">2026年3月5日</time>
+  <div class="article-item-summary">
+    <p>在 2026 年的今天，软件工程正在经历一场范式转移：<strong>软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。</strong></p>
+<p>当 AI 代理（Agent）能够独立驱动整个研发流程时，优秀的工程实践不再是手把手写代码，而是构建一套能够让代理“自验证、自演进、不漂移”的防御性架构。</p>
+<h3 id="1-架构升级从对话到自动化链条">1. 架构升级：从“对话”到“自动化链条”</h3>
+<p>传统的 AI 编程是“人机对话”：提问 -&gt; AI 生成 -&gt; 人检查。这种模式的延迟和 Token 消耗是致命的。现在的范式是 <strong>PTC（程序化工具调用）+ 沙箱矩阵</strong>：</p>
+<ul>
+<li><strong>PTC：</strong> 将复杂的业务逻辑（如网页爬取后的数据清洗、API 组合调用）封装成独立的代码函数，在受控容器内一气呵成，只有最终的结构化结果才会反馈给模型，极大降低了上下文的认知负担。</li>
+<li><strong>沙箱矩阵：</strong> 每个任务实例都拥有独立的文件系统、浏览器环境。任务不再是串行执行，而是像云原生服务一样，根据任务复杂度实时横向扩展。</li>
+</ul>
+<h3 id="2-纪律即杠杆防范黑盒式漂移">2. 纪律即杠杆：防范“黑盒式漂移”</h3>
+<p>自主执行力的提升伴随着风险。当 AI 在沙箱内自主完成全链路调用时，你很难通过“人眼审查”发现中间的逻辑偏离。<strong>工程约束就是你的防御工事：</strong></p>
+<ul>
+<li><strong>文档结构化：</strong> 别再使用 monolithic（单体）的 <code>AGENTS.md</code>，那是 AI 的坟墓。构建索引式文档系统，让 AI 能够精准调用模块化上下文。</li>
+<li><strong>防御性工程：</strong> 强制将架构规范注入 CI/CD。如果你的架构分层是 <code>UI -&gt; Service -&gt; Provider</code>，那么你的 Linter 必须能在静态检查阶段，就拦截掉 AI 试图跳过 Service 直接调用 Provider 的行为。<strong>将“人的审美”转化为“编译器的报错”，是 AI 时代最强的工程杠杆。</strong></li>
+</ul>
+<h3 id="3-给你的工程落地清单明日可用">3. 给你的工程落地清单（明日可用）</h3>
+<p>如果你想在自己的代码库中实现这种工程范式，请从明天开始尝试：</p>
+<ol>
+<li><strong>架构分层校验：</strong> 增加 CI 测试脚本，强制校验代码包之间的调用方向。一旦 AI 输出的逻辑违背了分层，让测试直接报红。</li>
+<li><strong>清理“说明书”：</strong> 将冗长的 <code>AGENTS.md</code> 拆分为 <code>docs/</code> 下的独立模块，只在 <code>AGENTS.md</code> 中留下引用索引。</li>
+<li><strong>引入“技术债回收机制”：</strong> 设定一个简单的脚本，定期扫描过时文档或冗余代码，并自动触发重构 PR。将重构变成一种像垃圾回收（GC）一样的常态化工程操作。</li>
+</ol>
+<p><strong>总结：</strong> AI 原生开发的未来，比拼的不是谁的代码写得快，而是谁的“系统脚手架（Scaffolding）”更坚固。当代码生成可以自动化时，工程的真谛，就在于那些约束 AI 不越轨的“隐形规则”之中。</p>
+  </div>
+</article>
+
+    
+    
+
+<article class="article-item">
+  <a
     href="/posts/obsidian-to-hugo-blog/"
     target='_self'
     rel=''
@@ -192,7 +231,7 @@
      width="896"
      height="504"
      layout="responsive"
-    on="tap: 117 "
+    on="tap: 24 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -200,7 +239,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="117"
+    id="24"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -245,7 +284,7 @@
      width="3750"
      height="1842"
      layout="responsive"
-    on="tap: 186 "
+    on="tap: 624 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -253,7 +292,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="186"
+    id="624"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -298,7 +337,7 @@
      width="1920"
      height="937"
      layout="responsive"
-    on="tap: 730 "
+    on="tap: 734 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -306,7 +345,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="730"
+    id="734"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -351,7 +390,7 @@
      width="2560"
      height="1347"
      layout="responsive"
-    on="tap: 863 "
+    on="tap: 354 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -359,7 +398,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="863"
+    id="354"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -404,7 +443,7 @@
      width="1920"
      height="1267"
      layout="responsive"
-    on="tap: 121 "
+    on="tap: 958 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -412,7 +451,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="121"
+    id="958"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -457,7 +496,7 @@
      width="1920"
      height="1281"
      layout="responsive"
-    on="tap: 713 "
+    on="tap: 935 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -465,7 +504,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="713"
+    id="935"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -510,7 +549,7 @@
      width="5472"
      height="3648"
      layout="responsive"
-    on="tap: 550 "
+    on="tap: 498 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -518,7 +557,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="550"
+    id="498"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -563,7 +602,7 @@
      width="4032"
      height="3024"
      layout="responsive"
-    on="tap: 29 "
+    on="tap: 888 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -571,7 +610,7 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="29"
+    id="888"
     layout="nodisplay"
 >
 </amp-image-lightbox>
@@ -616,7 +655,7 @@
      width="1200"
      height="800"
      layout="responsive"
-    on="tap: 377 "
+    on="tap: 656 "
     role="button"
     aria-label="Image lightbox button"
    tabindex="0"
@@ -624,31 +663,13 @@
 </amp-img>
 
 <amp-image-lightbox
-    id="377"
+    id="656"
     layout="nodisplay"
 >
 </amp-image-lightbox>
 
 
 <p>1984年的1月，在苹果的办公室内，已经凌晨的办公室内仍然灯火通明。因为新的Macintosh电脑即将在几天之后向公众展示，大家看起来都非常疲倦，所有人的心头都是一片乌云。整个团队甚至从去年圣诞节工作到了现在，但新的系统仍然有很多问题。虽然这栋大楼里的每一个人都已经在帮助团队进行软件的测试了，但新系统的发布看起来仍然遥遥无期。</p>
-  </div>
-</article>
-
-    
-    
-
-<article class="article-item">
-  <a
-    href="/posts/tech-lead-my-5-biggest-mistakes/"
-    target='_self'
-    rel=''
-    class="article-item-link"
-  >
-    <h1 class="article-item-title">做 Tech Lead 时犯下的五个错误</h1>
-  </a>
-  <time class="article-item-date">2018年12月27日</time>
-  <div class="article-item-summary">
-    <p>本文摘选翻译自 ThoughtWorks 文摘 <a href="https://www.thoughtworks.com/insights/blog/techie-tech-lead-my-5-biggest-mistakes">Techie to tech lead: My five biggest mistakes</a></p>
   </div>
 </article>
 

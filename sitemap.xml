@@ -1,17 +1,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://blog.liyaodong.com/tags/ai/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/ai-engineering-paradigm/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/%E5%B7%A5%E7%A8%8B/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/%E6%8A%80%E6%9C%AF%E6%80%9D%E8%80%83/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
         <loc>https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/</loc>
         <lastmod>2025-08-18T00:00:00+08:00</lastmod>
     </url>
     
     <url>
         <loc>https://blog.liyaodong.com/posts/</loc>
-        <lastmod>2025-08-18T00:00:00+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/</loc>
         <lastmod>2025-08-18T00:00:00+08:00</lastmod>
     </url>
     
@@ -67,11 +92,6 @@
     
     <url>
         <loc>https://blog.liyaodong.com/tags/frontend/</loc>
-        <lastmod>2018-02-10T21:11:00+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/tags/</loc>
         <lastmod>2018-02-10T21:11:00+08:00</lastmod>
     </url>
     
@@ -463,11 +483,6 @@
     <url>
         <loc>https://blog.liyaodong.com/tags/%E7%A7%91%E6%8A%80/</loc>
         <lastmod>2012-02-03T13:41:13+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/ai-engineering-paradigm/</loc>
-        <lastmod>0001-01-01T00:00:00+00:00</lastmod>
     </url>
     
     <url>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on 晓风博客</title>
+    <link>https://blog.liyaodong.com/tags/ai/</link>
+    <description>Recent content in AI on 晓风博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.liyaodong.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</title>
+      <link>https://blog.liyaodong.com/ai-engineering-paradigm/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0800</pubDate>
+      <guid>https://blog.liyaodong.com/ai-engineering-paradigm/</guid>
+      <description>&lt;p&gt;在 2026 年的今天，软件工程正在经历一场范式转移：&lt;strong&gt;软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;当 AI 代理（Agent）能够独立驱动整个研发流程时，优秀的工程实践不再是手把手写代码，而是构建一套能够让代理“自验证、自演进、不漂移”的防御性架构。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-架构升级从对话到自动化链条&#34;&gt;1. 架构升级：从“对话”到“自动化链条”&lt;/h3&gt;&#xA;&lt;p&gt;传统的 AI 编程是“人机对话”：提问 -&amp;gt; AI 生成 -&amp;gt; 人检查。这种模式的延迟和 Token 消耗是致命的。现在的范式是 &lt;strong&gt;PTC（程序化工具调用）+ 沙箱矩阵&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;PTC：&lt;/strong&gt; 将复杂的业务逻辑（如网页爬取后的数据清洗、API 组合调用）封装成独立的代码函数，在受控容器内一气呵成，只有最终的结构化结果才会反馈给模型，极大降低了上下文的认知负担。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;沙箱矩阵：&lt;/strong&gt; 每个任务实例都拥有独立的文件系统、浏览器环境。任务不再是串行执行，而是像云原生服务一样，根据任务复杂度实时横向扩展。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-纪律即杠杆防范黑盒式漂移&#34;&gt;2. 纪律即杠杆：防范“黑盒式漂移”&lt;/h3&gt;&#xA;&lt;p&gt;自主执行力的提升伴随着风险。当 AI 在沙箱内自主完成全链路调用时，你很难通过“人眼审查”发现中间的逻辑偏离。&lt;strong&gt;工程约束就是你的防御工事：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;文档结构化：&lt;/strong&gt; 别再使用 monolithic（单体）的 &lt;code&gt;AGENTS.md&lt;/code&gt;，那是 AI 的坟墓。构建索引式文档系统，让 AI 能够精准调用模块化上下文。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;防御性工程：&lt;/strong&gt; 强制将架构规范注入 CI/CD。如果你的架构分层是 &lt;code&gt;UI -&amp;gt; Service -&amp;gt; Provider&lt;/code&gt;，那么你的 Linter 必须能在静态检查阶段，就拦截掉 AI 试图跳过 Service 直接调用 Provider 的行为。&lt;strong&gt;将“人的审美”转化为“编译器的报错”，是 AI 时代最强的工程杠杆。&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-给你的工程落地清单明日可用&#34;&gt;3. 给你的工程落地清单（明日可用）&lt;/h3&gt;&#xA;&lt;p&gt;如果你想在自己的代码库中实现这种工程范式，请从明天开始尝试：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;架构分层校验：&lt;/strong&gt; 增加 CI 测试脚本，强制校验代码包之间的调用方向。一旦 AI 输出的逻辑违背了分层，让测试直接报红。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;清理“说明书”：&lt;/strong&gt; 将冗长的 &lt;code&gt;AGENTS.md&lt;/code&gt; 拆分为 &lt;code&gt;docs/&lt;/code&gt; 下的独立模块，只在 &lt;code&gt;AGENTS.md&lt;/code&gt; 中留下引用索引。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;引入“技术债回收机制”：&lt;/strong&gt; 设定一个简单的脚本，定期扫描过时文档或冗余代码，并自动触发重构 PR。将重构变成一种像垃圾回收（GC）一样的常态化工程操作。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt; AI 原生开发的未来，比拼的不是谁的代码写得快，而是谁的“系统脚手架（Scaffolding）”更坚固。当代码生成可以自动化时，工程的真谛，就在于那些约束 AI 不越轨的“隐形规则”之中。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
