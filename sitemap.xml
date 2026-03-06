@@ -6,12 +6,17 @@
     </url>
     
     <url>
+        <loc>https://blog.liyaodong.com/posts/</loc>
+        <lastmod>2026-03-05T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
         <loc>https://blog.liyaodong.com/tags/</loc>
         <lastmod>2026-03-05T00:00:00+08:00</lastmod>
     </url>
     
     <url>
-        <loc>https://blog.liyaodong.com/ai-engineering-paradigm/</loc>
+        <loc>https://blog.liyaodong.com/posts/ai-engineering-paradigm/</loc>
         <lastmod>2026-03-05T00:00:00+08:00</lastmod>
     </url>
     
@@ -32,11 +37,6 @@
     
     <url>
         <loc>https://blog.liyaodong.com/posts/obsidian-to-hugo-blog/</loc>
-        <lastmod>2025-08-18T00:00:00+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/posts/</loc>
         <lastmod>2025-08-18T00:00:00+08:00</lastmod>
     </url>
     
