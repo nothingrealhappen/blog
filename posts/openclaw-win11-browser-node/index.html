@@ -1,0 +1,1210 @@
+
+
+<!DOCTYPE html>
+
+
+
+<html amp lang="zh-cn" class="no-js">
+<head>
+    <title>把国内 Win11 变成 OpenClaw 的远程浏览器节点</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <meta charset="utf-8">
+
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script><script async custom-element="amp-dynamic-css-classes" src="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js"></script><script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script><script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script><script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+
+
+
+    <link rel="canonical" href="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/">
+
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
+
+    <meta name="theme-color" content="#112233" />
+    <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
+
+    <meta property="og:title" content="把国内 Win11 变成 OpenClaw 的远程浏览器节点 | 晓风博客" />
+<meta name="twitter:title" content="把国内 Win11 变成 OpenClaw 的远程浏览器节点 | 晓风博客" />
+<meta itemprop="name" content="把国内 Win11 变成 OpenClaw 的远程浏览器节点 | 晓风博客" />
+<meta name="application-name" content="把国内 Win11 变成 OpenClaw 的远程浏览器节点 | 晓风博客" />
+<meta property="og:site_name" content="" />
+
+
+
+    
+    
+
+<meta name="description" content="海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host &#43; browser proxy 把两者重新缝起来。
+" />
+<meta itemprop="description" content="海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host &#43; browser proxy 把两者重新缝起来。
+" />
+<meta property="og:description" content="海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host &#43; browser proxy 把两者重新缝起来。
+" />
+<meta name="twitter:description" content="海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host &#43; browser proxy 把两者重新缝起来。
+" />
+
+<base href="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/" itemprop="url" />
+<meta name="url" content="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/" />
+<meta name="twitter:url" content="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/" />
+<meta property="og:url" content="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/" />
+
+<meta property="og:locale" content="en">
+<meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/openclaw-win11-browser-node/" title="">
+
+
+
+<meta itemprop="image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta property="og:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image:src" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "晓风博客",
+    "alternateName": "Xiaofeng Blog",
+    "url": "https:\/\/blog.liyaodong.com\/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.liyaodong.com\/"
+  , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
+  
+  
+  
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/",
+          "name": "posts"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/openclaw-win11-browser-node\/",
+          "name": "openclaw-win11-browser-node"
+        }
+    }]
+}
+</script>
+
+
+
+
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        /* Background */
+.chroma {
+  background-color: #eeeedd;
+}
+
+/* Error */
+.chroma .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: #ffffcc;
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* Keyword */
+.chroma .k {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordConstant */
+.chroma .kc {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordNamespace */
+.chroma .kn {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordPseudo */
+.chroma .kp {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordReserved */
+.chroma .kr {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordType */
+.chroma .kt {
+  color: #00688b;
+  font-weight: bold;
+}
+
+/* NameAttribute */
+.chroma .na {
+  color: #658b00;
+}
+
+/* NameBuiltin */
+.chroma .nb {
+  color: #658b00;
+}
+
+/* NameClass */
+.chroma .nc {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameConstant */
+.chroma .no {
+  color: #00688b;
+}
+
+/* NameDecorator */
+.chroma .nd {
+  color: #707a7c;
+}
+
+/* NameException */
+.chroma .ne {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameFunction */
+.chroma .nf {
+  color: #008b45;
+}
+
+/* NameNamespace */
+.chroma .nn {
+  color: #008b45;
+  text-decoration: underline;
+}
+
+/* NameTag */
+.chroma .nt {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* NameVariable */
+.chroma .nv {
+  color: #00688b;
+}
+
+/* LiteralString */
+.chroma .s {
+  color: #cd5555;
+}
+
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #cd5555;
+}
+
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #cd5555;
+}
+
+/* LiteralStringChar */
+.chroma .sc {
+  color: #cd5555;
+}
+
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #cd5555;
+}
+
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #cd5555;
+}
+
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #cd5555;
+}
+
+/* LiteralStringEscape */
+.chroma .se {
+  color: #cd5555;
+}
+
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #1c7e71;
+  font-style: italic;
+}
+
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #cd5555;
+}
+
+/* LiteralStringOther */
+.chroma .sx {
+  color: #cb6c20;
+}
+
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #1c7e71;
+}
+
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #cd5555;
+}
+
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #cd5555;
+}
+
+/* LiteralNumber */
+.chroma .m {
+  color: #b452cd;
+}
+
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #b452cd;
+}
+
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #b452cd;
+}
+
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #b452cd;
+}
+
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #b452cd;
+}
+
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #b452cd;
+}
+
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #b452cd;
+}
+
+/* OperatorWord */
+.chroma .ow {
+  color: #8b008b;
+}
+
+/* Comment */
+.chroma .c {
+  color: #228b22;
+}
+
+/* CommentHashbang */
+.chroma .ch {
+  color: #228b22;
+}
+
+/* CommentMultiline */
+.chroma .cm {
+  color: #228b22;
+}
+
+/* CommentSingle */
+.chroma .c1 {
+  color: #228b22;
+}
+
+/* CommentSpecial */
+.chroma .cs {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* CommentPreproc */
+.chroma .cp {
+  color: #1e889b;
+}
+
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #1e889b;
+}
+
+/* GenericDeleted */
+.chroma .gd {
+  color: #aa0000;
+}
+
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+
+/* GenericError */
+.chroma .gr {
+  color: #aa0000;
+}
+
+/* GenericHeading */
+.chroma .gh {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* GenericInserted */
+.chroma .gi {
+  color: #00aa00;
+}
+
+/* GenericOutput */
+.chroma .go {
+  color: #888888;
+}
+
+/* GenericPrompt */
+.chroma .gp {
+  color: #555555;
+}
+
+/* GenericStrong */
+.chroma .gs {
+  font-weight: bold;
+}
+
+/* GenericSubheading */
+.chroma .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+/* GenericTraceback */
+.chroma .gt {
+  color: #aa0000;
+}
+
+/* GenericUnderline */
+.chroma .gl {
+  text-decoration: underline;
+}
+
+/* TextWhitespace */
+.chroma .w {
+  color: #bbbbbb;
+}
+
+body {
+  background-color: #f9f8f0;
+  color: #222;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
+}
+
+.tac {
+  text-align: center;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+.container img,
+.container amp-img {
+  max-width: 100%;
+}
+
+.site-header {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Songti SC";
+}
+
+.site-title {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-subtitle {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.site-header--float {
+  font-family: "Songti SC";
+  padding: 15px 30px;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #dcdcdc;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header--float a {
+  display: flex;
+  align-items: center;
+}
+
+.site-title--float {
+  font-size: 20px;
+  margin: 0px;
+  margin-right: 20px;
+}
+
+.site-subtitle--float {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.site-footer {
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+.site-footer em {
+  color: #d82222;
+}
+
+.article-item-title {
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Songti SC";
+  margin: 0;
+}
+.article-item-title:hover {
+  text-decoration: underline;
+}
+
+.article-item-date {
+  font-size: 12px;
+  display: block;
+  color: #555;
+}
+
+.article-item-summary {
+  margin-top: 20px;
+  color: #555;
+}
+
+.article-item-link {
+  color: #222;
+  text-decoration: none;
+  margin: 30px 0 5px;
+}
+
+.article-item {
+  max-width: 700px;
+  padding-bottom: 40px;
+  margin: 0 auto 40px auto;
+}
+.article-item:not(:last-of-type) {
+  border-bottom: 1px solid #efefef;
+}
+.article-item amp-img {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  text-align: center;
+  font-family: "Songti SC";
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.single {
+  line-height: 1.625;
+  color: #4a4a4a;
+  max-width: 700px;
+}
+.single.has-header {
+  margin-top: 60px;
+}
+.single amp-img {
+  margin: 15px auto;
+  text-align: center;
+}
+.single code {
+  color: #AA8D5B;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px;
+}
+.single pre > code {
+  font-weight: 600;
+  margin: 0;
+}
+.single div.highlight {
+  box-shadow: 0 3px 3px 1px #d2c7b5;
+}
+.single .chroma {
+  background-color: transparent;
+}
+.single a {
+  text-decoration: underline;
+}
+.single a:hover {
+  color: #000;
+}
+
+.single-content {
+  margin-bottom: 20px;
+}
+
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0;
+}
+.pagination .page-item {
+  list-style-type: none;
+}
+.pagination .page-item a {
+  font-size: 16px;
+  margin: 0 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.pagination .page-item.active, .pagination .page-item:hover {
+  color: #fff;
+  transition: all 200ms;
+}
+.pagination .page-item.active a, .pagination .page-item:hover a {
+  color: #fff;
+  background: #ad9616;
+  transition: all 200ms;
+}
+
+.read-more {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #efefef;
+  position: relative;
+}
+.read-more__title {
+  font-size: 13px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: #f9f8f0;
+  padding: 0 10px;
+}
+.read-more__item {
+  margin-bottom: 20px;
+}
+.read-more__item__container {
+  background-color: #fefefe;
+  border-radius: 4px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+.read-more__item a {
+  text-decoration: none;
+}
+.read-more__item h4 {
+  margin: 10px 0 0 0;
+}
+.read-more__summary {
+  font-size: 14px;
+}
+@media screen and (min-width: 767px) {
+  .read-more__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .read-more__item {
+    display: flex;
+    flex: 1;
+    padding: 0 10px;
+  }
+  .read-more__item__container {
+    flex-grow: 1;
+  }
+  .read-more__item:first-of-type {
+    padding-left: 0;
+  }
+  .read-more__item:last-of-type {
+    padding-right: 0;
+  }
+  .read-more__item amp-img {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=stylesheet.html.map */
+
+    </style>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
+<link rel="apple-touch-icon" href="/icons/icon-57x57.png" />
+
+<link rel="icon" href="/icons/icon-32x32.png" sizes="32x32" />
+<link rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
+
+
+
+</head>
+
+<body>
+
+
+
+
+<header class="site-header--float" amp-fx="float-in-top">
+    <a href="https://blog.liyaodong.com/">
+        <h1 class="site-title--float">
+            晓风博客
+        </h1>
+        <h2 class="site-subtitle--float">
+            一片荒芜的地方
+        </h2>
+    </a>
+</header>
+
+
+<section class="single container has-header">
+    <h1 class="post-title">把国内 Win11 变成 OpenClaw 的远程浏览器节点</h1>
+    <div class="tac">
+        <time>2026年3月10日</time>
+    </div>
+
+    <article class="single-content">
+        <amp-img
+     src="https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png"
+     alt="OpenClaw Win11 Browser Node cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-cover.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 508 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="508"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host + browser proxy 把两者重新缝起来。</p>
+<h2 id="先说结论">先说结论</h2>
+<p>真正有价值的，不是“把 Chrome 调试端口暴露出来”这件事本身，而是下面这个思路：</p>
+<ol>
+<li><strong>海外 VPS 继续跑 OpenClaw Gateway / skills / agent 逻辑</strong>。</li>
+<li><strong>国内 Win11 只负责提供 GUI Chrome 和浏览器执行能力</strong>。</li>
+<li><strong>通过 OpenClaw 的 node host，把 Win11 变成一个远程浏览器节点</strong>。</li>
+<li><strong>浏览器操作走 node browser proxy，而不是让海外 VPS 自己直接碰站点</strong>。</li>
+</ol>
+<p>这样做的结果是：</p>
+<ul>
+<li>逻辑、调度、技能仍然集中在 VPS，方便统一维护。</li>
+<li>浏览器和出口 IP 落在国内 Win11，更接近“真人在国内机器上操作”。</li>
+<li>浏览器是可见的 GUI，可以扫码、过验证、必要时人工接管。</li>
+<li>对小红书这类站点，比“海外 VPS 直接打开页面”稳得多。</li>
+</ul>
+<h2 id="为什么我们不该继续死磕远程-cdp-端口">为什么我们不该继续死磕远程 CDP 端口</h2>
+<p>一开始最自然的想法，是把 Win11 上 Chrome 的远程调试端口（CDP）暴露出来，然后从 VPS 直连过去。</p>
+<p>这个思路看起来很优雅，实际上坑非常多：</p>
+<ul>
+<li>Windows 上从 SSH 会话启动的 Chrome，不一定真正跑在桌面交互会话里。</li>
+<li>即使本机 <code>127.0.0.1:9222</code> 能通，跨 Tailscale 或 SSH forward 仍然可能出现 <strong>Empty reply</strong>、<strong>Connection reset</strong>、<strong>ECONNREFUSED</strong> 这类诡异问题。</li>
+<li>Windows OpenSSH 做 TCP 转发时，对这种长连接/调试口流量并不总是稳定。</li>
+<li>直接暴露调试端口的安全边界也很脆弱，因为拿到 CDP 口的人几乎就拿到了浏览器本身。</li>
+</ul>
+<p>我们最后得到的判断是：</p>
+<blockquote>
+<p><strong>问题并不在 Chrome，而在“怎么把远程浏览器能力安全、稳定地暴露给 OpenClaw”。</strong></p>
+</blockquote>
+<p>这时候，OpenClaw 自己的 <strong>node host + browser proxy</strong> 才是正解。</p>
+<h2 id="最终架构">最终架构</h2>
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+<amp-img
+     src="https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png"
+     alt="OpenClaw Win11 browser node architecture "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-arch.png 2000w"
+    
+    
+    
+    
+    
+     width="946"
+     height="375"
+     layout="responsive"
+    on="tap: 371 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="371"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>上面这张图就是最后跑通的链路：</p>
+<ul>
+<li>海外 VPS 上运行 OpenClaw Gateway。</li>
+<li>Win11 通过 Tailscale 与 VPS 互通。</li>
+<li>由于 Gateway 默认只绑定在 loopback，我们让 Win11 先建立一条 <strong>SSH tunnel 到 VPS 的 loopback Gateway 端口</strong>。</li>
+<li>Win11 上运行 <strong>OpenClaw node host</strong>。</li>
+<li>node host 打开本地 <strong>browser proxy</strong>，把 Win11 上的 Chrome 能力暴露给 Gateway。</li>
+<li>最终，Agent 在 VPS 上发出的 browser 调用，会被代理到 Win11 上执行。</li>
+</ul>
+<p>这个方案有一个很关键的优点：</p>
+<blockquote>
+<p><strong>Agent 只在“逻辑层”远程，浏览器执行始终在国内机器本地完成。</strong></p>
+</blockquote>
+<h2 id="从失败路径到可用路径">从失败路径到可用路径</h2>
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+<amp-img
+     src="https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png"
+     alt="evolution from direct overseas browser access to Win11 browser node "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/openclaw-win11-browser-node-evolution.png 2000w"
+    
+    
+    
+    
+    
+     width="1126"
+     height="432"
+     layout="responsive"
+    on="tap: 320 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="320"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>这次最值得记住的，不只是最终架构，而是中间的演化过程：</p>
+<h3 id="失败路径海外-vps-直接开站点">失败路径：海外 VPS 直接开站点</h3>
+<p>最开始的直觉是：</p>
+<ul>
+<li>VPS 上跑 skill</li>
+<li>VPS 上直接开 Chrome</li>
+<li>直接访问小红书</li>
+</ul>
+<p>这条路的问题太明显了：</p>
+<ul>
+<li>海外出口 IP 很容易异常</li>
+<li>登录态不稳定</li>
+<li>验证码 / 风控 / 设备画像更容易出问题</li>
+<li>即使能打开，也不利于人工接管</li>
+</ul>
+<h3 id="半成功路径远程调试端口--cdp-暴露">半成功路径：远程调试端口 / CDP 暴露</h3>
+<p>第二阶段，我们尝试了：</p>
+<ul>
+<li>Win11 启动带调试端口的 Chrome</li>
+<li>通过 Tailscale / SSH 隧道 / 端口转发暴露 CDP</li>
+<li>让 VPS 直接连接这个 CDP 端口</li>
+</ul>
+<p>这条路“看起来快”，但运维成本很高，稳定性也差。</p>
+<h3 id="可用路径win11-变成-openclaw-节点">可用路径：Win11 变成 OpenClaw 节点</h3>
+<p>最后我们切换思路：</p>
+<ul>
+<li>不再把 Win11 当成一个“暴露端口的被控浏览器”</li>
+<li>而是把 Win11 当成一个 <strong>OpenClaw node</strong></li>
+<li>由 OpenClaw 官方支持的 browser proxy 来暴露浏览器能力</li>
+</ul>
+<p>这一步之后，事情就顺了：</p>
+<ul>
+<li>Win11 节点接入 Gateway</li>
+<li>节点显示 <code>browser, system</code> capability</li>
+<li>可以在 Win11 上启动 OpenClaw 管理的 <code>openclaw</code> profile</li>
+<li>VPS 侧通过 <code>browser</code> 工具直接操控 Win11 的 GUI Chrome</li>
+</ul>
+<h2 id="真正有价值的分层大脑在海外手在国内">真正有价值的分层：大脑在海外，手在国内</h2>
+<p>这是我觉得最值得分享的一句话：</p>
+<blockquote>
+<p><strong>海外 VPS 负责思考，国内 Win11 负责出手。</strong></p>
+</blockquote>
+<p>更具体一点：</p>
+<h3 id="海外-vps-负责什么">海外 VPS 负责什么</h3>
+<ul>
+<li>Agent 推理</li>
+<li>工作流编排</li>
+<li>skill 路由</li>
+<li>任务调度</li>
+<li>日志与统一维护</li>
+</ul>
+<h3 id="国内-win11-负责什么">国内 Win11 负责什么</h3>
+<ul>
+<li>GUI Chrome</li>
+<li>登录态</li>
+<li>国内出口 IP</li>
+<li>扫码 / 验证码 / 人工接管</li>
+<li>对目标站点发起真实浏览器动作</li>
+</ul>
+<p>这是一种非常实用的分层方式，因为它把“容易被风控关注的部分”和“纯计算逻辑的部分”分开了。</p>
+<h2 id="为什么-gui-很重要">为什么 GUI 很重要</h2>
+<p>如果目标是小红书、抖音、视频号、公众号后台这一类站点，<strong>GUI 不是装饰，而是可靠性的一部分</strong>。</p>
+<p>原因包括：</p>
+<ul>
+<li>需要扫码登录。</li>
+<li>可能会遇到滑块或图形验证。</li>
+<li>需要确认页面是否真的卡住。</li>
+<li>某些发布流程需要人工复核。</li>
+<li>无头浏览器或纯 API 调用更容易脱离“真实用户行为画像”。</li>
+</ul>
+<p>所以这套方案里，Win11 不是“一个装了浏览器的无头盒子”，而是：</p>
+<blockquote>
+<p><strong>一个可见、可接管、可长期保有登录态的浏览器执行节点。</strong></p>
+</blockquote>
+<h2 id="这套方案里最容易被忽略的几个细节">这套方案里最容易被忽略的几个细节</h2>
+<h3 id="1-gateway-loopback-bind-决定了-ssh-tunnel-不是可选项">1. Gateway loopback bind 决定了 SSH tunnel 不是可选项</h3>
+<p>如果 OpenClaw Gateway 运行在 VPS 上，而且使用默认的：</p>
+<ul>
+<li><code>gateway.bind=loopback</code></li>
+</ul>
+<p>那么 Win11 节点不能直接连 VPS 的 Tailscale 地址去找 Gateway，因为 Gateway 根本没对外监听。</p>
+<p>正确做法是：</p>
+<ul>
+<li><strong>Win11 先建立一条 SSH tunnel 到 VPS 的 <code>127.0.0.1:18789</code></strong></li>
+<li>再让 node host 连接 <strong>Win11 本地的 <code>127.0.0.1:18789</code></strong></li>
+</ul>
+<p>这样既保留了 loopback 的安全边界，又让远端节点能通过隧道接入。</p>
+<h3 id="2-节点配对走的是-devices而不是-nodes-pending">2. 节点配对走的是 devices，而不是 nodes pending</h3>
+<p>这是一个很容易踩的坑。</p>
+<p>OpenClaw 里的 headless node host 在 WebSocket 握手时，走的是 <strong>device pairing</strong>。
+所以真正该看的命令是：</p>
+<ul>
+<li><code>openclaw devices list</code></li>
+<li><code>openclaw devices approve &lt;requestId&gt;</code></li>
+</ul>
+<p>而不是一开始直觉上会去看的 <code>openclaw nodes pending</code>。</p>
+<h3 id="3-windows-上长期运行的东西最好别靠一次性命令拼起来">3. Windows 上长期运行的东西，最好别靠一次性命令拼起来</h3>
+<p>临时验证时，直接在 PowerShell 里起：</p>
+<ul>
+<li>SSH 隧道</li>
+<li><code>openclaw node run</code></li>
+</ul>
+<p>当然可行。</p>
+<p>但一旦要长期使用，就应该把它收编成：</p>
+<ul>
+<li>Scheduled Task</li>
+<li>InteractiveToken</li>
+<li>AtLogOn</li>
+<li>带 PID 和状态检查的守护脚本</li>
+</ul>
+<p>这样 Win11 重新登录之后，节点会自动恢复，而不是等你手动再点一遍。</p>
+<h2 id="这套方案适合谁">这套方案适合谁</h2>
+<p>我觉得它特别适合以下几类场景：</p>
+<h3 id="1-站点强依赖国内-ip">1. 站点强依赖国内 IP</h3>
+<p>比如：</p>
+<ul>
+<li>小红书</li>
+<li>抖音创作者后台</li>
+<li>某些国内 SaaS 控制台</li>
+<li>某些有地域风控的运营后台</li>
+</ul>
+<h3 id="2-你希望保留逻辑在云端的开发体验">2. 你希望保留“逻辑在云端”的开发体验</h3>
+<p>如果你已经习惯：</p>
+<ul>
+<li>所有脚本、skill、配置、日志都在 VPS 上</li>
+<li>Agent 也跑在 VPS 上</li>
+</ul>
+<p>那么这套方式可以让你<strong>不必把整套工作流迁回国内机器</strong>。</p>
+<h3 id="3-你需要真实-gui-浏览器而不是只要一个-headless-runtime">3. 你需要真实 GUI 浏览器，而不是只要一个 headless runtime</h3>
+<p>很多时候，<strong>GUI 本身就是能力的一部分</strong>。</p>
+<h2 id="最后的经验总结">最后的经验总结</h2>
+<p>如果让我把这次折腾浓缩成几条经验，我会写成下面几句：</p>
+<ol>
+<li><strong>不要一上来就暴露 Chrome 调试端口。</strong> 这只是“能连上浏览器”，不等于“能稳定交付浏览器能力”。</li>
+<li><strong>OpenClaw 官方的 node host + browser proxy，比手搓 CDP 暴露更值得信任。</strong></li>
+<li><strong>海外 VPS 不一定要直接碰目标站点。</strong> 让它负责“思考”，把“出手”交给国内机器，是一种更聪明的分工。</li>
+<li><strong>对于小红书这类站点，GUI 浏览器不是锦上添花，而是稳定性本身。</strong></li>
+<li><strong>工程化永远重要。</strong> 临时跑通只是开始，最终还是要落到 Scheduled Task、保活、状态检查这些基础设施上。</li>
+</ol>
+<p>如果你也在做远程 Agent、浏览器自动化、或者需要让海外运行的工作流借用国内机器的浏览器能力，希望这篇文章能帮你少踩几颗雷。</p>
+    </article>
+
+    
+    
+        <div class="read-more">
+            <div class="read-more__title">
+                阅读更多
+            </div>
+            <div class="read-more__list">
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/ai-engineering-paradigm/">
+                            <h4>从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</h4>
+                            <div class="read-more__summary"><h2 id="在-2026-年的今天软件工程正在经历一场范式转移软件开发的核心已从编写逻辑转向设计反馈闭环">在 2026 年的今天，软件工程正在经历一场范式转移：<strong>软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。</strong></h2></div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+
+    <amp-iframe width="700" height="163"
+                layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+                resizable
+                src="https://liyaodong.com/disqus.html#openclaw-win11-browser-node.md|https%3a%2f%2fblog.liyaodong.com%2fposts%2fopenclaw-win11-browser-node%2f">
+        <div overflow tabindex=0 role=button aria-label=""></div>
+    </amp-iframe>
+</section>
+
+<footer class="site-footer">
+    <a href="https://liyaodong.com" target="_blank" rel="noopener">Home</a> |
+    <a href="https://blog.liyaodong.com">Blog</a> |
+    <a href="https://blog.liyaodong.com/index.xml" type="application/rss+xml" rel="noopener" target="_blank">RSS</a> |
+    <a href="https://github.com/liyaodong" rel="noopener" target="_blank">Github</a> |
+    <a href="https://twitter.com/xiaofengdong" rel="noopener" target="_blank">Twitter</a>
+    <br />
+    Powered by <a href="https://www.gnu.org/software/emacs/">Emacs</a> and <a href="https://gohugo.io/">Hugo</a> with <em>&#10084;</em>
+</footer>
+
+<amp-install-serviceworker
+    src="https://blog.liyaodong.com/sw.js"
+    layout="nodisplay">
+</amp-install-serviceworker>
+
+
+
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-30027709-1"
+            },
+            "triggers": {"trackPageview":{"on":"visible","request":"pageview"}}
+        }
+    </script>
+</amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
+
+</body>
+</html>
+
