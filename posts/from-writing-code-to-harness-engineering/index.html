@@ -6,7 +6,7 @@
 
 <html amp lang="zh-cn" class="no-js">
 <head>
-    <title>从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</title>
+    <title>从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering</title>
     <link rel="manifest" href="/manifest.webmanifest">
 
     <meta charset="utf-8">
@@ -20,7 +20,7 @@
 
 
 
-    <link rel="canonical" href="https://blog.liyaodong.com/posts/ai-engineering-paradigm/">
+    <link rel="canonical" href="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/">
 
     <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144">
 
@@ -34,10 +34,10 @@
     <meta name="theme-color" content="#112233" />
     <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
 
-    <meta property="og:title" content="从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移 | 晓风博客" />
-<meta name="twitter:title" content="从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移 | 晓风博客" />
-<meta itemprop="name" content="从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移 | 晓风博客" />
-<meta name="application-name" content="从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移 | 晓风博客" />
+    <meta property="og:title" content="从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering | 晓风博客" />
+<meta name="twitter:title" content="从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering | 晓风博客" />
+<meta itemprop="name" content="从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering | 晓风博客" />
+<meta name="application-name" content="从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering | 晓风博客" />
 <meta property="og:site_name" content="" />
 
 
@@ -45,21 +45,29 @@
     
     
 
-<meta name="description" content="在 2026 年的今天，软件工程正在经历一场范式转移：软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。" />
-<meta itemprop="description" content="在 2026 年的今天，软件工程正在经历一场范式转移：软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。" />
-<meta property="og:description" content="在 2026 年的今天，软件工程正在经历一场范式转移：软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。" />
-<meta name="twitter:description" content="在 2026 年的今天，软件工程正在经历一场范式转移：软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。" />
+<meta name="description" content="OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：“工程师不写代码了。”
+但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是软件工程的控制面正在上移：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。
+" />
+<meta itemprop="description" content="OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：“工程师不写代码了。”
+但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是软件工程的控制面正在上移：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。
+" />
+<meta property="og:description" content="OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：“工程师不写代码了。”
+但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是软件工程的控制面正在上移：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。
+" />
+<meta name="twitter:description" content="OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：“工程师不写代码了。”
+但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是软件工程的控制面正在上移：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。
+" />
 
-<base href="https://blog.liyaodong.com/posts/ai-engineering-paradigm/">
-<link rel="canonical" href="https://blog.liyaodong.com/posts/ai-engineering-paradigm/" itemprop="url" />
-<meta name="url" content="https://blog.liyaodong.com/posts/ai-engineering-paradigm/" />
-<meta name="twitter:url" content="https://blog.liyaodong.com/posts/ai-engineering-paradigm/" />
-<meta property="og:url" content="https://blog.liyaodong.com/posts/ai-engineering-paradigm/" />
+<base href="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/" itemprop="url" />
+<meta name="url" content="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/" />
+<meta name="twitter:url" content="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/" />
+<meta property="og:url" content="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/" />
 
 <meta property="og:locale" content="en">
 <meta name="language" content="">
 
-<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/ai-engineering-paradigm/" title="">
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/" title="">
 
 
 
@@ -134,8 +142,8 @@
         "@type": "ListItem",
         "position":  3 ,
         "item": {
-          "@id": "https:\/\/blog.liyaodong.com\/posts\/ai-engineering-paradigm\/",
-          "name": "ai-engineering-paradigm"
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/from-writing-code-to-harness-engineering\/",
+          "name": "from-writing-code-to-harness-engineering"
         }
     }]
 }
@@ -809,49 +817,13 @@ pre code.language-mermaid {
 
 
 <section class="single container has-header">
-    <h1 class="post-title">从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</h1>
+    <h1 class="post-title">从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering</h1>
     <div class="tac">
-        <time>2026年3月5日</time>
+        <time>2026年3月11日</time>
     </div>
 
     <article class="single-content">
-        <h2 id="在-2026-年的今天软件工程正在经历一场范式转移软件开发的核心已从编写逻辑转向设计反馈闭环">在 2026 年的今天，软件工程正在经历一场范式转移：<strong>软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。</strong></h2>
-<p>当 AI 代理（Agent）能够独立驱动整个研发流程时，优秀的工程实践不再是手把手写代码，而是构建一套能够让代理“自验证、自演进、不漂移”的防御性架构。</p>
-<h3 id="1-架构升级从对话到自动化链条">1. 架构升级：从“对话”到“自动化链条”</h3>
-<p>传统的 AI 编程是“人机对话”：提问 -&gt; AI 生成 -&gt; 人检查。这种模式的延迟和 Token 消耗是致命的。现在的范式是 <strong>PTC（程序化工具调用）+ 沙箱矩阵</strong>：</p>
-<ul>
-<li><strong>PTC：</strong> 将复杂的业务逻辑（如网页爬取后的数据清洗、API 组合调用）封装成独立的代码函数，在受控容器内一气呵成，只有最终的结构化结果才会反馈给模型，极大降低了上下文的认知负担。</li>
-<li><strong>沙箱矩阵：</strong> 每个任务实例都拥有独立的文件系统、浏览器环境。任务不再是串行执行，而是像云原生服务一样，根据任务复杂度实时横向扩展。</li>
-</ul>
-<h3 id="2-纪律即杠杆防范黑盒式漂移">2. 纪律即杠杆：防范“黑盒式漂移”</h3>
-<p>自主执行力的提升伴随着风险。当 AI 在沙箱内自主完成全链路调用时，你很难通过“人眼审查”发现中间的逻辑偏离。<strong>工程约束就是你的防御工事：</strong></p>
-<ul>
-<li><strong>文档结构化：</strong> 别再使用 monolithic（单体）的 <code>AGENTS.md</code>，那是 AI 的坟墓。构建索引式文档系统，让 AI 能够精准调用模块化上下文。</li>
-<li><strong>防御性工程：</strong> 强制将架构规范注入 CI/CD。如果你的架构分层是 <code>UI -&gt; Service -&gt; Provider</code>，那么你的 Linter 必须能在静态检查阶段，就拦截掉 AI 试图跳过 Service 直接调用 Provider 的行为。<strong>将“人的审美”转化为“编译器的报错”，是 AI 时代最强的工程杠杆。</strong></li>
-</ul>
-<h3 id="3-给你的工程落地清单明日可用">3. 给你的工程落地清单（明日可用）</h3>
-<p>如果你想在自己的代码库中实现这种工程范式，请从明天开始尝试：</p>
-<ol>
-<li><strong>架构分层校验：</strong> 增加 CI 测试脚本，强制校验代码包之间的调用方向。一旦 AI 输出的逻辑违背了分层，让测试直接报红。</li>
-<li><strong>清理“说明书”：</strong> 将冗长的 <code>AGENTS.md</code> 拆分为 <code>docs/</code> 下的独立模块，只在 <code>AGENTS.md</code> 中留下引用索引。</li>
-<li><strong>引入“技术债回收机制”：</strong> 设定一个简单的脚本，定期扫描过时文档或冗余代码，并自动触发重构 PR。将重构变成一种像垃圾回收（GC）一样的常态化工程操作。</li>
-</ol>
-<p><strong>总结：</strong> AI 原生开发的未来，比拼的不是谁的代码写得快，而是谁的“系统脚手架（Scaffolding）”更坚固。当代码生成可以自动化时，工程的真谛，就在于那些约束 AI 不越轨的“隐形规则”之中。</p>
-    </article>
-
-    
-    
-        <div class="read-more">
-            <div class="read-more__title">
-                阅读更多
-            </div>
-            <div class="read-more__list">
-                
-                <div class="read-more__item">
-                    <div class="read-more__item__container">
-                        <a href="/posts/from-writing-code-to-harness-engineering/">
-                            <h4>从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering</h4>
-                            <div class="read-more__summary"><amp-img
+        <amp-img
      src="https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover.png"
      alt="Harness Engineering cover "
     
@@ -887,10 +859,262 @@ pre code.language-mermaid {
 
 
 <p>OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：<strong>“工程师不写代码了。”</strong></p>
-<p>但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是<strong>软件工程的控制面正在上移</strong>：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。</p></div>
-                        </a>
-                    </div>
-                </div>
+<p>但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是<strong>软件工程的控制面正在上移</strong>：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。</p>
+<p>我更愿意用一句话概括它：</p>
+<blockquote>
+<p>AI 时代最稀缺的，不再只是写代码的手，而是把判断力铸造成系统能力的脑。</p>
+</blockquote>
+<h2 id="先说结论这不是程序员消失而是程序员产物变化">先说结论：这不是“程序员消失”，而是“程序员产物变化”</h2>
+<p>按 OpenAI 官方文章的描述，他们做了一个相当极端的实验：</p>
+<ul>
+<li>从空仓库起步</li>
+<li>几乎不手写代码</li>
+<li>用 Codex 生成应用逻辑、测试、CI、文档、可观测性与内部工具</li>
+<li>五个月做到约一百万行代码</li>
+<li>打开并合并约 1500 个 PR</li>
+<li>产品已经进入真实用户使用</li>
+</ul>
+<p>如果这些表述成立，那么它证明的并不是“AI 会写很多代码”——这件事早已不是新闻——而是另一件更重要的事：</p>
+<blockquote>
+<p>当代码生成速度被极大提升后，真正的瓶颈不再是“写”，而是“检查、约束、验证与纠偏”。</p>
+</blockquote>
+<p>换句话说，<strong>代码生产不再稀缺，人类注意力才稀缺。</strong></p>
+<h2 id="真正的瓶颈转移从-code-变成-qa">真正的瓶颈转移：从 Code 变成 QA</h2>
+<p>这篇文章最锋利的地方在于，它没有停留在“生产力暴涨”的兴奋剂叙事里，而是指出了一个现实：</p>
+<ul>
+<li>agent 写代码很快</li>
+<li>但人类 review、QA、验收没有同样线性增长</li>
+<li>于是整个研发流程卡在“人类注意力不足”</li>
+</ul>
+<p>这其实意味着，传统的软件流水线被倒过来了。</p>
+<p>过去是：</p>
+<p><strong>人写代码 → 人测试 → 人修 bug → 人 review → 人上线</strong></p>
+<p>现在更像是：</p>
+<p><strong>人定义目标与约束 → agent 写代码 → agent 自测 → agent 自查 → agent 修复 → agent 提 PR → 人只在需要判断时介入</strong></p>
+<p>所以 OpenAI 那句“人类掌舵，智能体执行”，不是品牌广告语，而是新组织结构的摘要。</p>
+<h2 id="harness-engineering-到底是什么">Harness Engineering 到底是什么</h2>
+<p>很多人会把它误解成“提示词工程升级版”。不是。</p>
+<p>Harness Engineering 本质上是在做这件事：</p>
+<blockquote>
+<p>把工程师脑中的经验、边界、规范、审美、验收逻辑与反馈机制，转译成 agent 可读取、可执行、可验证、可循环改进的工程系统。</p>
+</blockquote>
+<p>也就是说，工程师的工作重点从“亲自完成任务”，转向“设计一个让系统自动完成任务并尽量做对的环境”。</p>
+<p>这更接近控制论，不是脚本自动化。</p>
+<p>脚本自动化处理的是确定流程；Harness Engineering 处理的是带有不确定性、上下文依赖和反复修正的软件开发。</p>
+<h2 id="文章里真正的革命不是写代码而是闭环">文章里真正的革命，不是写代码，而是“闭环”</h2>
+<p>没有闭环，agent 只是更快地产生垃圾；有了闭环，agent 才可能成为工程执行体。</p>
+<p>OpenAI 文中最值得抄作业的，其实是三种“感官”建设。</p>
+<h3 id="1-让-agent-看得见-ui">1. 让 agent 看得见 UI</h3>
+<p>他们把 Chrome DevTools 协议接入 agent 运行环境，让 agent 能：</p>
+<ul>
+<li>看 DOM</li>
+<li>截图</li>
+<li>导航页面</li>
+<li>输入、点击</li>
+<li>复现 bug</li>
+<li>验证修复是否生效</li>
+</ul>
+<p>这一步的意义在于：agent 不再只是读源码，而是开始接触“运行后的产品行为”。</p>
+<h3 id="2-让-agent-看得见系统内部状态">2. 让 agent 看得见系统内部状态</h3>
+<p>他们把日志、指标、trace 暴露给 agent。</p>
+<p>于是 agent 可以像工程师一样：</p>
+<ul>
+<li>查询日志</li>
+<li>分析性能指标</li>
+<li>观察调用链</li>
+<li>判断问题是前端、后端还是基础设施导致</li>
+<li>修改后再次验证</li>
+</ul>
+<p>这让开发流程从“猜测式修复”变成“观测驱动修复”。</p>
+<h3 id="3-让-agent-工作在可复现环境里">3. 让 agent 工作在可复现环境里</h3>
+<p>他们让每个任务有相对独立的工作树、独立应用实例和临时可观测堆栈。</p>
+<p>这非常关键。没有隔离环境，agent 的尝试容易互相污染；有了隔离，agent 才能安全地不断试错、重放、修正。</p>
+<p>所以，真正的升级不是模型更会补代码，而是<strong>工程系统终于能让 agent 形成 Observe → Modify → Verify → Repeat 的闭环</strong>。</p>
+<h2 id="给地图不要给-1000-页说明书">“给地图，不要给 1000 页说明书”</h2>
+<p>这是全文里我最喜欢的一句经验。</p>
+<p>很多团队上来就做两件事：</p>
+<ol>
+<li>写一个超长 AGENTS.md，把所有规则都塞进去</li>
+<li>把关键决策留在 Slack、飞书、Google Docs 或几位老工程师脑子里</li>
+</ol>
+<p>结果往往是：</p>
+<ul>
+<li>文档巨大，但 agent 找不到重点</li>
+<li>上下文被说明书吞掉，真实任务反而信息不足</li>
+<li>旧规则快速腐烂</li>
+<li>团队以为“这不是常识吗”，但 agent 完全看不到</li>
+</ul>
+<p>OpenAI 的做法更像真正的知识工程：</p>
+<ul>
+<li>AGENTS.md 只做入口与导航</li>
+<li>深层信息放在结构化 docs 中</li>
+<li>执行计划、技术债、设计决策全部版本化</li>
+<li>用 lint 和 CI 检查知识是否过期、是否交叉引用、是否结构完整</li>
+<li>甚至用 agent 做文档园艺</li>
+</ul>
+<p>这一套背后只有一个朴素原则：</p>
+<blockquote>
+<p>对 agent 来说，运行时访问不到的知识，等于不存在。</p>
+</blockquote>
+<p>这句话值得每个做 AI 原生研发的人贴到墙上。</p>
+<h2 id="最值得深想的一点把品味写成规则">最值得深想的一点：把“品味”写成规则</h2>
+<p>过去高级工程师最有价值的部分，往往不是会写 for loop，而是那些微妙的判断：</p>
+<ul>
+<li>文件不要太大</li>
+<li>命名要统一</li>
+<li>日志要结构化</li>
+<li>边界必须校验，不能“猜数据”</li>
+<li>依赖方向不能乱穿</li>
+<li>尽量复用共享工具，别到处手搓小轮子</li>
+</ul>
+<p>这些东西以往主要靠：</p>
+<ul>
+<li>review 评论</li>
+<li>团队默契</li>
+<li>老人带新人</li>
+<li>口头传承</li>
+</ul>
+<p>而文章中最有意思的概念，是 <strong>taste invariants</strong> —— 品味不变量。</p>
+<p>也就是说，把这些“主观但稳定”的偏好翻译成：</p>
+<ul>
+<li>lint 规则</li>
+<li>架构约束</li>
+<li>结构测试</li>
+<li>错误信息中的修复提示</li>
+<li>后台持续清理任务</li>
+</ul>
+<p>一旦完成编码，人类品味就不再只存在于某个 senior 的瞬时判断里，而是会持续作用于代码库每一处新生成的内容。</p>
+<p>这意味着：</p>
+<blockquote>
+<p>AI 时代高级工程师最有价值的能力，不是自己写得多快，而是能否把“什么叫好”固化成机器能强制执行的不变量。</p>
+</blockquote>
+<h2 id="为什么严格架构在-ai-时代更重要而不是更不重要">为什么严格架构在 AI 时代更重要，而不是更不重要</h2>
+<p>文章里提到，他们强制每个业务域按固定层次组织，并严格限制依赖方向。</p>
+<p>这对一些人类工程师来说，可能会显得有点“死板”。但对 agent 来说，这恰恰是效率倍增器。</p>
+<p>人类可以在混沌中工作，靠经验和直觉弥补结构缺陷；agent 不行。agent 会快速复制已有模式，放大局部最优，也会稳定扩散坏味道。</p>
+<p>所以 AI 时代一个很反直觉的结论是：</p>
+<blockquote>
+<p>越是依赖 agent，高质量工程越需要更清晰的边界、更可验证的依赖关系，以及更机械可执行的约束系统。</p>
+</blockquote>
+<p>不是更自由，而是更可控。</p>
+<h2 id="这篇文章其实在暗示软件工程正在从工匠模式转向工业控制模式">这篇文章其实在暗示：软件工程正在从“工匠模式”转向“工业控制模式”</h2>
+<p>传统意义上的优秀工程师，很像工匠：</p>
+<ul>
+<li>亲自下手</li>
+<li>局部精修</li>
+<li>靠个人经验解决复杂问题</li>
+<li>以代码质量体现价值</li>
+</ul>
+<p>Harness Engineering 更像工业系统设计者：</p>
+<ul>
+<li>设计生产线</li>
+<li>定义质量门</li>
+<li>搭建传感器和反馈系统</li>
+<li>管理吞吐与漂移</li>
+<li>建立持续“垃圾回收”机制</li>
+</ul>
+<p>也就是说，软件团队的核心竞争力，正在从：</p>
+<p><strong>谁能写出最漂亮的实现</strong></p>
+<p>转向：</p>
+<p><strong>谁能设计出一个让 agent 持续写对的系统</strong></p>
+<p>这会重排很多能力的价值排序。</p>
+<h2 id="哪些能力会被放大哪些会被稀释">哪些能力会被放大，哪些会被稀释</h2>
+<h3 id="被放大的能力">被放大的能力</h3>
+<ol>
+<li><strong>架构能力</strong>：定义边界、抽象和依赖方向</li>
+<li><strong>知识工程能力</strong>：把隐性知识写进仓库，让 agent 可发现</li>
+<li><strong>反馈系统设计能力</strong>：补齐 UI、日志、指标、trace 等观测面</li>
+<li><strong>验收与判断能力</strong>：定义完成标准，而不是只评价代码风格</li>
+<li><strong>系统治理能力</strong>：防止 agent 放大错误模式，持续回收技术债</li>
+</ol>
+<h3 id="被稀释的能力">被稀释的能力</h3>
+<ol>
+<li><strong>重复性实现产能</strong>：常规 CRUD 的边际价值会持续下降</li>
+<li><strong>只存在于嘴上的经验</strong>：不写下来，就无法扩散给 agent</li>
+<li><strong>英雄主义式救火</strong>：高吞吐系统里，靠个人补锅不可扩展</li>
+</ol>
+<h2 id="当然这篇文章也有明显的边界">当然，这篇文章也有明显的边界</h2>
+<p>如果不泼一点冷水，就会把它读成布道稿。</p>
+<h3 id="1-这是高度特化环境不可直接外推">1. 这是高度特化环境，不可直接外推</h3>
+<p>OpenAI 自己也承认，这种能力严重依赖：</p>
+<ul>
+<li>专门设计的仓库结构</li>
+<li>丰富的内部工具</li>
+<li>完整的可观测性</li>
+<li>结构化文档体系</li>
+<li>规则与检查器</li>
+<li>后台清理机制</li>
+</ul>
+<p>普通团队如果只模仿“让 agent 大量写代码”，却没有这些支撑结构，很可能收获的是更快的熵增。</p>
+<h3 id="2-代码量很大不是价值本身">2. “代码量很大”不是价值本身</h3>
+<p>在 AI 时代，代码量本来就越来越便宜。真正重要的是：</p>
+<ul>
+<li>是否可维护</li>
+<li>是否符合约束</li>
+<li>是否便于未来 agent 接手</li>
+<li>是否在持续积累不可控的技术债</li>
+</ul>
+<p>所以“一百万行”更像系统吞吐的表现，不是成功本身。</p>
+<h3 id="3-漂移问题并没有消失只是被工程化管理">3. 漂移问题并没有消失，只是被工程化管理</h3>
+<p>文章里提到，他们一度每周抽出相当可观的时间清理“AI 残渣”。这其实是很诚实的一句。</p>
+<p>agent 的危险不只是第一次写错，而是会稳定复制并放大已有坏模式。解决方案不是指望模型自觉，而是建立持续扫描、重构、修剪的治理循环。</p>
+<p>说白了：</p>
+<blockquote>
+<p>agent 会制造熵，工程系统必须负责回收熵。</p>
+</blockquote>
+<h2 id="对普通团队最现实的启发">对普通团队最现实的启发</h2>
+<p>不是每个团队都能复制 OpenAI 那套环境，但几条原则几乎人人适用。</p>
+<h3 id="1-把隐性知识搬进仓库">1. 把隐性知识搬进仓库</h3>
+<p>不要把关键规则藏在聊天记录、会议纪要和口口相传里。agent 看不到，就无法遵守。</p>
+<h3 id="2-把审美变成检查器">2. 把审美变成检查器</h3>
+<p>能用 lint、test、CI、schema 验证的规则，就不要反复在 review 里口头批评。</p>
+<h3 id="3-让应用可观测可操作">3. 让应用可观测、可操作</h3>
+<p>如果 agent 只能看源码、不能看运行结果，它就只能猜。日志、指标、结构化错误信息，都是必要基础设施。</p>
+<h3 id="4-缩短-pr-生命周期">4. 缩短 PR 生命周期</h3>
+<p>AI 时代最怕超大 PR。更高吞吐意味着更需要小步迭代、快速验证、快速合并。</p>
+<h3 id="5-建立垃圾回收机制">5. 建立“垃圾回收”机制</h3>
+<p>技术债不应该等季度治理。应当像内存回收一样，持续、自动、低摩擦地清理。</p>
+<h2 id="对个人开发者的含义从剑客变成阵法师">对个人开发者的含义：从剑客变成阵法师</h2>
+<p>如果把这篇文章压缩到个人实践层面，结论反而非常清楚：</p>
+<p>未来个人开发者的优势，不再只是“我写得快”，而是：</p>
+<ul>
+<li>我能把需求拆成 agent 可执行的任务</li>
+<li>我能定义清楚验收标准</li>
+<li>我能给 agent 足够的运行反馈</li>
+<li>我能让错误不要反复出现</li>
+<li>我能把自己的判断力沉淀成一套可复用工作流</li>
+</ul>
+<p>高手不只是亲自出刀的人，更是能把局面布成自己优势的人。</p>
+<h2 id="最后的判断">最后的判断</h2>
+<p>我对 Harness Engineering 的最终看法是：</p>
+<ol>
+<li><strong>它是真的，不是噱头。</strong> 工程重心确实在上移。</li>
+<li><strong>它代表未来，但不会自动发生。</strong> 没有环境、规则和反馈，只有更快的混乱。</li>
+<li><strong>它会重写高级工程师的定义。</strong> 未来最值钱的，不是“最会手写代码的人”，而是“最会把判断力编码进系统的人”。</li>
+</ol>
+<p>所以，真正值得记住的并不是“工程师不写代码了”。</p>
+<p>而是：</p>
+<blockquote>
+<p>软件工程正在从“我如何写出正确代码”，转向“我如何设计一个系统，让正确代码被持续地产生出来”。</p>
+</blockquote>
+<p>这不是程序员退出舞台。</p>
+<p>这是控制面上移。也是一种更高级的编程。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li>OpenAI, <em>工程技术：在智能体优先的世界中利用 Codex</em><br>
+<a href="https://openai.com/zh-Hans-CN/index/harness-engineering/">https://openai.com/zh-Hans-CN/index/harness-engineering/</a></li>
+<li>X 帖子引用<br>
+<a href="https://x.com/odysseus0z/status/2030416758138634583">https://x.com/odysseus0z/status/2030416758138634583</a></li>
+</ul>
+    </article>
+
+    
+    
+        <div class="read-more">
+            <div class="read-more__title">
+                阅读更多
+            </div>
+            <div class="read-more__list">
                 
                 <div class="read-more__item">
                     <div class="read-more__item__container">
@@ -936,6 +1160,15 @@ pre code.language-mermaid {
                     </div>
                 </div>
                 
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/ai-engineering-paradigm/">
+                            <h4>从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</h4>
+                            <div class="read-more__summary"><h2 id="在-2026-年的今天软件工程正在经历一场范式转移软件开发的核心已从编写逻辑转向设计反馈闭环">在 2026 年的今天，软件工程正在经历一场范式转移：<strong>软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。</strong></h2></div>
+                        </a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     
@@ -944,7 +1177,7 @@ pre code.language-mermaid {
                 layout="responsive"
                 sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
                 resizable
-                src="https://liyaodong.com/disqus.html#ai-engineering-paradigm.md|https%3a%2f%2fblog.liyaodong.com%2fposts%2fai-engineering-paradigm%2f">
+                src="https://liyaodong.com/disqus.html#from-writing-code-to-harness-engineering.md|https%3a%2f%2fblog.liyaodong.com%2fposts%2ffrom-writing-code-to-harness-engineering%2f">
         <div overflow tabindex=0 role=button aria-label=""></div>
     </amp-iframe>
 </section>
