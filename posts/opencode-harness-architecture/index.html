@@ -1,0 +1,1184 @@
+
+
+<!DOCTYPE html>
+
+
+
+<html amp lang="zh-cn" class="no-js">
+<head>
+    <title>OpenCode 的精妙，不在模型，而在 Harness</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <meta charset="utf-8">
+
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script><script async custom-element="amp-dynamic-css-classes" src="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js"></script><script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script><script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script><script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+
+
+
+    <link rel="canonical" href="https://blog.liyaodong.com/posts/opencode-harness-architecture/">
+
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
+
+    <meta name="theme-color" content="#112233" />
+    <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
+
+    <meta property="og:title" content="OpenCode 的精妙，不在模型，而在 Harness | 晓风博客" />
+<meta name="twitter:title" content="OpenCode 的精妙，不在模型，而在 Harness | 晓风博客" />
+<meta itemprop="name" content="OpenCode 的精妙，不在模型，而在 Harness | 晓风博客" />
+<meta name="application-name" content="OpenCode 的精妙，不在模型，而在 Harness | 晓风博客" />
+<meta property="og:site_name" content="" />
+
+
+
+    
+    
+
+<meta name="description" content="如果你第一次接触 OpenCode 这类 AI Coding Agent，很容易先被表象带偏：它能读代码、改文件、跑命令、调用大模型，看上去像是“一个更强的聊天机器人”或者“命令行里的 Cursor”。但如果只看到这里，我们就错过了真正值得研究的部分。
+OpenCode 真正精妙的地方，不是它接了哪个模型，也不是它把终端界面做得多顺手，而是它把“如何驾驭一个会写代码的模型”做成了一套工程系统。换句话说，模型只是发动机，真正决定这台机器是否能稳定跑起来的，是外面那层 harness：环境、工具、权限、状态、反馈回路、停止条件，以及错误处理。
+这也是我读完《从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering》之后，再回头看 OpenCode 源码时最强烈的感受：优秀的 agent 工具，本质上不是 prompt 的集合，而是一套围绕模型构建的控制系统。
+" />
+<meta itemprop="description" content="如果你第一次接触 OpenCode 这类 AI Coding Agent，很容易先被表象带偏：它能读代码、改文件、跑命令、调用大模型，看上去像是“一个更强的聊天机器人”或者“命令行里的 Cursor”。但如果只看到这里，我们就错过了真正值得研究的部分。
+OpenCode 真正精妙的地方，不是它接了哪个模型，也不是它把终端界面做得多顺手，而是它把“如何驾驭一个会写代码的模型”做成了一套工程系统。换句话说，模型只是发动机，真正决定这台机器是否能稳定跑起来的，是外面那层 harness：环境、工具、权限、状态、反馈回路、停止条件，以及错误处理。
+这也是我读完《从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering》之后，再回头看 OpenCode 源码时最强烈的感受：优秀的 agent 工具，本质上不是 prompt 的集合，而是一套围绕模型构建的控制系统。
+" />
+<meta property="og:description" content="如果你第一次接触 OpenCode 这类 AI Coding Agent，很容易先被表象带偏：它能读代码、改文件、跑命令、调用大模型，看上去像是“一个更强的聊天机器人”或者“命令行里的 Cursor”。但如果只看到这里，我们就错过了真正值得研究的部分。
+OpenCode 真正精妙的地方，不是它接了哪个模型，也不是它把终端界面做得多顺手，而是它把“如何驾驭一个会写代码的模型”做成了一套工程系统。换句话说，模型只是发动机，真正决定这台机器是否能稳定跑起来的，是外面那层 harness：环境、工具、权限、状态、反馈回路、停止条件，以及错误处理。
+这也是我读完《从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering》之后，再回头看 OpenCode 源码时最强烈的感受：优秀的 agent 工具，本质上不是 prompt 的集合，而是一套围绕模型构建的控制系统。
+" />
+<meta name="twitter:description" content="如果你第一次接触 OpenCode 这类 AI Coding Agent，很容易先被表象带偏：它能读代码、改文件、跑命令、调用大模型，看上去像是“一个更强的聊天机器人”或者“命令行里的 Cursor”。但如果只看到这里，我们就错过了真正值得研究的部分。
+OpenCode 真正精妙的地方，不是它接了哪个模型，也不是它把终端界面做得多顺手，而是它把“如何驾驭一个会写代码的模型”做成了一套工程系统。换句话说，模型只是发动机，真正决定这台机器是否能稳定跑起来的，是外面那层 harness：环境、工具、权限、状态、反馈回路、停止条件，以及错误处理。
+这也是我读完《从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering》之后，再回头看 OpenCode 源码时最强烈的感受：优秀的 agent 工具，本质上不是 prompt 的集合，而是一套围绕模型构建的控制系统。
+" />
+
+<base href="https://blog.liyaodong.com/posts/opencode-harness-architecture/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/opencode-harness-architecture/" itemprop="url" />
+<meta name="url" content="https://blog.liyaodong.com/posts/opencode-harness-architecture/" />
+<meta name="twitter:url" content="https://blog.liyaodong.com/posts/opencode-harness-architecture/" />
+<meta property="og:url" content="https://blog.liyaodong.com/posts/opencode-harness-architecture/" />
+
+<meta property="og:locale" content="en">
+<meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/opencode-harness-architecture/" title="">
+
+
+
+<meta itemprop="image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta property="og:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image:src" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "晓风博客",
+    "alternateName": "Xiaofeng Blog",
+    "url": "https:\/\/blog.liyaodong.com\/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.liyaodong.com\/"
+  , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
+  
+  
+  
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/",
+          "name": "posts"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/opencode-harness-architecture\/",
+          "name": "opencode-harness-architecture"
+        }
+    }]
+}
+</script>
+
+
+
+
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        /* Background */
+.chroma {
+  background-color: #eeeedd;
+}
+
+/* Error */
+.chroma .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: #ffffcc;
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* Keyword */
+.chroma .k {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordConstant */
+.chroma .kc {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordNamespace */
+.chroma .kn {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordPseudo */
+.chroma .kp {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordReserved */
+.chroma .kr {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordType */
+.chroma .kt {
+  color: #00688b;
+  font-weight: bold;
+}
+
+/* NameAttribute */
+.chroma .na {
+  color: #658b00;
+}
+
+/* NameBuiltin */
+.chroma .nb {
+  color: #658b00;
+}
+
+/* NameClass */
+.chroma .nc {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameConstant */
+.chroma .no {
+  color: #00688b;
+}
+
+/* NameDecorator */
+.chroma .nd {
+  color: #707a7c;
+}
+
+/* NameException */
+.chroma .ne {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameFunction */
+.chroma .nf {
+  color: #008b45;
+}
+
+/* NameNamespace */
+.chroma .nn {
+  color: #008b45;
+  text-decoration: underline;
+}
+
+/* NameTag */
+.chroma .nt {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* NameVariable */
+.chroma .nv {
+  color: #00688b;
+}
+
+/* LiteralString */
+.chroma .s {
+  color: #cd5555;
+}
+
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #cd5555;
+}
+
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #cd5555;
+}
+
+/* LiteralStringChar */
+.chroma .sc {
+  color: #cd5555;
+}
+
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #cd5555;
+}
+
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #cd5555;
+}
+
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #cd5555;
+}
+
+/* LiteralStringEscape */
+.chroma .se {
+  color: #cd5555;
+}
+
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #1c7e71;
+  font-style: italic;
+}
+
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #cd5555;
+}
+
+/* LiteralStringOther */
+.chroma .sx {
+  color: #cb6c20;
+}
+
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #1c7e71;
+}
+
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #cd5555;
+}
+
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #cd5555;
+}
+
+/* LiteralNumber */
+.chroma .m {
+  color: #b452cd;
+}
+
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #b452cd;
+}
+
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #b452cd;
+}
+
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #b452cd;
+}
+
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #b452cd;
+}
+
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #b452cd;
+}
+
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #b452cd;
+}
+
+/* OperatorWord */
+.chroma .ow {
+  color: #8b008b;
+}
+
+/* Comment */
+.chroma .c {
+  color: #228b22;
+}
+
+/* CommentHashbang */
+.chroma .ch {
+  color: #228b22;
+}
+
+/* CommentMultiline */
+.chroma .cm {
+  color: #228b22;
+}
+
+/* CommentSingle */
+.chroma .c1 {
+  color: #228b22;
+}
+
+/* CommentSpecial */
+.chroma .cs {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* CommentPreproc */
+.chroma .cp {
+  color: #1e889b;
+}
+
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #1e889b;
+}
+
+/* GenericDeleted */
+.chroma .gd {
+  color: #aa0000;
+}
+
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+
+/* GenericError */
+.chroma .gr {
+  color: #aa0000;
+}
+
+/* GenericHeading */
+.chroma .gh {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* GenericInserted */
+.chroma .gi {
+  color: #00aa00;
+}
+
+/* GenericOutput */
+.chroma .go {
+  color: #888888;
+}
+
+/* GenericPrompt */
+.chroma .gp {
+  color: #555555;
+}
+
+/* GenericStrong */
+.chroma .gs {
+  font-weight: bold;
+}
+
+/* GenericSubheading */
+.chroma .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+/* GenericTraceback */
+.chroma .gt {
+  color: #aa0000;
+}
+
+/* GenericUnderline */
+.chroma .gl {
+  text-decoration: underline;
+}
+
+/* TextWhitespace */
+.chroma .w {
+  color: #bbbbbb;
+}
+
+body {
+  background-color: #f9f8f0;
+  color: #222;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
+}
+
+.tac {
+  text-align: center;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+.container img,
+.container amp-img {
+  max-width: 100%;
+}
+
+.site-header {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Songti SC";
+}
+
+.site-title {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-subtitle {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.site-header--float {
+  font-family: "Songti SC";
+  padding: 15px 30px;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #dcdcdc;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header--float a {
+  display: flex;
+  align-items: center;
+}
+
+.site-title--float {
+  font-size: 20px;
+  margin: 0px;
+  margin-right: 20px;
+}
+
+.site-subtitle--float {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.site-footer {
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+.site-footer em {
+  color: #d82222;
+}
+
+.article-item-title {
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Songti SC";
+  margin: 0;
+}
+.article-item-title:hover {
+  text-decoration: underline;
+}
+
+.article-item-date {
+  font-size: 12px;
+  display: block;
+  color: #555;
+}
+
+.article-item-summary {
+  margin-top: 20px;
+  color: #555;
+}
+
+.article-item-link {
+  color: #222;
+  text-decoration: none;
+  margin: 30px 0 5px;
+}
+
+.article-item {
+  max-width: 700px;
+  padding-bottom: 40px;
+  margin: 0 auto 40px auto;
+}
+.article-item:not(:last-of-type) {
+  border-bottom: 1px solid #efefef;
+}
+.article-item amp-img {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  text-align: center;
+  font-family: "Songti SC";
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.single {
+  line-height: 1.625;
+  color: #4a4a4a;
+  max-width: 700px;
+}
+.single.has-header {
+  margin-top: 60px;
+}
+.single amp-img {
+  margin: 15px auto;
+  text-align: center;
+}
+.single code {
+  color: #AA8D5B;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px;
+}
+.single pre > code {
+  font-weight: 600;
+  margin: 0;
+}
+.single div.highlight {
+  box-shadow: 0 3px 3px 1px #d2c7b5;
+}
+.single .chroma {
+  background-color: transparent;
+}
+.single a {
+  text-decoration: underline;
+}
+.single a:hover {
+  color: #000;
+}
+
+.single-content {
+  margin-bottom: 20px;
+}
+
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0;
+}
+.pagination .page-item {
+  list-style-type: none;
+}
+.pagination .page-item a {
+  font-size: 16px;
+  margin: 0 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.pagination .page-item.active, .pagination .page-item:hover {
+  color: #fff;
+  transition: all 200ms;
+}
+.pagination .page-item.active a, .pagination .page-item:hover a {
+  color: #fff;
+  background: #ad9616;
+  transition: all 200ms;
+}
+
+.read-more {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #efefef;
+  position: relative;
+}
+.read-more__title {
+  font-size: 13px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: #f9f8f0;
+  padding: 0 10px;
+}
+.read-more__item {
+  margin-bottom: 20px;
+}
+.read-more__item__container {
+  background-color: #fefefe;
+  border-radius: 4px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+.read-more__item a {
+  text-decoration: none;
+}
+.read-more__item h4 {
+  margin: 10px 0 0 0;
+}
+.read-more__summary {
+  font-size: 14px;
+}
+@media screen and (min-width: 767px) {
+  .read-more__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .read-more__item {
+    display: flex;
+    flex: 1;
+    padding: 0 10px;
+  }
+  .read-more__item__container {
+    flex-grow: 1;
+  }
+  .read-more__item:first-of-type {
+    padding-left: 0;
+  }
+  .read-more__item:last-of-type {
+    padding-right: 0;
+  }
+  .read-more__item amp-img {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=stylesheet.html.map */
+
+    </style>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
+<link rel="apple-touch-icon" href="/icons/icon-57x57.png" />
+
+<link rel="icon" href="/icons/icon-32x32.png" sizes="32x32" />
+<link rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
+
+
+
+</head>
+
+<body>
+
+
+
+
+<header class="site-header--float" amp-fx="float-in-top">
+    <a href="https://blog.liyaodong.com/">
+        <h1 class="site-title--float">
+            晓风博客
+        </h1>
+        <h2 class="site-subtitle--float">
+            一片荒芜的地方
+        </h2>
+    </a>
+</header>
+
+
+<section class="single container has-header">
+    <h1 class="post-title">OpenCode 的精妙，不在模型，而在 Harness</h1>
+    <div class="tac">
+        <time>2026年3月12日</time>
+    </div>
+
+    <article class="single-content">
+        <amp-img
+     src="https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png"
+     alt="OpenCode Harness Architecture "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/opencode-harness-architecture-cover.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 649 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="649"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>如果你第一次接触 OpenCode 这类 AI Coding Agent，很容易先被表象带偏：它能读代码、改文件、跑命令、调用大模型，看上去像是“一个更强的聊天机器人”或者“命令行里的 Cursor”。但如果只看到这里，我们就错过了真正值得研究的部分。</p>
+<p>OpenCode 真正精妙的地方，不是它接了哪个模型，也不是它把终端界面做得多顺手，而是它把“如何驾驭一个会写代码的模型”做成了一套工程系统。换句话说，模型只是发动机，真正决定这台机器是否能稳定跑起来的，是外面那层 harness：环境、工具、权限、状态、反馈回路、停止条件，以及错误处理。</p>
+<p>这也是我读完《从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering》之后，再回头看 OpenCode 源码时最强烈的感受：优秀的 agent 工具，本质上不是 prompt 的集合，而是一套围绕模型构建的控制系统。</p>
+<h2 id="先讲清楚agent-工具到底和聊天机器人有什么不同">先讲清楚：Agent 工具到底和聊天机器人有什么不同</h2>
+<p>普通聊天机器人做的事情很简单：你给它一段输入，它返回一段输出，最多再记一点上下文。整个交互是“问一句，答一句”的结构。</p>
+<p>Agent 工具不是这样。Agent 的最小工作单元更像是一个小型执行循环：</p>
+<ol>
+<li>接收目标</li>
+<li>读取上下文</li>
+<li>决定下一步动作</li>
+<li>调用工具</li>
+<li>观察结果</li>
+<li>再决定下一步动作</li>
+<li>满足停止条件后结束</li>
+</ol>
+<p>这和“补全文本”已经不是一回事了。它需要的不只是模型推理能力，还需要一层外部系统来回答下面这些问题：</p>
+<ul>
+<li>它能访问哪些文件？</li>
+<li>什么时候允许执行命令？</li>
+<li>工具结果如何回灌给模型？</li>
+<li>如果同一个动作反复失败怎么办？</li>
+<li>如果上下文太长怎么办？</li>
+<li>哪些错误值得重试，哪些应该立刻停下？</li>
+<li>一次执行结束后，如何把变更、日志、会话和状态保留下来？</li>
+</ul>
+<p>所以真正的 agent，不是“会说话的模型”，而是“被组织起来执行任务的模型”。</p>
+<h2 id="opencode-的整体架构它不是一个终端程序而是一套运行时">OpenCode 的整体架构：它不是一个终端程序，而是一套运行时</h2>
+<p>很多人第一次看到 OpenCode，会把它理解成一个终端里的 AI 助手。这个理解不算错，但太浅了。</p>
+<p>从官方文档和当前源码看，OpenCode 的核心并不是某个单独界面，而是一个本地运行时。终端界面只是它的一种客户端形态。README 里明确强调了两件事：它是 provider-agnostic 的，同时它采用 client/server 架构。这两点其实已经把它和很多“单体式 AI 工具”区分开了。</p>
+<p>如果把 OpenCode 拆开看，大致可以分成四层：</p>
+<h3 id="1-client-层">1. Client 层</h3>
+<p>包括 TUI、桌面端、Web 端、IDE extension。它们的职责主要是展示状态、接收输入、把用户意图送进运行时，再把运行时的事件流展示出来。</p>
+<h3 id="2-runtime--server-层">2. Runtime / Server 层</h3>
+<p>这是 OpenCode 的中枢。它负责启动服务、管理项目实例、暴露 HTTP API、通过 SSE 向前端推送事件。</p>
+<p>也就是说，OpenCode 的界面不是直接“绑死在模型调用上”的。真正工作的，是背后这个运行时。终端只是一个驾驶舱，不是发动机本体。</p>
+<h3 id="3-agent--session-层">3. Agent / Session 层</h3>
+<p>这里是最关键的循环：组织 prompt、组装消息历史、注入可用工具、接收模型流式输出、执行工具调用、记录补丁、决定是否继续、重试还是停止。</p>
+<h3 id="4-capability-层">4. Capability 层</h3>
+<p>也就是各种能力模块：文件读取、编辑、写入、Shell、Web、LSP、权限系统、Provider 适配、数据库、插件、MCP 等。</p>
+<p>这套分层看似普通，但它的精妙之处在于：OpenCode 没有把“AI”写死在某个地方，而是把它嵌进了一套运行时结构里。模型只是其中一个组件，真正的产品能力来自这些组件之间的协作。</p>
+<h2 id="session-loop-才是-agent-的心脏">Session Loop 才是 Agent 的心脏</h2>
+<p>如果只挑一个模块来看 OpenCode，我会先看 session processor。</p>
+<p>因为 agent 工具最难的地方，从来不是“把 prompt 发给模型”，而是“拿到模型输出之后，系统要怎么接住它”。这就是 harness 的核心。</p>
+<p>OpenCode 的执行循环大致是这样的：模型开始流式返回内容；返回的内容可能是普通文本，也可能是 reasoning，也可能是某个工具调用；一旦出现工具调用，系统就会把这次调用登记为一个独立 part，执行工具，把输出写回会话，再让模型继续往下推理；每个步骤结束时，系统还会记录 token、cost、finish reason，以及当前文件快照和 patch。</p>
+<p>注意这里的关键词：<strong>不是一次请求一次响应，而是多步、流式、可中断、可观察的状态机。</strong></p>
+<p>这正是很多 agent 工具分水岭所在。一个玩具 agent 往往只能“看起来像在自动工作”，真正一进复杂项目就开始失控；而 OpenCode 这种系统之所以值得研究，是因为它没有假设模型总会聪明地停下来，而是在外层明确设计了整个执行回路。</p>
+<h2 id="组件职责每一块都不是装饰">组件职责：每一块都不是装饰</h2>
+<h3 id="agent不是人设而是权限包">Agent：不是人设，而是权限包</h3>
+<p>OpenCode 内置了 build、plan、general 等 agent。</p>
+<p>这件事表面看像模式切换，实际上代表了一个非常好的设计：agent 不只是 prompt 风格不同，而是<strong>权限、能力范围、默认行为</strong>都不同。</p>
+<p>比如 plan 模式本质上是一个“只读规划代理”。它不是简单告诉模型“不要改文件”，而是在系统层真的限制了编辑能力和某些执行权限。这个设计非常关键，因为在 agent 场景里，光靠提示词说“请小心一点”是很脆弱的，真正稳的做法是把边界写成规则。</p>
+<h3 id="provider模型兼容层">Provider：模型兼容层</h3>
+<p>OpenCode 支持 OpenAI、Anthropic、Google、OpenRouter、Bedrock、GitHub Copilot 等大量 provider。</p>
+<p>这层的意义不只是“多接几个 API”，而是把模型差异收敛到统一接口上。不同 provider 的鉴权、header、stream 行为、tool call 能力、URL 规则都不一样，如果不做这一层抽象，整个系统会很快被供应商细节污染。</p>
+<p>这也是为什么我说它的价值不在模型本身。OpenCode 的真正目标，是让 agent runtime 尽量不依赖某个单一模型的特性。模型会变，价格会变，能力会变，但 harness 应该尽量稳定。</p>
+<h3 id="tool-registryagent-的行动器官">Tool Registry：Agent 的行动器官</h3>
+<p>OpenCode 的工具系统里有 read、edit、write、bash、webfetch、websearch、codesearch、todo，甚至还有 LSP 工具和插件扩展入口。</p>
+<p>重要的不是“工具多”，而是它把工具当成了一等公民：工具有注册表，有参数 schema，有执行结果结构，也有针对不同模型的工具策略切换。比如对某些模型优先启用 patch 风格编辑，对另一些模型则提供 edit/write，这其实是一种非常实际的模型调优：不是去想“怎样让模型更聪明”，而是去想“怎样给这个模型一个它更稳定用得好的控制杆”。</p>
+<h3 id="lsp把文件级理解升级成语义级理解">LSP：把文件级理解升级成语义级理解</h3>
+<p>这是 OpenCode 很容易被低估的一层。</p>
+<p>很多 AI Coding Tool 的“理解代码”其实停留在 grep 和 read file。能用，但粗糙。OpenCode 直接把 LSP 接进运行时，让 agent 可以拿到 definition、references、hover、document symbol、workspace symbol、call hierarchy 这些语义能力。</p>
+<p>这相当于把 agent 从“会在文本里找东西”，升级成“能顺着语言服务理解结构”。对大型项目来说，这种差别是本质性的。</p>
+<h3 id="permission给-agent-装刹车不是事后念经">Permission：给 agent 装刹车，不是事后念经</h3>
+<p>OpenCode 另一个非常精妙的地方，是权限系统不是 UI 层的礼貌提醒，而是 agent runtime 的一部分。</p>
+<p>哪些工具允许用，哪些路径允许读写，plan 模式能不能改文件，外部目录是否允许访问，这些都可以通过规则集控制。换句话说，OpenCode 不是默认相信模型“会听话”，而是默认模型需要在轨道里运行。</p>
+<p>这和 harness engineering 的思想非常一致：不要把关键控制逻辑寄托在模型自觉上。</p>
+<h3 id="database--session状态是-agent-的记忆骨架">Database / Session：状态是 agent 的记忆骨架</h3>
+<p>OpenCode 本地用 SQLite 持久化 session、message、workspace、project 等状态。很多人觉得“会话记录”只是附属功能，但对 agent 来说，持久化状态其实是运行时骨架的一部分。</p>
+<p>因为一旦你希望系统支持撤销、重做、分享、回看工具调用、跟踪 patch、统计 token 和 cost，你就需要一套明确的状态模型，而不是在界面里临时拼接几段对话。</p>
+<h2 id="从-harness-的角度看opencode-做对了什么">从 Harness 的角度看，OpenCode 做对了什么</h2>
+<p>读那篇 Harness Engineering 文章时，我最认同的一点是：真正的瓶颈已经不再是生成代码，而是如何让系统稳定地产生“可以接受的结果”。</p>
+<p>用这个视角回看 OpenCode，会发现它做对了不少关键设计。</p>
+<h3 id="第一它把停止当成了正式问题">第一，它把“停止”当成了正式问题</h3>
+<p>很多人做 agent 时，默认模型会知道什么时候该停。但现实不是这样。模型非常擅长继续生成，却不天然擅长在正确的时机结束。</p>
+<p>OpenCode 的 session loop 里，结束不是一个模糊感觉，而是一种明确状态：</p>
+<ul>
+<li>当前 step 是否 finish</li>
+<li>是否触发了错误</li>
+<li>是否需要 compaction</li>
+<li>是否因为权限被 block</li>
+<li>是否应该继续下一轮</li>
+</ul>
+<p>这就是典型 harness 思维：<strong>停止条件不是 prompt 的附属说明，而是状态机的一部分。</strong></p>
+<h3 id="第二它认真处理错误而不是把错误当作意外">第二，它认真处理错误，而不是把错误当作意外</h3>
+<p>在源码里能看到，它会区分：</p>
+<ul>
+<li>tool error</li>
+<li>permission rejection</li>
+<li>provider API error</li>
+<li>可重试错误</li>
+<li>context overflow</li>
+</ul>
+<p>对不同错误，系统策略也不同。有些要直接停，有些要退回用户，有些可以指数退避后重试，有些则应该触发上下文压缩。</p>
+<p>这点非常重要。Agent 不怕犯错，怕的是系统把所有错误都等价化。只要错误处理不分层，最终结果一定是：要么过早中断，要么无意义重试，要么带着错误状态继续乱跑。</p>
+<h3 id="第三它防止-agent-掉进-doom-loop">第三，它防止 agent 掉进 doom loop</h3>
+<p>这是我很喜欢的一个设计。</p>
+<p>当系统发现最近连续几次调用的是同一个工具、同样的输入，它会认为可能陷入了循环，并触发额外确认。这个设计非常朴素，但极有价值。因为 agent 失控最常见的方式，不是突然做出惊天错误，而是开始在一个错误局部最优里稳定打转。</p>
+<p>一个好的 harness，不是让系统永不犯错，而是让它在犯错时尽早暴露出“我卡住了”。</p>
+<h3 id="第四它有上下文压缩能力">第四，它有上下文压缩能力</h3>
+<p>上下文窗口再大也不是无限的。复杂会话里，真正难的不是“存更多历史”，而是“在有限上下文里保留真正重要的信息”。</p>
+<p>OpenCode 没有把这个问题完全甩给模型，而是把 compaction 做成专门机制，必要时甚至用专门 agent 处理。这很像工程里常见的思路：不要让主流程在超载时直接崩，而是提供一个降维整理的旁路。</p>
+<h3 id="第五它把-patch-和-snapshot-纳入主流程">第五，它把 patch 和 snapshot 纳入主流程</h3>
+<p>代码 agent 的一个现实问题是：你得知道它到底改了什么。</p>
+<p>OpenCode 在 step 前后跟踪快照，必要时生成 patch part。这个设计带来的价值非常直接：可追踪、可回看、可撤销，也更容易做更高层的 review 和审计。</p>
+<p>如果说模型负责“想怎么改”，那 snapshot/patch 系统负责“证明它改了什么”。这也是 harness 的组成部分。</p>
+<h2 id="普通团队真正该学的不是把-opencode-原样抄回去">普通团队真正该学的，不是把 OpenCode 原样抄回去</h2>
+<p>如果只把 OpenCode 看成一个开源的 Claude Code 替代品，那还是低估它了。它真正值得普通团队学习的，不是 UI、不是命令集，甚至也不是它支持多少 provider，而是这几种工程直觉：</p>
+<h3 id="1-把知识写进系统而不是留在资深工程师脑子里">1. 把知识写进系统，而不是留在资深工程师脑子里</h3>
+<p>agent 看不到的知识，就等于不存在。架构约定、目录分工、命名偏好、危险路径、执行边界，这些都应该是系统可读的。</p>
+<h3 id="2-把审美变成规则而不是-review-时临场发挥">2. 把审美变成规则，而不是 review 时临场发挥</h3>
+<p>“文件不要太大”“依赖方向要清晰”“日志要结构化”这些看似主观的品味，一旦能转成规则、权限、lint、schema 或工具限制，agent 的稳定性会立刻上一个台阶。</p>
+<h3 id="3-把反馈做成回路">3. 把反馈做成回路</h3>
+<p>没有反馈的 agent 只能猜。文件系统、LSP、命令执行结果、错误信息、状态持久化、事件流，这些东西共同组成了 agent 的感官系统。</p>
+<h3 id="4-把失控当成系统设计问题">4. 把失控当成系统设计问题</h3>
+<p>一个成熟的 agent harness，不会假设模型永远正确。它会假设：模型会重复、会误判、会上下文溢出、会拿错工具、会在半正确状态下继续前进。系统的价值，恰恰在于如何把这些问题变成可控制、可恢复、可观察的行为。</p>
+<h2 id="最后opencode-让我们看到的不只是一个工具而是一种工程范式">最后：OpenCode 让我们看到的，不只是一个工具，而是一种工程范式</h2>
+<p>那篇讲 Harness Engineering 的文章有一句我很认同：软件工程的控制面正在上移。</p>
+<p>OpenCode 正好提供了一个很好的开源样本，让我们看到这种“上移”在具体系统里会长成什么样：不是工程师突然不写代码了，而是工程师越来越多地在设计环境、规则、感官、回路和刹车系统，让模型在这套结构里稳定地产生代码。</p>
+<p>从这个意义上说，OpenCode 最有价值的地方，并不是“它会不会比别的工具多写几行代码”，而是它提醒我们：在 agent 时代，真正稀缺的能力不是继续手搓每一行实现，而是把判断力、边界感和工程品味铸造成系统能力。</p>
+<p>模型是会越来越强的。</p>
+<p>但真正拉开差距的，往往不是谁拿到了更强的模型，而是谁先学会了给模型装上方向盘、仪表盘、刹车和保险丝。</p>
+    </article>
+
+    
+    
+        <div class="read-more">
+            <div class="read-more__title">
+                阅读更多
+            </div>
+            <div class="read-more__list">
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/claude-code-context-governance-report/">
+                            <h4>Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界</h4>
+                            <div class="read-more__summary"><amp-img
+     src="https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png"
+     alt="Claude Code context governance cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 377 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="377"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>最近看到一篇很值得展开的文章，核心判断很锋利：<strong>Claude Code 的强弱，往往不取决于模型本身，而取决于你如何组织上下文、工具、规则、验证与分工。</strong> 这不是一句提示词技巧，而是一套面向 Agent 的工程治理观。真正该优化的，不只是“让它多写一点代码”，而是“让它在复杂任务里持续做对事”。</p></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/from-writing-code-to-harness-engineering/">
+                            <h4>从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering</h4>
+                            <div class="read-more__summary"><amp-img
+     src="https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png"
+     alt="Harness Engineering cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 748 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="748"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：<strong>“工程师不写代码了。”</strong></p>
+<p>但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是<strong>软件工程的控制面正在上移</strong>：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。</p></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/openclaw-win11-browser-node/">
+                            <h4>把国内 Win11 变成 OpenClaw 的远程浏览器节点</h4>
+                            <div class="read-more__summary"><amp-img
+     src="https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png"
+     alt="OpenClaw Win11 Browser Node cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 442 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="442"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host + browser proxy 把两者重新缝起来。</p></div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+
+    <amp-iframe width="700" height="163"
+                layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+                resizable
+                src="https://liyaodong.com/disqus.html#opencode-harness-architecture.md|https%3a%2f%2fblog.liyaodong.com%2fposts%2fopencode-harness-architecture%2f">
+        <div overflow tabindex=0 role=button aria-label=""></div>
+    </amp-iframe>
+</section>
+
+<footer class="site-footer">
+    <a href="https://liyaodong.com" target="_blank" rel="noopener">Home</a> |
+    <a href="https://blog.liyaodong.com">Blog</a> |
+    <a href="https://blog.liyaodong.com/index.xml" type="application/rss+xml" rel="noopener" target="_blank">RSS</a> |
+    <a href="https://github.com/liyaodong" rel="noopener" target="_blank">Github</a> |
+    <a href="https://twitter.com/xiaofengdong" rel="noopener" target="_blank">Twitter</a>
+    <br />
+    Powered by <a href="https://www.gnu.org/software/emacs/">Emacs</a> and <a href="https://gohugo.io/">Hugo</a> with <em>&#10084;</em>
+</footer>
+
+<amp-install-serviceworker
+    src="https://blog.liyaodong.com/sw.js"
+    layout="nodisplay">
+</amp-install-serviceworker>
+
+
+
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-30027709-1"
+            },
+            "triggers": {"trackPageview":{"on":"visible","request":"pageview"}}
+        }
+    </script>
+</amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
+
+</body>
+</html>
+
