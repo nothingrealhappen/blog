@@ -1,17 +1,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>https://blog.liyaodong.com/posts/</loc>
-        <lastmod>2026-03-11T00:00:00+08:00</lastmod>
+        <loc>https://blog.liyaodong.com/tags/agent/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
     </url>
     
     <url>
-        <loc>https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/</loc>
-        <lastmod>2026-03-11T00:00:00+08:00</lastmod>
+        <loc>https://blog.liyaodong.com/tags/ai-engineering/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/claude-code/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/posts/claude-code-context-governance-report/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/context-engineering/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/posts/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/software-engineering/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
     </url>
     
     <url>
         <loc>https://blog.liyaodong.com/</loc>
+        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/posts/from-writing-code-to-harness-engineering/</loc>
         <lastmod>2026-03-11T00:00:00+08:00</lastmod>
     </url>
     
@@ -27,11 +62,6 @@
     
     <url>
         <loc>https://blog.liyaodong.com/tags/openclaw/</loc>
-        <lastmod>2026-03-10T00:00:00+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/tags/</loc>
         <lastmod>2026-03-10T00:00:00+08:00</lastmod>
     </url>
     

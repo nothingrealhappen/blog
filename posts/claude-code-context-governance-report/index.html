@@ -1,0 +1,1258 @@
+
+
+<!DOCTYPE html>
+
+
+
+<html amp lang="zh-cn" class="no-js">
+<head>
+    <title>Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <meta charset="utf-8">
+
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script><script async custom-element="amp-dynamic-css-classes" src="https://cdn.ampproject.org/v0/amp-dynamic-css-classes-0.1.js"></script><script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script><script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script><script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script><script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script><script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+
+
+
+    <link rel="canonical" href="https://blog.liyaodong.com/posts/claude-code-context-governance-report/">
+
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    
+    <link href="https://blog.liyaodong.com/index.xml" rel="alternate" type="application/rss+xml" title="晓风博客" />
+    <link href="https://blog.liyaodong.com/index.xml" rel="feed" type="application/rss+xml" title="晓风博客" />
+    
+
+    <meta name="theme-color" content="#112233" />
+    <meta name="msvalidate.01" content="3C6C979DB103D784162934B1AC452B4B" />
+
+    <meta property="og:title" content="Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界 | 晓风博客" />
+<meta name="twitter:title" content="Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界 | 晓风博客" />
+<meta itemprop="name" content="Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界 | 晓风博客" />
+<meta name="application-name" content="Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界 | 晓风博客" />
+<meta property="og:site_name" content="" />
+
+
+
+    
+    
+
+<meta name="description" content="最近看到一篇很值得展开的文章，核心判断很锋利：Claude Code 的强弱，往往不取决于模型本身，而取决于你如何组织上下文、工具、规则、验证与分工。 这不是一句提示词技巧，而是一套面向 Agent 的工程治理观。真正该优化的，不只是“让它多写一点代码”，而是“让它在复杂任务里持续做对事”。
+" />
+<meta itemprop="description" content="最近看到一篇很值得展开的文章，核心判断很锋利：Claude Code 的强弱，往往不取决于模型本身，而取决于你如何组织上下文、工具、规则、验证与分工。 这不是一句提示词技巧，而是一套面向 Agent 的工程治理观。真正该优化的，不只是“让它多写一点代码”，而是“让它在复杂任务里持续做对事”。
+" />
+<meta property="og:description" content="最近看到一篇很值得展开的文章，核心判断很锋利：Claude Code 的强弱，往往不取决于模型本身，而取决于你如何组织上下文、工具、规则、验证与分工。 这不是一句提示词技巧，而是一套面向 Agent 的工程治理观。真正该优化的，不只是“让它多写一点代码”，而是“让它在复杂任务里持续做对事”。
+" />
+<meta name="twitter:description" content="最近看到一篇很值得展开的文章，核心判断很锋利：Claude Code 的强弱，往往不取决于模型本身，而取决于你如何组织上下文、工具、规则、验证与分工。 这不是一句提示词技巧，而是一套面向 Agent 的工程治理观。真正该优化的，不只是“让它多写一点代码”，而是“让它在复杂任务里持续做对事”。
+" />
+
+<base href="https://blog.liyaodong.com/posts/claude-code-context-governance-report/">
+<link rel="canonical" href="https://blog.liyaodong.com/posts/claude-code-context-governance-report/" itemprop="url" />
+<meta name="url" content="https://blog.liyaodong.com/posts/claude-code-context-governance-report/" />
+<meta name="twitter:url" content="https://blog.liyaodong.com/posts/claude-code-context-governance-report/" />
+<meta property="og:url" content="https://blog.liyaodong.com/posts/claude-code-context-governance-report/" />
+
+<meta property="og:locale" content="en">
+<meta name="language" content="">
+
+<link rel="alternate" hreflang="en" href="https://blog.liyaodong.com/posts/claude-code-context-governance-report/" title="">
+
+
+
+<meta itemprop="image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta property="og:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+<meta name="twitter:image:src" content="https://res.cloudinary.com/vanillad/image/fetch/w_1400,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/vimbanner.jpg" />
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "晓风博客",
+    "alternateName": "Xiaofeng Blog",
+    "url": "https:\/\/blog.liyaodong.com\/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.liyaodong.com\/"
+  , "sameAs": ["https://www.facebook.com/lydxfdd","https://www.instagram.com/vvvvanilla","https://www.linkedin.com/in/yaodong-li-8223a385/","https://twitter.com/xiaofengdong"]
+  
+  
+  
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/",
+          "name": "posts"
+        }
+    },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https:\/\/blog.liyaodong.com\/posts\/claude-code-context-governance-report\/",
+          "name": "claude-code-context-governance-report"
+        }
+    }]
+}
+</script>
+
+
+
+
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        /* Background */
+.chroma {
+  background-color: #eeeedd;
+}
+
+/* Error */
+.chroma .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: #ffffcc;
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+}
+
+/* Keyword */
+.chroma .k {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordConstant */
+.chroma .kc {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordNamespace */
+.chroma .kn {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordPseudo */
+.chroma .kp {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordReserved */
+.chroma .kr {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* KeywordType */
+.chroma .kt {
+  color: #00688b;
+  font-weight: bold;
+}
+
+/* NameAttribute */
+.chroma .na {
+  color: #658b00;
+}
+
+/* NameBuiltin */
+.chroma .nb {
+  color: #658b00;
+}
+
+/* NameClass */
+.chroma .nc {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameConstant */
+.chroma .no {
+  color: #00688b;
+}
+
+/* NameDecorator */
+.chroma .nd {
+  color: #707a7c;
+}
+
+/* NameException */
+.chroma .ne {
+  color: #008b45;
+  font-weight: bold;
+}
+
+/* NameFunction */
+.chroma .nf {
+  color: #008b45;
+}
+
+/* NameNamespace */
+.chroma .nn {
+  color: #008b45;
+  text-decoration: underline;
+}
+
+/* NameTag */
+.chroma .nt {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* NameVariable */
+.chroma .nv {
+  color: #00688b;
+}
+
+/* LiteralString */
+.chroma .s {
+  color: #cd5555;
+}
+
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #cd5555;
+}
+
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #cd5555;
+}
+
+/* LiteralStringChar */
+.chroma .sc {
+  color: #cd5555;
+}
+
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #cd5555;
+}
+
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #cd5555;
+}
+
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #cd5555;
+}
+
+/* LiteralStringEscape */
+.chroma .se {
+  color: #cd5555;
+}
+
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #1c7e71;
+  font-style: italic;
+}
+
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #cd5555;
+}
+
+/* LiteralStringOther */
+.chroma .sx {
+  color: #cb6c20;
+}
+
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #1c7e71;
+}
+
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #cd5555;
+}
+
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #cd5555;
+}
+
+/* LiteralNumber */
+.chroma .m {
+  color: #b452cd;
+}
+
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #b452cd;
+}
+
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #b452cd;
+}
+
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #b452cd;
+}
+
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #b452cd;
+}
+
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #b452cd;
+}
+
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #b452cd;
+}
+
+/* OperatorWord */
+.chroma .ow {
+  color: #8b008b;
+}
+
+/* Comment */
+.chroma .c {
+  color: #228b22;
+}
+
+/* CommentHashbang */
+.chroma .ch {
+  color: #228b22;
+}
+
+/* CommentMultiline */
+.chroma .cm {
+  color: #228b22;
+}
+
+/* CommentSingle */
+.chroma .c1 {
+  color: #228b22;
+}
+
+/* CommentSpecial */
+.chroma .cs {
+  color: #8b008b;
+  font-weight: bold;
+}
+
+/* CommentPreproc */
+.chroma .cp {
+  color: #1e889b;
+}
+
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #1e889b;
+}
+
+/* GenericDeleted */
+.chroma .gd {
+  color: #aa0000;
+}
+
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+
+/* GenericError */
+.chroma .gr {
+  color: #aa0000;
+}
+
+/* GenericHeading */
+.chroma .gh {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* GenericInserted */
+.chroma .gi {
+  color: #00aa00;
+}
+
+/* GenericOutput */
+.chroma .go {
+  color: #888888;
+}
+
+/* GenericPrompt */
+.chroma .gp {
+  color: #555555;
+}
+
+/* GenericStrong */
+.chroma .gs {
+  font-weight: bold;
+}
+
+/* GenericSubheading */
+.chroma .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+/* GenericTraceback */
+.chroma .gt {
+  color: #aa0000;
+}
+
+/* GenericUnderline */
+.chroma .gl {
+  text-decoration: underline;
+}
+
+/* TextWhitespace */
+.chroma .w {
+  color: #bbbbbb;
+}
+
+body {
+  background-color: #f9f8f0;
+  color: #222;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", sans-serif;
+}
+
+.tac {
+  text-align: center;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+.container img,
+.container amp-img {
+  max-width: 100%;
+}
+
+.site-header {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Songti SC";
+}
+
+.site-title {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-subtitle {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.site-header--float {
+  font-family: "Songti SC";
+  padding: 15px 30px;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #dcdcdc;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header--float a {
+  display: flex;
+  align-items: center;
+}
+
+.site-title--float {
+  font-size: 20px;
+  margin: 0px;
+  margin-right: 20px;
+}
+
+.site-subtitle--float {
+  font-size: 12px;
+  margin: 0px;
+}
+
+.site-footer {
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+.site-footer em {
+  color: #d82222;
+}
+
+.article-item-title {
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Songti SC";
+  margin: 0;
+}
+.article-item-title:hover {
+  text-decoration: underline;
+}
+
+.article-item-date {
+  font-size: 12px;
+  display: block;
+  color: #555;
+}
+
+.article-item-summary {
+  margin-top: 20px;
+  color: #555;
+}
+
+.article-item-link {
+  color: #222;
+  text-decoration: none;
+  margin: 30px 0 5px;
+}
+
+.article-item {
+  max-width: 700px;
+  padding-bottom: 40px;
+  margin: 0 auto 40px auto;
+}
+.article-item:not(:last-of-type) {
+  border-bottom: 1px solid #efefef;
+}
+.article-item amp-img {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  text-align: center;
+  font-family: "Songti SC";
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.single {
+  line-height: 1.625;
+  color: #4a4a4a;
+  max-width: 700px;
+}
+.single.has-header {
+  margin-top: 60px;
+}
+.single amp-img {
+  margin: 15px auto;
+  text-align: center;
+}
+.single code {
+  color: #AA8D5B;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px;
+}
+.single pre > code {
+  font-weight: 600;
+  margin: 0;
+}
+.single div.highlight {
+  box-shadow: 0 3px 3px 1px #d2c7b5;
+}
+.single .chroma {
+  background-color: transparent;
+}
+.single a {
+  text-decoration: underline;
+}
+.single a:hover {
+  color: #000;
+}
+
+.single-content {
+  margin-bottom: 20px;
+}
+
+.mermaid-chart {
+  margin: 20px 0;
+  text-align: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+pre code.language-mermaid {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 0;
+}
+.pagination .page-item {
+  list-style-type: none;
+}
+.pagination .page-item a {
+  font-size: 16px;
+  margin: 0 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.pagination .page-item.active, .pagination .page-item:hover {
+  color: #fff;
+  transition: all 200ms;
+}
+.pagination .page-item.active a, .pagination .page-item:hover a {
+  color: #fff;
+  background: #ad9616;
+  transition: all 200ms;
+}
+
+.read-more {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #efefef;
+  position: relative;
+}
+.read-more__title {
+  font-size: 13px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: #f9f8f0;
+  padding: 0 10px;
+}
+.read-more__item {
+  margin-bottom: 20px;
+}
+.read-more__item__container {
+  background-color: #fefefe;
+  border-radius: 4px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+.read-more__item a {
+  text-decoration: none;
+}
+.read-more__item h4 {
+  margin: 10px 0 0 0;
+}
+.read-more__summary {
+  font-size: 14px;
+}
+@media screen and (min-width: 767px) {
+  .read-more__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .read-more__item {
+    display: flex;
+    flex: 1;
+    padding: 0 10px;
+  }
+  .read-more__item__container {
+    flex-grow: 1;
+  }
+  .read-more__item:first-of-type {
+    padding-left: 0;
+  }
+  .read-more__item:last-of-type {
+    padding-right: 0;
+  }
+  .read-more__item amp-img {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=stylesheet.html.map */
+
+    </style>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
+<link rel="apple-touch-icon" href="/icons/icon-57x57.png" />
+
+<link rel="icon" href="/icons/icon-32x32.png" sizes="32x32" />
+<link rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
+
+
+
+</head>
+
+<body>
+
+
+
+
+<header class="site-header--float" amp-fx="float-in-top">
+    <a href="https://blog.liyaodong.com/">
+        <h1 class="site-title--float">
+            晓风博客
+        </h1>
+        <h2 class="site-subtitle--float">
+            一片荒芜的地方
+        </h2>
+    </a>
+</header>
+
+
+<section class="single container has-header">
+    <h1 class="post-title">Claude Code 架构实践：上下文治理、验证闭环与 Subagent 边界</h1>
+    <div class="tac">
+        <time>2026年3月12日</time>
+    </div>
+
+    <article class="single-content">
+        <amp-img
+     src="https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png"
+     alt="Claude Code context governance cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/12/claude-code-context-governance-cover.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 510 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="510"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>最近看到一篇很值得展开的文章，核心判断很锋利：<strong>Claude Code 的强弱，往往不取决于模型本身，而取决于你如何组织上下文、工具、规则、验证与分工。</strong> 这不是一句提示词技巧，而是一套面向 Agent 的工程治理观。真正该优化的，不只是“让它多写一点代码”，而是“让它在复杂任务里持续做对事”。</p>
+<p>我把原文里的高密度经验，连同一场十回合正反讨论，浓缩成这篇更适合工程团队直接吸收的版本。结论先摆在前面：<strong>这套方法非常有价值，但它更像中高复杂度代码库的治理框架，而不是所有团队都该照抄的通用教条。</strong></p>
+<h2 id="一先抓住主轴claude-code-不是聊天机器人而是循环代理">一、先抓住主轴：Claude Code 不是聊天机器人，而是循环代理</h2>
+<p>最值得保留的一条判断，是把 Claude Code 视为一个不断循环的系统：</p>
+<blockquote>
+<p><strong>收集上下文 → 采取行动 → 验证结果</strong></p>
+</blockquote>
+<p>这个抽象的价值，在于它迫使我们停止把模型当成“会写代码的聊天窗口”，转而把它当成一个需要输入质量、过程约束和验收闭环的工程单元。</p>
+<p>为什么这个视角重要？因为很多失败看上去像“模型变笨了”，本质上却是：</p>
+<ul>
+<li>上下文给错了</li>
+<li>规则冲突了</li>
+<li>工具太多导致选择混乱</li>
+<li>子代理输出污染主线程</li>
+<li>没有定义什么叫“完成”</li>
+</ul>
+<p>也就是说，问题往往不在大脑本身，而在我们给大脑搭的指挥系统。</p>
+<p>但这条判断也要加一个边界：<strong>循环框架不是模型能力的替代品。</strong> 如果模型本身连代码结构都看不明白，再优雅的上下文工程也救不了场。更准确的说法应该是：<strong>当模型能力达到可用阈值后，工程系统的设计开始决定上限。</strong></p>
+<h2 id="二上下文工程为什么会成为真正瓶颈">二、上下文工程为什么会成为真正瓶颈</h2>
+<p>原文最尖锐的观点，是“瓶颈通常不是模型智力，而是上下文工程”。这句话在中高复杂度项目里，确实越来越像事实。</p>
+<p>一旦任务变成长链路、多模块、多文件、多工具协作，模型面对的就不再是单一代码补全，而是一个复杂的注意力分配问题：</p>
+<ul>
+<li>哪些规则必须常驻</li>
+<li>哪些规则只在特定目录下生效</li>
+<li>哪些技能按需触发</li>
+<li>哪些历史消息应该压缩</li>
+<li>哪些结果只该以摘要形式回到主线程</li>
+</ul>
+<p>上下文不是“塞得越多越好”，而是“高价值信息能否以正确顺序出现”。所谓 200K、1M 上下文，并不等于这些 token 都会被稳定理解。工具定义、规则文件、历史对话、系统提示，都会蚕食真正可用的语义预算。</p>
+<p>不过，这里也必须反对一种常见误读：<strong>不是所有团队都已经高级到该优先优化上下文工程。</strong> 对很多小团队来说，更大的问题依然是：</p>
+<ul>
+<li>需求模糊</li>
+<li>测试缺失</li>
+<li>代码结构混乱</li>
+<li>文档没有最小可信度</li>
+</ul>
+<p>如果这些基础设施都没立住，过早投入上下文治理，容易变成“在流沙上修心灵信标”。所以更准确的结论应当是：</p>
+<blockquote>
+<p><strong>在长周期、复杂项目、基础工程纪律已建立的前提下，上下文工程会迅速取代模型本身，成为主瓶颈。</strong></p>
+</blockquote>
+<h2 id="三六层模型的真正含义别只优化一层">三、六层模型的真正含义：别只优化一层</h2>
+<p>原文提到一个非常值得保留的观察：<strong>系统失衡，常常来自只优化某一层。</strong></p>
+<p>这件事在 Agent 工程里太常见了：</p>
+<ul>
+<li>有人拼命写 CLAUDE.md，结果文件长到自己都不想读</li>
+<li>有人疯狂加工具，最后模型每步都像在武器库里乱摸</li>
+<li>有人到处开 Subagent，以为并行越多越先进，最后状态彻底漂移</li>
+<li>有人追求“自动化”，却没有任何验证闭环，出了问题根本追不到源头</li>
+</ul>
+<p>所以真正重要的不是某一层做没做，而是<strong>这些层之间是否平衡</strong>。一个长而细的 CLAUDE.md 不一定错，错的是它承担了本应由 Skills、Hooks、目录规则或外部工具承接的职责。工具多也不一定错，错的是工具数量已经超过模型稳定选择的阈值。</p>
+<p>判断系统是否失衡，不能靠感觉，最好看几类信号：</p>
+<ul>
+<li>同类任务是否频繁重复解释</li>
+<li>工具误调用率是否升高</li>
+<li>子任务结果是否频繁污染主上下文</li>
+<li>会话越长是否越容易跑偏</li>
+<li>“完成了”之后返工率是否很高</li>
+</ul>
+<h2 id="四claudemd-应该短硬可执行但不要把它神化">四、CLAUDE.md 应该短、硬、可执行——但不要把它神化</h2>
+<p>“好的 CLAUDE.md 要短、硬、可执行”，这是非常强的实战经验。</p>
+<p>一个真正高效的 CLAUDE.md，应该只留下那些<strong>高频、稳定、不可违背</strong>的规则，例如：</p>
+<ul>
+<li>构建与测试命令</li>
+<li>目录结构原则</li>
+<li>命名约束</li>
+<li>已知环境坑</li>
+<li>NEVER 列表</li>
+<li>compact 时要保留什么</li>
+</ul>
+<p>它不应该承担百科全书的职责，更不应该成为“把所有历史经验都贴进去”的垃圾场。</p>
+<p>但这里也有一个必须保留的反方意见：<strong>某些复杂领域的知识，本来就不可能被压缩得很短。</strong> 企业级系统、历史包袱重的仓库、强业务规则项目，很多关键信息若过度压缩，反而会丢语义。</p>
+<p>所以最成熟的做法不是迷信“越短越高级”，而是坚持一个原则：</p>
+<blockquote>
+<p><strong>CLAUDE.md 只保留值得常驻上下文的硬约束，其余内容拆到按需加载的层里。</strong></p>
+</blockquote>
+<h2 id="五技能工具hooks重点不是强而是容易用对">五、技能、工具、Hooks：重点不是“强”，而是“容易用对”</h2>
+<p>原文在 Skill 和工具设计上的建议非常精彩，核心可以压缩成一句话：</p>
+<blockquote>
+<p><strong>给 Agent 用的系统，重点不是功能多，而是容易稳定地用对。</strong></p>
+</blockquote>
+<p>这会直接改变我们写 Skill 描述符、设计工具边界、决定是否拆分接口的方式。</p>
+<h3 id="1-skill-描述应写何时用我">1. Skill 描述应写“何时用我”</h3>
+<p>这是因为模型真正需要的不是自我介绍，而是触发条件。一个好的 Skill 描述，最好能快速回答三件事：</p>
+<ul>
+<li>什么时候该用它</li>
+<li>什么时候不要用它</li>
+<li>典型场景是什么</li>
+</ul>
+<p>“我是什么”对人类友好，对模型却不一定高效。</p>
+<h3 id="2-工具设计要优先减少误用率">2. 工具设计要优先减少误用率</h3>
+<p>如果一个工具在关键节点需要中途提问，就最好做成一个明确的工具入口，而不是靠模型记住某种 Markdown 约定。因为约定是软的，工具接口是硬的。</p>
+<p>但这也不意味着工具越碎越好。过度拆分会导致另一种灾难：工具数量爆炸、界面碎片化、选择成本抬升。真正成熟的标准不是“简单”，而是：</p>
+<ul>
+<li>可预测</li>
+<li>可调试</li>
+<li>边界明确</li>
+<li>学习成本合理</li>
+<li>不容易走错分支</li>
+</ul>
+<h3 id="3-hooks-适合做默认护栏而不是万能铁律">3. Hooks 适合做默认护栏，而不是万能铁律</h3>
+<p>格式化、文件保护、完成通知，这些都很适合交给 Hook。因为它们属于“不能交给模型临场发挥”的确定性动作。</p>
+<p>但 Hook 也不应变成僵硬神谕。凡是现实里存在例外的流程，都应该给人工干预留出口。好的 Hook 更像默认防线，而不是封死一切的闸门。</p>
+<h2 id="六subagent-的真正价值先隔离再谈并行">六、Subagent 的真正价值：先隔离，再谈并行</h2>
+<p>这是原文里最值得细嚼的一点。很多人看到 Subagent，会本能地想到“并行提速”；但更关键的价值，其实是：</p>
+<blockquote>
+<p><strong>把高噪声、高体量、高不确定性的工作隔离出去，避免污染主线程。</strong></p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>大范围扫代码库</li>
+<li>跑长日志测试</li>
+<li>聚合多个候选方案</li>
+<li>批量整理资料</li>
+</ul>
+<p>这些任务若直接塞回主会话，会迅速把上下文变成垃圾堆。隔离之后，主线程只接收摘要、结论、候选 diff，整个系统会稳定很多。</p>
+<p>但如果因此走向另一个极端，说“Subagent 的价值不是并行”，那又有些矫枉过正。很多低耦合任务天然适合并行：</p>
+<ul>
+<li>独立文件检查</li>
+<li>多条测试路径生成</li>
+<li>多版本文案草案</li>
+<li>平行调研与交叉验证</li>
+</ul>
+<p>所以更成熟的结论应是：</p>
+<blockquote>
+<p><strong>Subagent 的核心价值是可控拆分：需要控复杂度时做隔离，需要抢反馈速度时做并行。</strong></p>
+</blockquote>
+<h2 id="七为什么验证闭环是所有建议里最不能妥协的一条">七、为什么验证闭环是所有建议里最不能妥协的一条</h2>
+<p>如果只保留一条原则，我会保留“验证闭环”。因为没有验证，前面所有治理动作都可能沦为漂亮的幻觉。</p>
+<p>“模型说完成了”从来不算完成。真正的完成，至少要满足三件事：</p>
+<ol>
+<li><strong>有明确验收标准</strong>：什么叫完成，必须可描述</li>
+<li><strong>有可回退路径</strong>：做错了，能撤</li>
+<li><strong>有可追溯过程</strong>：出了问题，知道错在哪一环</li>
+</ol>
+<p>这条原则的价值，在 Agent 时代只会继续上升。因为模型一旦可以连续行动，它犯的错也不再是“回答有点偏”，而可能是：</p>
+<ul>
+<li>改错文件</li>
+<li>走错工具</li>
+<li>引入新 bug</li>
+<li>错误解释日志</li>
+<li>因误判“已完成”而提前结束任务</li>
+</ul>
+<p>所以说到底，Agent 工程真正比拼的，不是谁 prompt 写得更花，而是谁的<strong>验证系统</strong>更扎实。</p>
+<h2 id="八这套方法最适合谁不适合谁">八、这套方法最适合谁，不适合谁</h2>
+<p>这篇经验总结非常好，但它并不是所有团队的统一答案。</p>
+<h3 id="特别适合">特别适合</h3>
+<ul>
+<li>中大型代码库</li>
+<li>多轮长会话工作流</li>
+<li>有测试与 CI 基础的团队</li>
+<li>需要多人交接、审计、回滚的项目</li>
+<li>已明显感受到上下文污染与会话漂移的问题</li>
+</ul>
+<h3 id="暂时不适合重型落地">暂时不适合重型落地</h3>
+<ul>
+<li>两三个人的小项目</li>
+<li>高频变动、低流程要求的原型期产品</li>
+<li>需求、测试、文档都不稳定的团队</li>
+<li>任务主要是一次性短问题，而不是长链路执行</li>
+</ul>
+<p>对后一类组织来说，最该优先补的不是上下文工程，而是基础的软件工程纪律本身。</p>
+<h2 id="九如果要落地建议按四步走而不是一次性全上">九、如果要落地，建议按四步走，而不是一次性全上</h2>
+<h3 id="第一步先建最小验证闭环">第一步：先建最小验证闭环</h3>
+<ul>
+<li>定义什么叫完成</li>
+<li>给关键路径加测试或检查脚本</li>
+<li>明确哪些动作必须人工确认</li>
+</ul>
+<h3 id="第二步压缩常驻上下文">第二步：压缩常驻上下文</h3>
+<ul>
+<li>缩短主规则文件</li>
+<li>把低频知识外移</li>
+<li>为目录或任务类型设置局部规则</li>
+</ul>
+<h3 id="第三步治理工具与分工">第三步：治理工具与分工</h3>
+<ul>
+<li>清理高误用率工具</li>
+<li>把必须提问的节点显式化</li>
+<li>用 Subagent 承接高噪声任务</li>
+</ul>
+<h3 id="第四步根据数据再优化">第四步：根据数据再优化</h3>
+<ul>
+<li>看返工率</li>
+<li>看误调用率</li>
+<li>看长会话漂移程度</li>
+<li>看 compact/clear 后的效果差异</li>
+</ul>
+<p>只有这样，这套方法才会成为工程杠杆，而不是新的复杂度来源。</p>
+<h2 id="十最后的判断">十、最后的判断</h2>
+<p>如果要把这篇文章和整场讨论压缩成一句话，我会这样写：</p>
+<blockquote>
+<p><strong>AI 编程的核心竞争力，正在从“谁写得更快”转向“谁能把上下文、工具、规则、验证和分工组织成一个不易漂移的系统”。</strong></p>
+</blockquote>
+<p>这也是为什么我认为它值得读，但更值得被谨慎地用。它不是万能真理，而是一套面向复杂任务的治理框架。用得对，它会像心灵控制一样安静而高效；用得过头，它也会反噬成新的官僚系统。</p>
+<p>真正成熟的工程判断，从来不是押注单点技巧，而是知道：</p>
+<ul>
+<li>哪些规则该常驻</li>
+<li>哪些知识该外移</li>
+<li>哪些任务该隔离</li>
+<li>哪些环节必须验证</li>
+<li>哪些复杂度值得被引入</li>
+</ul>
+<p>当这些问题开始被系统性地回答，Claude Code 才不再只是一个“会写代码的模型”，而会成为一个可治理、可协作、可放大的工程代理系统。</p>
+    </article>
+
+    
+    
+        <div class="read-more">
+            <div class="read-more__title">
+                阅读更多
+            </div>
+            <div class="read-more__list">
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/from-writing-code-to-harness-engineering/">
+                            <h4>从写代码到驭代码：深度解读 OpenAI 的 Harness Engineering</h4>
+                            <div class="read-more__summary"><amp-img
+     src="https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png"
+     alt="Harness Engineering cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/harness-engineering-cover-nano-banana-v2.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 503 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="503"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>OpenAI 最近那篇关于 Harness Engineering 的文章，很容易被转述成一句耸动的话：<strong>“工程师不写代码了。”</strong></p>
+<p>但如果只读到这里，我们就被标题牵着鼻子走了。真正值得认真对待的，不是“代码是不是人写的”，而是<strong>软件工程的控制面正在上移</strong>：人类从直接实现功能，转向设计环境、规则、反馈回路与验收标准，让 agent 稳定地产生实现。</p></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/openclaw-win11-browser-node/">
+                            <h4>把国内 Win11 变成 OpenClaw 的远程浏览器节点</h4>
+                            <div class="read-more__summary"><amp-img
+     src="https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png"
+     alt="OpenClaw Win11 Browser Node cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/openclaw-win11-browser-node-cover-nano-banana-v2.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 930 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="930"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<p>海外 VPS 很适合跑 Agent、工作流和自动化，但一旦目标站点像小红书这样对异常 IP、浏览器画像和登录环境非常敏感，事情就会立刻变味：大脑在海外，手也在海外，风控就会把你当成陌生访客。我们这次折腾出来的最值得分享的一点，是把“算力和控制逻辑”留在海外 VPS，把“真实 GUI 浏览器和国内出口”交给家里的 Win11，然后用 OpenClaw 的 node host + browser proxy 把两者重新缝起来。</p></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="read-more__item">
+                    <div class="read-more__item__container">
+                        <a href="/posts/ai-engineering-paradigm/">
+                            <h4>从“写代码”到“编排反馈环”：AI 代理时代的工程范式转移</h4>
+                            <div class="read-more__summary"><amp-img
+     src="https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png"
+     alt="AI engineering paradigm cover "
+    
+    sizes="(min-width: 720px) 700px, 100vw"
+    
+         srcset="
+        https://res.cloudinary.com/vanillad/image/fetch/w_450,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png 450w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_750,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png 750w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_900,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png 900w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1200,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png 1200w,
+        https://res.cloudinary.com/vanillad/image/fetch/w_1500,q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png 1500w,
+        https://res.cloudinary.com/vanillad/image/fetch/q_auto,f_auto,c_scale,dpr_auto/https://image.liyaodong.com/storage/2026/03/11/ai-engineering-paradigm-cover-nano-banana-v2.png 2000w"
+    
+    
+    
+    
+    
+     width="1600"
+     height="900"
+     layout="responsive"
+    on="tap: 66 "
+    role="button"
+    aria-label="Image lightbox button"
+   tabindex="0"
+>
+</amp-img>
+
+<amp-image-lightbox
+    id="66"
+    layout="nodisplay"
+>
+</amp-image-lightbox>
+
+
+<h2 id="在-2026-年的今天软件工程正在经历一场范式转移软件开发的核心已从编写逻辑转向设计反馈闭环">在 2026 年的今天，软件工程正在经历一场范式转移：<strong>软件开发的核心，已从“编写逻辑”转向“设计反馈闭环”。</strong></h2></div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+
+    <amp-iframe width="700" height="163"
+                layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+                resizable
+                src="https://liyaodong.com/disqus.html#claude-code-context-governance-report.md|https%3a%2f%2fblog.liyaodong.com%2fposts%2fclaude-code-context-governance-report%2f">
+        <div overflow tabindex=0 role=button aria-label=""></div>
+    </amp-iframe>
+</section>
+
+<footer class="site-footer">
+    <a href="https://liyaodong.com" target="_blank" rel="noopener">Home</a> |
+    <a href="https://blog.liyaodong.com">Blog</a> |
+    <a href="https://blog.liyaodong.com/index.xml" type="application/rss+xml" rel="noopener" target="_blank">RSS</a> |
+    <a href="https://github.com/liyaodong" rel="noopener" target="_blank">Github</a> |
+    <a href="https://twitter.com/xiaofengdong" rel="noopener" target="_blank">Twitter</a>
+    <br />
+    Powered by <a href="https://www.gnu.org/software/emacs/">Emacs</a> and <a href="https://gohugo.io/">Hugo</a> with <em>&#10084;</em>
+</footer>
+
+<amp-install-serviceworker
+    src="https://blog.liyaodong.com/sw.js"
+    layout="nodisplay">
+</amp-install-serviceworker>
+
+
+
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-30027709-1"
+            },
+            "triggers": {"trackPageview":{"on":"visible","request":"pageview"}}
+        }
+    </script>
+</amp-analytics>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "hasPart": [
+    
+  ]
+}
+</script>
+
+</body>
+</html>
+
