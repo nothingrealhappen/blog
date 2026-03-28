@@ -1,6 +1,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://blog.liyaodong.com/categories/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/karting/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/motorsport/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/posts/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/racing/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/%E5%8D%A1%E4%B8%81%E8%BD%A6/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/posts/karting-cornering-techniques/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/categories/%E6%8A%80%E6%9C%AF/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/tags/%E8%B5%9B%E8%BD%A6%E6%8A%80%E6%9C%AF/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://blog.liyaodong.com/categories/%E8%BF%90%E5%8A%A8/</loc>
+        <lastmod>2026-03-28T13:45:00+08:00</lastmod>
+    </url>
+    
+    <url>
         <loc>https://blog.liyaodong.com/tags/agent/</loc>
         <lastmod>2026-03-12T00:00:00+08:00</lastmod>
     </url>
@@ -31,22 +91,7 @@
     </url>
     
     <url>
-        <loc>https://blog.liyaodong.com/posts/</loc>
-        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
-    </url>
-    
-    <url>
         <loc>https://blog.liyaodong.com/tags/software-engineering/</loc>
-        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/tags/</loc>
-        <lastmod>2026-03-12T00:00:00+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/</loc>
         <lastmod>2026-03-12T00:00:00+08:00</lastmod>
     </url>
     
@@ -553,11 +598,6 @@
     <url>
         <loc>https://blog.liyaodong.com/tags/%E7%A7%91%E6%8A%80/</loc>
         <lastmod>2012-02-03T13:41:13+08:00</lastmod>
-    </url>
-    
-    <url>
-        <loc>https://blog.liyaodong.com/categories/</loc>
-        <lastmod>0001-01-01T00:00:00+00:00</lastmod>
     </url>
     
 </urlset>
